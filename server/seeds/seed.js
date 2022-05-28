@@ -8,7 +8,7 @@ db.once('open', async () => {
   await Rat.deleteMany({}); // Need to remove this eventually. It will delete everyone's rats!
 
   // bulk create each model
-  const rats = await School.insertMany(schoolData);
+  const rats = await Rat.insertMany(ratData);
 
   console.log('Rats have been added to the database!');
   process.exit(0);
