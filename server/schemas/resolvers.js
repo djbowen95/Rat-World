@@ -2,7 +2,7 @@ const { Rat } = require("../models");
 
 const resolvers = {
   Query: {
-    rat: async () => {
+    rats: async () => {
       return Rat.find({});
     },
   },

@@ -7,7 +7,7 @@ const typeDefs = gql`
     }
 
     type Query {
-        rat: [Rat]
+        rats: [Rat]
       }
 `;
 
