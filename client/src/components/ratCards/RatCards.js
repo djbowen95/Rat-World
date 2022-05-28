@@ -14,7 +14,7 @@ const styles = {
 const Cards = (props) => {
   return (
     <div>
-      <ul class="cards-container" style = {styles.cardsContainer}>
+      <ul className="cards-container" style = {styles.cardsContainer}>
         {props.cards.map((card) => (
           <li className="card">
             {card.title}
