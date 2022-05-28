@@ -1,9 +1,10 @@
 import React from 'react';
+import Rat from './Components/Rat/Rat';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Welcome</h1>
+    <div>
+      <Rat />
     </div>
   );
 }
