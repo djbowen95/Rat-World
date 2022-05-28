@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const styles = {
     display: 'flex',
@@ -9,8 +10,12 @@ const styles = {
 function Header() {
     return (
         <header style={styles}>
-            <h1>Rats!</h1>
-            <div>My Rats</div>
+            <Link to={`/`}>
+                <h1>Rats!</h1>
+            </Link>
+            <Link to={`/myrats`}>
+                <div>My Rats</div>
+            </Link>
             <div><button className="btn btn-secondary">Logout</button></div>
         </header>
     )
