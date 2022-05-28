@@ -5,7 +5,7 @@ const ratSchema = new Schema({
     type: String,
     required: true,
   },
-  created_at: {
+  createdAt: {
     type: Date,
     required: true,
     default: Date.now,

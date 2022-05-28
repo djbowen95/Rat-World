@@ -4,6 +4,7 @@ const typeDefs = gql`
     type Rat {
         _id: ID!
         name: String!
+        createdAt: String
     }
 
     type Query {
