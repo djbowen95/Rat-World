@@ -1,5 +1,7 @@
 import React, { useState} from "react";
 import ChooseARat from "./components/chooseARat/ChooseARat";
+import Header from "./components/Header";
+import Footer from "./components/Footer"
 import Rat from "./components/rat/Rat";
 
 function App() {
@@ -16,8 +18,10 @@ function App() {
 
   return (
     <div>
+      <Header/>
       <div><Rat/></div>
       <div><ChooseARat/></div>
+      <Footer/>
     </div>
   );
 }
