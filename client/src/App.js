@@ -1,10 +1,23 @@
-import React from 'react';
-import Rat from './Components/Rat/Rat';
+import React, { useState} from "react";
+import ChooseARat from "./components/chooseARat/ChooseARat";
+import Rat from "./components/rat/Rat";
 
 function App() {
+  // let [currentPage, setPage] = useState('rat');
+
+  // function renderPage() {
+  //   switch (currentPage) {
+  //     case 'rat' :
+  //       return <Rat/>;
+  //     case 'chooseRat' :
+  //       return <ChooseARat/>;
+  //   }
+  // }
+
   return (
     <div>
-      <Rat />
+      <div><Rat/></div>
+      <div><ChooseARat/></div>
     </div>
   );
 }
