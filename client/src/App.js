@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import ChooseARat from "./components/chooseARat/ChooseARat";
 import Header from "./components/Header";
 import Footer from "./components/Footer"
-import Rat from "./components/rat/Rat";
+import CreateRat from "./components/createRat/CreateRat";
 
 function App() {
   // let [currentPage, setPage] = useState('rat');
@@ -19,7 +19,7 @@ function App() {
   return (
     <div>
       <Header/>
-      <div><Rat/></div>
+      <div><CreateRat/></div>
       <div><ChooseARat/></div>
       <Footer/>
     </div>
