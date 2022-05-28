@@ -10,6 +10,10 @@ const typeDefs = gql`
     type Query {
         rats: [Rat]
       }
+
+    type Mutation {
+        createRat(name: String!): Rat
+    }
 `;
 
 

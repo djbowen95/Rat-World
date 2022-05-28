@@ -6,6 +6,11 @@ const resolvers = {
       return Rat.find({});
     },
   },
+  Mutation: {
+    createRat: async (parent, { name }) => {
+      return await Rat.create({ name });
+    }
+  }
 };
 
 module.exports = resolvers;
