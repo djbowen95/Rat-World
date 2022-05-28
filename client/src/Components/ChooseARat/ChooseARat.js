@@ -1,5 +1,5 @@
 import React from "react";
-import Cards from "../Cards/Cards";
+import Cards from "../cards/Cards";
 import "./ChooseARat.css";
 
 const ChooseARat = () => {

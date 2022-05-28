@@ -1,6 +1,6 @@
 import React, { useState} from "react";
-import ChooseARat from "./Components/ChooseARat/ChooseARat";
-import Rat from "./Components/Rat/Rat";
+import ChooseARat from "./components/chooseARat/ChooseARat";
+import Rat from "./components/rat/Rat";
 
 function App() {
   // let [currentPage, setPage] = useState('rat');
