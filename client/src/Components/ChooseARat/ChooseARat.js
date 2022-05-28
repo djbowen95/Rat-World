@@ -1,6 +1,5 @@
 import React from "react";
 import Cards from "../cards/Cards";
-import "./ChooseARat.css";
 
 const ChooseARat = () => {
   const cards = [
@@ -16,7 +15,7 @@ const ChooseARat = () => {
 
   return (
     <div>
-      <Cards cards = {cards}/>
+      <Cards cards = {cards} />
     </div>
   );
 };
