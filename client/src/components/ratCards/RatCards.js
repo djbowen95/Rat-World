@@ -14,9 +14,9 @@ const styles = {
 const Cards = (props) => {
   return (
     <div>
-      <ul class="cards-container" style = {styles.cardsContainer}>
-        {props.cards.map((card) => (
-          <li className="card">
+      <ul className="cards-container" style = {styles.cardsContainer}>
+        {props.cards.map((card, index) => (
+          <li key={index} className="card">
             {card.title}
             {card.image}
           </li>
