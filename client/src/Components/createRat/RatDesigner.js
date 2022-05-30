@@ -2,16 +2,22 @@ import React, { useState } from "react";
 import ratHead1 from "../../images/ratHeads/rathead.png";
 import ratHead2 from "../../images/ratHeads/rathead2.png";
 import ratHead3 from "../../images/ratHeads/ratfemmehead1.png";
+import ratHead4 from "../../images/ratHeads/rathead4.png";
+import ratHead5 from "../../images/ratHeads/rathead5.png";
 import ratBody1 from "../../images/ratBody/ratbody.png";
 import ratBody2 from "../../images/ratBody/ratbodytshirt.png";
 import ratBody3 from "../../images/ratBody/ratfemmemiddle1.png";
+import ratBody4 from "../../images/ratBody/ratbody4.png";
+import ratBody5 from "../../images/ratBody/ratbody5.png";
 import ratBum1 from "../../images/ratBum/ratbum1.png";
 import ratBum2 from "../../images/ratBum/ratbum2.png";
 import ratBum3 from "../../images/ratBum/ratfemmebum1.png";
+import ratBum4 from "../../images/ratBum/ratbum4.png";
+import ratBum5 from "../../images/ratBum/ratbum5.png";
 
-const headArray = [ratHead1, ratHead2, ratHead3];
-const bodyArray = [ratBody1, ratBody2, ratBody3];
-const bumArray = [ratBum1, ratBum2, ratBum3];
+const headArray = [ratHead1, ratHead2, ratHead4, ratHead3, ratHead5];
+const bodyArray = [ratBody1, ratBody2, ratBody4, ratBody3, ratBody5];
+const bumArray = [ratBum1, ratBum2, ratBum4, ratBum3, ratBum5];
 
 function RatDesigner() {
   const styles = {
