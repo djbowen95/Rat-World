@@ -1,8 +1,29 @@
 import React from "react";
 //add function
-function login() {
+const styles = {
+  body: {
+    margin: "0",
+    padding: "0",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "100vh",
+    fontFamily: "Jost,sans-serif",
+    background: "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
+  },
+  main: {
+    width: "350px",
+    height: "500px",
+    background: "573b8b",
+    overflow: "hidden",
+    borderRadius: "10px",
+    boxShadow: "5px 20px 50px #000",
+  },
+  //add id
+};
+function Login() {
   return (
-    <div class="main">
+    <div style={styles.main}>
       <input type="checkbox" id="chk" aria-hidden="true" />
 
       <div class="signup">
@@ -39,4 +60,4 @@ function login() {
     </div>
   );
 }
-export default Footer;
+export default Login;
