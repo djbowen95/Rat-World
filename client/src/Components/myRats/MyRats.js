@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AllRats from "./AllRats";
 import Shop from "./Shop";
 import Jobs from "./Jobs";
+import Cemetery from "./Cemetery";
 
 function MyRats() {
   const styles = {
@@ -23,6 +24,8 @@ function MyRats() {
         return <Shop/>;
       case 'jobs':
         return <Jobs/>;
+      case 'cemetery':
+        return <Cemetery/>
     }
   }
 
@@ -38,7 +41,7 @@ function MyRats() {
           <li data-page='allRats' onClick={sideMenuSelection}><button data-page='allRats'>My Rats</button></li>
           <li data-page='shop' onClick={sideMenuSelection}><button data-page='shop'>Shop</button></li>
           <li data-page='jobs' onClick={sideMenuSelection}><button data-page='jobs'>Jobs</button></li>
-          <li>Cemetery</li>
+          <li data-page='cemetery' onClick={sideMenuSelection}><button data-page='cemetery'>Cemetery</button></li>
         </ul>
       </aside>
       {renderMenuChoice()}
