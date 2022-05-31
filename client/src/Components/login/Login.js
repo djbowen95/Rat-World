@@ -20,6 +20,21 @@ const styles = {
     boxShadow: "5px 20px 50px #000",
   },
   //add id
+  signup: {
+    position: "relative",
+    width: "100%",
+    height: "100%",
+  },
+  label: {
+    color: "#fff",
+    fontSize: "2.3em",
+    justifyContent: "center",
+    display: "flex",
+    margin: "60px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    transition: "0.5s ease-in-out",
+  },
 };
 function Login() {
   return (
