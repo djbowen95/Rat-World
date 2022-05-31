@@ -1,4 +1,5 @@
 import React from "react";
+import RatDesigner from './RatDesigner'
 
 const styles = {
   title: {
@@ -41,12 +42,7 @@ const Rat = () => {
 
       <div className="container" style={styles.card}>
         <div className="card">
-          <img
-            style={styles.img}
-            className="card-img-top"
-            src="https://static.vecteezy.com/system/resources/previews/003/304/312/original/a-sticker-template-of-rat-cartoon-character-free-vector.jpg"
-            alt="rat eating cheese"
-          />
+          <RatDesigner/>
           <div className="card-body">
             <h5 className="card-title" style={styles.cardTitle}>
               Rattata
