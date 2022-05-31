@@ -64,6 +64,16 @@ const styles = {
     transition: "0.2s ease-in",
     cursor: "pointer",
   },
+  button:hover: {
+    background: "#6d44b8",
+  },
+  login: {
+    height: "460px",
+    background: "#eee",
+    borderRadius: "60% / 10%",
+    transform: "translateY(-180px)",
+    transition: "0.8s ease-in-out",
+  },
 };
 function Login() {
   return (
