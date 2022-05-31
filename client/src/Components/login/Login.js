@@ -47,6 +47,23 @@ const styles = {
     outline: "none",
     borderRadius: "5px",
   },
+  button: {
+    width: "60%",
+    height: "40px",
+    margin: "10px auto",
+    justifyContent: "center",
+    display: "block",
+    color: "#fff",
+    background: "#573b8a",
+    fontSize: "1em",
+    fontWeight: "bold",
+    marginTop: "20px",
+    outline: "none",
+    border: "none",
+    borderRadius: "5px",
+    transition: "0.2s ease-in",
+    cursor: "pointer",
+  },
 };
 function Login() {
   return (
