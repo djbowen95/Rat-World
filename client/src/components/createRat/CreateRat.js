@@ -27,6 +27,12 @@ const styles = {
 };
 
 const Rat = () => {
+  // useEffect (can be last step) (if want it to appear on the page/reload)
+  // Create a useState hook - with a variable (myRat, setMyRat)
+  // Handle input change - track the user input, use set myRat useState to feed the variable
+  // Connect handle input change with an onChange to the right input
+  // Handle submit (onClick / button) - commit the info of myRat through the useMutation to the backend
+
   return (
     <div style={styles.title}>
       <div>
