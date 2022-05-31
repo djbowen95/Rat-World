@@ -3,6 +3,8 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require("./config/connection");
@@ -24,6 +26,9 @@ if (process.env.NODE_ENV === "production") {
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
+
+// const userRouter = require("./routes/user");
+// app.use("/users", userRouter);
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {

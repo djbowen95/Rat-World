@@ -7,11 +7,28 @@ const typeDefs = gql`
         createdAt: String
     }
 
-    type Query {
-        rats: [Rat]
+    type User{
+        _id: ID!
+        name: String!
+        email: String!
+        password: String!
+    }
+
+    type Auth {
+        token: ID!
+        user: User
       }
 
+    type Query {
+        rats: [Rat]
+        users: [User]
+        user(_id: ID!): User
+    }
+
     type Mutation {
+        register(name: String!, email: String!, password: String!): Auth
+        login(email: String!, password: String!): Auth
+        addFriend(userID: String!, friendID: String!): User
         createRat(name: String!): Rat
     }
 `;
