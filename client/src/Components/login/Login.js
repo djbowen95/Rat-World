@@ -20,6 +20,9 @@ const styles = {
     boxShadow: "5px 20px 50px #000",
   },
   //add id
+  #chk {
+    display: none;
+  }
   signup: {
     position: "relative",
     width: "100%",
@@ -64,7 +67,8 @@ const styles = {
     transition: "0.2s ease-in",
     cursor: "pointer",
   },
-  button:hover: {
+  //button:hover
+  buttonHover: {
     background: "#6d44b8",
   },
   login: {
@@ -74,15 +78,29 @@ const styles = {
     transform: "translateY(-180px)",
     transition: "0.8s ease-in-out",
   },
+  //login:label
+  loginLabel: {
+    color: "#573b8a",
+    transform: "scale(0.6)",
+  },
+  #chk:checked ~ .login {
+    transform: translateY(-500px);
+  }
+  #chk:checked ~ .login label {
+    transform: scale(1);
+  }
+  #chk:checked ~ .signup label {
+    transform: scale(0.6);
+  }
 };
 function Login() {
   return (
     <div style={styles.main}>
       <input type="checkbox" id="chk" aria-hidden="true" />
 
-      <div class="signup">
+      <div style={styles.signup}>
         <form>
-          <label for="chk" aria-hidden="true">
+          <label style={styles.label} for="chk" aria-hidden="true">
             Sign up
           </label>
           <input type="text" name="txt" placeholder="User name" required="" />
@@ -93,10 +111,10 @@ function Login() {
             placeholder="Password"
             required=""
           />
-          <button>Sign up</button>
+          <button style={styles.button}>Sign up</button>
         </form>
       </div>
-      <div class="login">
+      <div style={styles.login}>
         <form>
           <label for="chk" aria-hidden="true">
             Login
@@ -108,7 +126,7 @@ function Login() {
             placeholder="Password"
             required=""
           />
-          <button>Login</button>
+          <button style={styles.button}>Login</button>
         </form>
       </div>
     </div>
