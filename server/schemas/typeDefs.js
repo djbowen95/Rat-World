@@ -4,6 +4,7 @@ const typeDefs = gql`
     type Rat {
         _id: ID!
         name: String!
+        createdAt: String
     }
 
     type User{
@@ -28,6 +29,7 @@ const typeDefs = gql`
         register(name: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
         addFriend(userID: String!, friendID: String!): User
+        createRat(name: String!): Rat
     }
 `;
 

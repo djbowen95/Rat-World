@@ -68,6 +68,9 @@ const resolvers = {
     addFriend: async(parent, {userID ,friendID }, userInfo) => {
       await User.findOneAndUpdate({ _id: userID }, { $addToSet: { friends: friendID }});
       return
+    },
+    createRat: async (parent, { name }) => {
+      return await Rat.create({ name });
     }
   }
 };
