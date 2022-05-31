@@ -35,6 +35,18 @@ const styles = {
     cursor: "pointer",
     transition: "0.5s ease-in-out",
   },
+  input: {
+    width: "60%",
+    height: "20px",
+    background: "#e0dede",
+    justifyContent: "center",
+    display: "flex",
+    margin: "20px auto",
+    padding: "10px",
+    border: "none",
+    outline: "none",
+    borderRadius: "5px",
+  },
 };
 function Login() {
   return (
