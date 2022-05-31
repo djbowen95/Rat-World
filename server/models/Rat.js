@@ -10,6 +10,11 @@ const ratSchema = new Schema({
     required: true,
     default: Date.now,
   },
+  fedAt: {
+    type: Date,
+    required: true,
+    default: Date.now,
+  },
 });
 
 const Rat = model("rat", ratSchema);
