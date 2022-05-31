@@ -43,7 +43,7 @@ function App() {
           <Route path="/" element={<CreateRat />} />
           <Route path="/myrats" element={<MyRats/>} />
           <Route path="/ratdesigner" element={<RatDesigner/>} />
-          <Route path="/" element={<Cemetery/>} />
+          <Route path="/cemetery" element={<Cemetery/>} />
         </Routes>
       <Footer />
       </Router>
