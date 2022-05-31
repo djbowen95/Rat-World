@@ -27,8 +27,8 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-const userRouter = require("./routes/user");
-app.use("/users", userRouter);
+// const userRouter = require("./routes/user");
+// app.use("/users", userRouter);
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
