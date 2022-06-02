@@ -16,8 +16,19 @@ const styles = {
     float: "left",
     padding: "20px",
     borderRadius: "60% / 30%",
+    display: "inline-block",
+    width: "300px",
+    border: "black",
+    padding: "50px",
+    margin: "20px",
   },
-  signup: {
+  login: {
+    height: "460px",
+    background: "rgb(250, 250, 250)",
+    width: "50%;",
+    float: "right",
+    padding: "20px",
+    borderRadius: "60% / 30%",
     display: "inline-block",
     width: "300px",
     border: "black",
@@ -25,7 +36,7 @@ const styles = {
     margin: "20px",
   },
   label: {
-    color: "#fff",
+    color: "#573b8a",
     fontSize: "2.3em",
     justifyContent: "center",
     display: "flex",
@@ -101,7 +112,7 @@ function Login() {
         </div>
       </div>
       <div style={styles.body}>
-        <div style={styles.signup}>
+        <div style={styles.login}>
           <form style={styles.form}>
             <label style={styles.label} aria-hidden="true">
               Login
