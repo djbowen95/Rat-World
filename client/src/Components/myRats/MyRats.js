@@ -3,6 +3,7 @@ import AllRats from "./AllRats";
 import Shop from "./Shop";
 import Jobs from "./Jobs";
 import Cemetery from "./Cemetery";
+import MyFriends from "./MyFriends";
 
 function MyRats() {
   const styles = {
@@ -26,6 +27,8 @@ function MyRats() {
         return <Jobs/>;
       case 'cemetery':
         return <Cemetery/>
+        case 'myFriends':
+          return <MyFriends/>
     }
   }
 
