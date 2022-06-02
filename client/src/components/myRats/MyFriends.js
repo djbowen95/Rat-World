@@ -1,5 +1,4 @@
 import React from "react";
-import "../myRats/MyFriends.css";
 
 const MyFriends = () => {
   const styles = {
