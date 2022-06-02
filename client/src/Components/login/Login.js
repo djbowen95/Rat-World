@@ -12,12 +12,12 @@ const styles = {
   signup: {
     height: "460px",
     background: "rgb(250, 250, 250)",
-    width: "50%;",
+    // width: "50%;",
     float: "left",
-    padding: "20px",
+    // padding: "20px",
     borderRadius: "60% / 30%",
     display: "inline-block",
-    width: "300px",
+    // width: "300px",
     border: "black",
     padding: "50px",
     margin: "20px",
@@ -25,9 +25,9 @@ const styles = {
   login: {
     height: "460px",
     background: "rgb(250, 250, 250)",
-    width: "50%;",
-    float: "right",
-    padding: "20px",
+    // width: "50%;",
+    // float: "right",
+    // padding: "20px",
     borderRadius: "60% / 30%",
     display: "inline-block",
     width: "300px",
@@ -78,7 +78,7 @@ const styles = {
 function Login() {
   return (
     <body>
-      <div style={styles.body}>
+      <div>
         <input style={styles.input} type="checkbox" aria-hidden="true" />
 
         <div style={styles.signup}>
