@@ -4,7 +4,7 @@ const styles = {
   body: {
     width: "350px",
     height: "500px",
-    background: "#573b8b",
+    background: "grey",
     overflow: "hidden",
     borderRadius: "10px",
     boxShadow: "5px 20px 50px #000",
@@ -111,7 +111,7 @@ function Login() {
           </form>
         </div>
       </div>
-      <div style={styles.body}>
+      <div>
         <div style={styles.login}>
           <form style={styles.form}>
             <label style={styles.label} aria-hidden="true">
