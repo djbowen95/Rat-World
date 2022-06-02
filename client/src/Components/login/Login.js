@@ -1,32 +1,28 @@
 import React from "react";
-//add function
+import "./styles.css";
 const styles = {
   body: {
-    margin: "0",
-    padding: "0",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    minHeight: "100vh",
-    fontFamily: "Jost,sans-serif",
-    background: "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
-  },
-  main: {
     width: "350px",
     height: "500px",
-    background: "573b8b",
+    background: "#573b8b",
     overflow: "hidden",
     borderRadius: "10px",
     boxShadow: "5px 20px 50px #000",
   },
-  //add id
-  #chk {
-    display: none;
-  }
   signup: {
-    position: "relative",
-    width: "100%",
-    height: "100%",
+    height: "460px",
+    background: "rgb(250, 250, 250)",
+    width: "50%;",
+    float: "left",
+    padding: "20px",
+    borderRadius: "60% / 30%",
+  },
+  signup: {
+    display: "inline-block",
+    width: "300px",
+    border: "black",
+    padding: "50px",
+    margin: "20px",
   },
   label: {
     color: "#fff",
@@ -67,69 +63,68 @@ const styles = {
     transition: "0.2s ease-in",
     cursor: "pointer",
   },
-  //button:hover
-  buttonHover: {
-    background: "#6d44b8",
-  },
-  login: {
-    height: "460px",
-    background: "#eee",
-    borderRadius: "60% / 10%",
-    transform: "translateY(-180px)",
-    transition: "0.8s ease-in-out",
-  },
-  //login:label
-  loginLabel: {
-    color: "#573b8a",
-    transform: "scale(0.6)",
-  },
-  #chk:checked ~ .login {
-    transform: translateY(-500px);
-  }
-  #chk:checked ~ .login label {
-    transform: scale(1);
-  }
-  #chk:checked ~ .signup label {
-    transform: scale(0.6);
-  }
 };
 function Login() {
   return (
-    <div style={styles.main}>
-      <input type="checkbox" id="chk" aria-hidden="true" />
+    <body>
+      <div style={styles.body}>
+        <input style={styles.input} type="checkbox" aria-hidden="true" />
 
-      <div style={styles.signup}>
-        <form>
-          <label style={styles.label} for="chk" aria-hidden="true">
-            Sign up
-          </label>
-          <input type="text" name="txt" placeholder="User name" required="" />
-          <input type="email" name="email" placeholder="Email" required="" />
-          <input
-            type="password"
-            name="pswd"
-            placeholder="Password"
-            required=""
-          />
-          <button style={styles.button}>Sign up</button>
-        </form>
+        <div style={styles.signup}>
+          <form style={styles.form}>
+            <label style={styles.label} aria-hidden="true">
+              Sign up
+            </label>
+            <input
+              style={styles.input}
+              type="text"
+              name="txt"
+              placeholder="User name"
+              required=""
+            />
+            <input
+              style={styles.input}
+              type="email"
+              name="email"
+              placeholder="Email"
+              required=""
+            />
+            <input
+              style={styles.input}
+              type="password"
+              name="pswd"
+              placeholder="Password"
+              required=""
+            />
+            <button style={styles.button}>Sign up</button>
+          </form>
+        </div>
       </div>
-      <div style={styles.login}>
-        <form>
-          <label for="chk" aria-hidden="true">
-            Login
-          </label>
-          <input type="email" name="email" placeholder="Email" required="" />
-          <input
-            type="password"
-            name="pswd"
-            placeholder="Password"
-            required=""
-          />
-          <button style={styles.button}>Login</button>
-        </form>
+      <div style={styles.body}>
+        <div style={styles.signup}>
+          <form style={styles.form}>
+            <label style={styles.label} aria-hidden="true">
+              Login
+            </label>
+            <input
+              style={styles.input}
+              type="email"
+              name="email"
+              placeholder="Email"
+              required=""
+            />
+            <input
+              style={styles.input}
+              type="password"
+              name="pswd"
+              placeholder="Password"
+              required=""
+            />
+            <button style={styles.button}>Login</button>
+          </form>
+        </div>
       </div>
-    </div>
+    </body>
   );
 }
 export default Login;
