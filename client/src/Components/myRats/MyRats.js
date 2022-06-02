@@ -42,6 +42,7 @@ function MyRats() {
           <li data-page='shop' onClick={sideMenuSelection}><button data-page='shop'>Shop</button></li>
           <li data-page='jobs' onClick={sideMenuSelection}><button data-page='jobs'>Jobs</button></li>
           <li data-page='cemetery' onClick={sideMenuSelection}><button data-page='cemetery'>Cemetery</button></li>
+          <li data-page='myFriends' onClick={sideMenuSelection}><button data-page='myFriends'>My Friends</button></li>
         </ul>
       </aside>
       {renderMenuChoice()}
