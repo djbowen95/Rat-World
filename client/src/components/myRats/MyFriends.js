@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 
 const MyFriends = () => {
   const styles = {
@@ -47,6 +47,15 @@ const MyFriends = () => {
     },
   };
 
+  const [addFriend, setAddFriend] = useState([])
+  const addFriendRef = useRef()
+
+  function handleAddFriend (e) {
+    const name = addFriendRef.current.value 
+    if (name === '') return
+    console.log(name)
+  }
+
   return (
     <div style={styles.flex}>
       <section className="friends-container">
@@ -76,10 +85,12 @@ const MyFriends = () => {
           <div style={styles.inputBtn}>
             <input
               style={styles.input}
+              ref={addFriendRef}
+              type="text"
               className="input"
               placeholder="Enter your email address..."
             ></input>
-            <button style={styles.btn}>Submit</button>
+            <button onClick={handleAddFriend} style={styles.btn}>Submit</button>
           </div>
         </div>
       </section>
