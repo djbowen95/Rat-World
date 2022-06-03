@@ -25,19 +25,6 @@ const resolvers = {
       const token = signToken(user);
       // Return an `Auth` object that consists of the signed token and user's information
       return { token, user };
-
-
-      // bcrypt.genSalt(10, (err, salt) => {
-      //     bcrypt.hash(newUser.password, salt, (err, hash) => {
-      //         if (err) throw err;
-      //         newUser.password = hash;
-      //         newUser
-      //             .save()
-      //             .then(user => json(user))
-      //             .catch(err => console.log(err));
-      //     });
-      // });
-
     },
 
     //login a user
@@ -65,10 +52,15 @@ const resolvers = {
       return { token, user };
     },
 
+    //adding a friend by id
     addFriend: async(parent, {userID ,friendID }, userInfo) => {
+      
+      //finding a user by id and adding the friends id to the array in the user's model
       await User.findOneAndUpdate({ _id: userID }, { $addToSet: { friends: friendID }});
       return
     },
+
+    //creating a new rat
     createRat: async (parent, { name }) => {
       return await Rat.create({ name });
     }
