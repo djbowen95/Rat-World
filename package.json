@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/BGrowcott/untitled-rat-project#readme",
   "dependencies": {
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "jwt-decode": "^3.1.2"
   }
 }
