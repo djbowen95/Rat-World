@@ -51,12 +51,12 @@ const resolvers = {
       }
 
       // If there is a user found, execute the `isCorrectPassword` instance method and check if the correct password was provided
-      // const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
-      // // If the password is incorrect, return an Authentication error stating so
-      // if (!correctPw) {
-      //   throw new AuthenticationError('Incorrect credentials');
-      // }
+      // If the password is incorrect, return an Authentication error stating so
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
 
       // If email and password are correct, sign user into the application with a JWT
       const token = signToken(user);
