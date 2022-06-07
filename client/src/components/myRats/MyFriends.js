@@ -6,13 +6,6 @@ const MyFriends = () => {
     flex: {
       textAlign: "center",
     },
-    friendsCards: {
-      display: "flex",
-      justifyContent: "space-evenly",
-      border: "2px solid",
-      boxShadow: "5px 5px gray",
-      padding: "10px 100px 10px 100px",
-    },
     friendImage: {
       border: "1px solid",
       boxShadow: "5px 5px gray",
