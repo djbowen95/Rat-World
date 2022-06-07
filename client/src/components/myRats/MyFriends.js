@@ -1,16 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import LoadFriends from "./LoadFriends";
 
 const MyFriends = () => {
   const styles = {
     flex: {
       textAlign: "center",
-    },
-    friendsCards: {
-      display: "flex",
-      justifyContent: "space-evenly",
-      border: "2px solid",
-      boxShadow: "5px 5px gray",
-      padding: "10px 100px 10px 100px",
     },
     friendImage: {
       border: "1px solid",
@@ -47,36 +41,25 @@ const MyFriends = () => {
     },
   };
 
-  const [addFriend, setAddFriend] = useState([])
+  const [addFriend, setAddFriend] = useState()
   const addFriendRef = useRef()
+
+  useEffect(() => {
+
+  }, [])
 
   function handleAddFriend (e) {
     const name = addFriendRef.current.value 
     if (name === '') return
+    addFriendRef.current.value = null
     console.log(name)
   }
 
   return (
     <div style={styles.flex}>
-      <section className="friends-container">
-        <h2 style={styles.friendTitle}>My Friends</h2>
-        <div className="friends-cards" style={styles.friendsCards}>
-          <div className="single-cards">
-            <img style={styles.friendImage} src="" alt="" />
-            <h3>Username</h3>
-          </div>
-
-          <div>
-            <img style={styles.friendImage} src="" alt="" />
-            <h3>Username</h3>
-          </div>
-
-          <div>
-            <img style={styles.friendImage} src="" alt="" />
-            <h3>Username</h3>
-          </div>
-        </div>
-      </section>
+    <section>
+        <LoadFriends/>
+    </section>
 
       <section className="add-friend-container" style={styles.section}>
         <h2 style={styles.friendTitle}>Add a Friend</h2>
@@ -88,7 +71,7 @@ const MyFriends = () => {
               ref={addFriendRef}
               type="text"
               className="input"
-              placeholder="Enter your email address..."
+              placeholder="Enter email address..."
             ></input>
             <button onClick={handleAddFriend} style={styles.btn}>Submit</button>
           </div>
