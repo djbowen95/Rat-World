@@ -70,7 +70,8 @@ const resolvers = {
       return
     },
     createRat: async (parent, { name }) => {
-      return await Rat.create({ name });
+      const ratName = await Rat.create({ name }); 
+      return { ratName }
     }
   }
 };
