@@ -48,9 +48,6 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/myrats" element={<MyRats />} />
           <Route path="/ratdesigner" element={<RatDesigner />} />
-          //<Route path="/" element={<CreateRat />} />
-          //<Route path="/myrats" element={<MyRats/>} />
-          <Route path="/ratdesigner" element={<RatDesigner/>} />
           <Route path="/cemetery" element={<Cemetery/>} />
           <Route path="/myfriends" element={<MyFriends/>} />
         </Routes>

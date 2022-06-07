@@ -73,8 +73,6 @@ function Login() {
   return (
     <body>
       <div>
-        <input style={styles.input} type="checkbox" aria-hidden="true" />
-
         <div style={styles.signup}>
           <form style={styles.form}>
             <label style={styles.label} aria-hidden="true">
@@ -84,7 +82,7 @@ function Login() {
               style={styles.input}
               type="text"
               name="txt"
-              placeholder="User name"
+              placeholder="Username"
               required=""
             />
             <input
