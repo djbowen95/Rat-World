@@ -58,6 +58,7 @@ const MyFriends = () => {
   return (
     <div style={styles.flex}>
     <section>
+        <h2 style={styles.friendTitle}>My Friends</h2>
         <LoadFriends/>
     </section>
 
