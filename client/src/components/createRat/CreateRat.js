@@ -32,14 +32,14 @@ const styles = {
 };
 
 const Rat = () => {
-  // useEffect (can be last step) (if want it to appear on the page/reload)
   const [ratFormState, setRatFormState] = useState({ name: "" });
+  const [ratInput, setRatInput] = useState("");
   const [createRat, { error }] = useMutation(CREATE_RAT);
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target; // I think 'name' here is different
+    const { name, value } = event.target;
     setRatFormState({ name: value });
-    console.log(ratFormState);
+    setRatInput(value);
   };
 
   const handleFormSubmit = async (event) => {
@@ -48,20 +48,14 @@ const Rat = () => {
     try {
       const { data } = await createRat({
         variables: {...ratFormState},
-      }
-      );
-      console.log("Sent the the database, hopefully.")
-      console.log(data);
-      // window.location.reload();
+      });
     } catch (err) {
       console.log(err);
-      console.log("Not sent.")
-    }
-  };
+    };
 
-  // Handle input change - track the user input, use set myRat useState to feed the variable
-  // Connect handle input change with an onChange to the right input
-  // Handle submit (onClick / button) - commit the info of myRat through the useMutation to the backend
+    console.log("Rat function finished.")
+    setRatInput("");
+  };
 
   return (
     <div style={styles.title}>
@@ -85,6 +79,7 @@ const Rat = () => {
                 className="input"
                 placeholder="Name Your Rat!"
                 onChange={handleInputChange}
+                value={ratInput}
               ></input>
               <input type="submit" value="Submit" />
             </form>
@@ -96,32 +91,3 @@ const Rat = () => {
 };
 
 export default Rat;
-
-// const [ratFormData, setRatFormData] = useState({name: ""});
-
-// const [createRat, {error}] = useMutation(CREATE_RAT);
-
-// const handleInputChange = (event) => {
-//   const { name, value } = event.target; // I think 'name' here is different
-//   setRatFormData({...ratFormData, name: value});
-// }
-
-// const handleFormSubmit = async (event) => {
-//   event.preventDefault();
-
-//   const form = event.currentTarget;
-//   if (form.checkValidity() === false) {
-//     event.preventDefault();
-//     event.stopPropagation();
-//   }
-
-//   try {
-//     const { data } = await createRat({variables: ratFormData});
-//   } catch (err) {
-//     console.log(err);
-//     console.log("This is an error with the Create Rat Form.");
-//     console.log(ratFormData);
-//   }
-
-//   setRatFormData({name: ""});
-// };
