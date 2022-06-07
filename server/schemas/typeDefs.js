@@ -10,8 +10,9 @@ const typeDefs = gql`
     type User{
         _id: ID!
         name: String!
-        email: String
-        password: String
+        email: String!
+        password: String!
+        money: Int!
     }
 
     type Auth {

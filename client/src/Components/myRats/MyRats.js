@@ -3,6 +3,7 @@ import AllRats from "./AllRats";
 import Shop from "./Shop";
 import Jobs from "./Jobs";
 import Cemetery from "./Cemetery";
+import MyFriends from "./MyFriends";
 
 function MyRats() {
   const styles = {
@@ -14,10 +15,16 @@ function MyRats() {
     },
   };
 
-  const [sideMenuChoice, setMenuChoice] = useState('allRats')
+  const [sideMenuChoice, setMenuChoice] = useState("allRats");
 
-  function renderMenuChoice(){
+  function renderMenuChoice() {
     switch (sideMenuChoice) {
+//       case "allRats":
+//         return <AllRats />;
+//       case "shop":
+//         return <Shop />;
+//       case "jobs":
+//         return <Jobs />;
       case 'allRats':
         return <AllRats/>;
       case 'shop':
@@ -26,11 +33,13 @@ function MyRats() {
         return <Jobs/>;
       case 'cemetery':
         return <Cemetery/>
+        case 'myFriends':
+          return <MyFriends/>
     }
   }
 
-  function sideMenuSelection (e) {
-    setMenuChoice(e.target.dataset.page)
+  function sideMenuSelection(e) {
+    setMenuChoice(e.target.dataset.page);
   }
 
   return (
@@ -38,10 +47,18 @@ function MyRats() {
       <aside style={styles.aside}>
         <h2>User Name</h2>
         <ul>
-          <li data-page='allRats' onClick={sideMenuSelection}><button data-page='allRats'>My Rats</button></li>
-          <li data-page='shop' onClick={sideMenuSelection}><button data-page='shop'>Shop</button></li>
-          <li data-page='jobs' onClick={sideMenuSelection}><button data-page='jobs'>Jobs</button></li>
+
+          <li data-page="allRats" onClick={sideMenuSelection}>
+            <button data-page="allRats">My Rats</button>
+          </li>
+          <li data-page="shop" onClick={sideMenuSelection}>
+            <button data-page="shop">Shop</button>
+          </li>
+          <li data-page="jobs" onClick={sideMenuSelection}>
+            <button data-page="jobs">Jobs</button>
+          </li>
           <li data-page='cemetery' onClick={sideMenuSelection}><button data-page='cemetery'>Cemetery</button></li>
+          <li data-page='myFriends' onClick={sideMenuSelection}><button data-page='myFriends'>My Friends</button></li>
         </ul>
       </aside>
       {renderMenuChoice()}
