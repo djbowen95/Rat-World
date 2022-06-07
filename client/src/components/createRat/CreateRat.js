@@ -1,5 +1,9 @@
 import React from "react";
-import RatDesigner from './RatDesigner'
+import RatDesigner from "./RatDesigner";
+import { useState } from "react";
+
+import { useMutation } from "@apollo/client";
+import { CREATE_RAT } from "../../utils/mutations";
 
 const styles = {
   title: {
@@ -28,11 +32,30 @@ const styles = {
 };
 
 const Rat = () => {
-  // useEffect (can be last step) (if want it to appear on the page/reload)
-  // Create a useState hook - with a variable (myRat, setMyRat)
-  // Handle input change - track the user input, use set myRat useState to feed the variable
-  // Connect handle input change with an onChange to the right input
-  // Handle submit (onClick / button) - commit the info of myRat through the useMutation to the backend
+  const [ratFormState, setRatFormState] = useState({ name: "" });
+  const [ratInput, setRatInput] = useState("");
+  const [createRat, { error }] = useMutation(CREATE_RAT);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setRatFormState({ name: value });
+    setRatInput(value);
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await createRat({
+        variables: {...ratFormState},
+      });
+    } catch (err) {
+      console.log(err);
+    };
+
+    console.log("Rat function finished.")
+    setRatInput("");
+  };
 
   return (
     <div style={styles.title}>
@@ -42,22 +65,24 @@ const Rat = () => {
 
       <div className="container" style={styles.card}>
         <div className="card">
-          <RatDesigner/>
+          <RatDesigner />
           <div className="card-body">
             <h5 className="card-title" style={styles.cardTitle}>
               Rattata
             </h5>
           </div>
           <div>
-            <input
-              style={styles.input}
-              type="text"
-              className="input"
-              placeholder="Name Your Rat!"
-            ></input>
-            <button className="btn" style={styles.btn}>
-              Submit
-            </button>
+            <form onSubmit={handleFormSubmit}>
+              <input
+                style={styles.input}
+                type="text"
+                className="input"
+                placeholder="Name Your Rat!"
+                onChange={handleInputChange}
+                value={ratInput}
+              ></input>
+              <input type="submit" value="Submit" />
+            </form>
           </div>
         </div>
       </div>
