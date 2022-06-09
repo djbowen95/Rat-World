@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 import Auth from '../utils/Auth';
 
-const styles = {
-    // display: 'flex',
-    // alignItems: 'center',
-    // justifyContent: 'space-between'
+// const styles = {
+//     // display: 'flex',
+//     // alignItems: 'center',
+//     // justifyContent: 'space-between'
     
-}
+// }
 
 const Header = () => {
     const logout = (e) => {

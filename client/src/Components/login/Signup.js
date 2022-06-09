@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { LOGIN_USER } from '../../utils/mutations';
+import { ADD_USER } from '../../utils/mutations';
 
 import Auth from '../../utils/Auth';
 
@@ -76,12 +76,15 @@ const styles = {
   },
 };
 
-//Login
-const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+//Signup
+const Signup = () => {
+  const [formState, setFormState] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
-  // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -90,67 +93,56 @@ const Login = (props) => {
       [name]: value,
     });
   };
-  // submit form
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
+
     try {
-      const { data } = await login({
+      const { data } = await addUser({
         variables: { ...formState },
       });
-      console.log("success")
-      Auth.login(data.login.token);
-      Auth.getProfile();
-    } 
-    catch (e) {
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
       console.error(e);
     }
-
-    // clear form values
-    setFormState({
-      email: '',
-      password: '',
-    });
   };
   return (
-    <body>
-      
-      <div>
-      {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/myrats">back to the homepage.</Link>
-              </p>
-            ) : (
-        <div style={styles.login}>
-          <form onSubmit={handleFormSubmit} style={styles.form}>
+  <div>
+        {/* <input style={styles.input} type="checkbox" aria-hidden="true" /> */}
+
+        <div style={styles.signup}>
+          <form style={styles.form}>
             <label style={styles.label} aria-hidden="true">
-              Login
+              Sign up
             </label>
+            <input
+              style={styles.input}
+              type="text"
+              name="txt"
+              placeholder="User name"
+              required=""
+            />
             <input
               style={styles.input}
               type="email"
               name="email"
               placeholder="Email"
-              value={formState.email}
-              onChange= {handleChange}
               required=""
             />
             <input
               style={styles.input}
               type="password"
-              name="password"
-              placeholder="******"
-              value={formState.password}
-              onChange= {handleChange}
+              name="pswd"
+              placeholder="Password"
               required=""
             />
-            <button style={styles.button} type= "submit">Login</button>
+            <button style={styles.button}>Sign up</button>
           </form>
         </div>
-            )}
       </div>
-    </body>
-  );
-}
-export default Login;
+  )
+};
+
+export default Signup;
