@@ -15,6 +15,14 @@ const typeDefs = gql`
         money: Int!
     }
 
+    type ShopItem {
+        _id: ID!
+        itemName: String!
+        image: String!
+        description: String!
+        price: Int
+    }
+
     type Auth {
         token: ID!
         user: User
@@ -24,13 +32,15 @@ const typeDefs = gql`
         rats: [Rat]
         users: [User]
         user(_id: ID!): User
+        shopItems: [ShopItem]
     }
 
     type Mutation {
         register(name: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
         addFriend(userID: String!, friendID: String!): User
-        createRat(name: String!): Auth
+        createRat(name: String!): Rat
+        createShopItem(itemName: String!, image: String!, description: String!, price: Int!): ShopItem
     }
 `;
 
