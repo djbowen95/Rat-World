@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_USER } from '../../utils/mutations';
+import { REGISTER_USER } from '../../utils/mutations';
 
 import Auth from '../../utils/Auth';
 
@@ -83,7 +83,7 @@ const Signup = () => {
     email: '',
     password: '',
   });
-  const [addUser, { error, data }] = useMutation(ADD_USER);
+  const [register, { error, data }] = useMutation(REGISTER_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -99,7 +99,7 @@ const Signup = () => {
     console.log(formState);
 
     try {
-      const { data } = await addUser({
+      const { data } = await register({
         variables: { ...formState },
       });
 
@@ -111,37 +111,55 @@ const Signup = () => {
   return (
   <div>
         {/* <input style={styles.input} type="checkbox" aria-hidden="true" /> */}
+        {data ? (
+              <p>
+                Success! You may now head{' '}
+                <Link to="/">back to the homepage.</Link>
+              </p>
+            ) : (
+            <div style={styles.signup}>
+            <form onSubmit={handleFormSubmit} style={styles.form}>
+                <label style={styles.label} aria-hidden="true">
+                     Sign up
+                </label>
+                <input
+                    style={styles.input}
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    value={formState.name}
+                    onChange={handleChange}
+                    required=""
+                />
+                <input
+                    style={styles.input}
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={formState.email}
+                    onChange={handleChange}
+                    required=""
+                />
+                <input
+                    style={styles.input}
+                    type="password"
+                    name="password"
+                    placeholder="******"
+                    value={formState.password}
+                    onChange={handleChange}
+                    required=""
+                />
+                <button type='submit' style={styles.button}>Sign up</button>
+            </form>
+            </div>
+            )}
 
-        <div style={styles.signup}>
-          <form style={styles.form}>
-            <label style={styles.label} aria-hidden="true">
-              Sign up
-            </label>
-            <input
-              style={styles.input}
-              type="text"
-              name="txt"
-              placeholder="User name"
-              required=""
-            />
-            <input
-              style={styles.input}
-              type="email"
-              name="email"
-              placeholder="Email"
-              required=""
-            />
-            <input
-              style={styles.input}
-              type="password"
-              name="pswd"
-              placeholder="Password"
-              required=""
-            />
-            <button style={styles.button}>Sign up</button>
-          </form>
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
+            )}
         </div>
-      </div>
   )
 };
 

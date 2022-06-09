@@ -90,6 +90,7 @@ const Login = (props) => {
       [name]: value,
     });
   };
+  console.log("success")
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -148,6 +149,12 @@ const Login = (props) => {
             <button style={styles.button} type= "submit">Login</button>
           </form>
         </div>
+            )}
+
+            {error && (
+              <div className="my-3 p-3 bg-danger text-white">
+                {error.message}
+              </div>
             )}
       </div>
     </body>
