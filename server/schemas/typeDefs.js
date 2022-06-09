@@ -13,6 +13,8 @@ const typeDefs = gql`
         email: String!
         password: String!
         money: Int!
+        friends: [String]
+        inventory: [String]
     }
 
     type ShopItem {
@@ -41,6 +43,7 @@ const typeDefs = gql`
         addFriend(userID: String!, friendID: String!): User
         createRat(name: String!): Rat
         createShopItem(itemName: String!, image: String!, description: String!, price: Int!): ShopItem
+        buyItem(userID: String!, itemID: String!): User
     }
 `;
 
