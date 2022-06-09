@@ -37,29 +37,28 @@ const MyFriends = () => {
     },
     inputBtn: {
       marginTop: "40px",
-      marginLeft: "20px"
+      marginLeft: "20px",
     },
   };
 
-  const [addFriend, setAddFriend] = useState()
-  const addFriendRef = useRef()
+  const [addFriend, setAddFriend] = useState();
+  const addFriendRef = useRef();
 
-  useEffect(() => {
+  useEffect(() => {}, []);
 
-  }, [])
-
-  function handleAddFriend (e) {
-    const name = addFriendRef.current.value 
-    if (name === '') return
-    addFriendRef.current.value = null
-    console.log(name)
+  function handleAddFriend(e) {
+    const name = addFriendRef.current.value;
+    if (name === "") return;
+    addFriendRef.current.value = null;
+    console.log(name);
   }
 
   return (
     <div style={styles.flex}>
-    <section>
-        <LoadFriends/>
-    </section>
+      <section>
+        <h2 style={styles.friendTitle}>My Friends</h2>
+        <LoadFriends />
+      </section>
 
       <section className="add-friend-container" style={styles.section}>
         <h2 style={styles.friendTitle}>Add a Friend</h2>
@@ -73,7 +72,9 @@ const MyFriends = () => {
               className="input"
               placeholder="Enter email address..."
             ></input>
-            <button onClick={handleAddFriend} style={styles.btn}>Submit</button>
+            <button onClick={handleAddFriend} style={styles.btn}>
+              Submit
+            </button>
           </div>
         </div>
       </section>
