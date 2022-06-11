@@ -1,68 +1,71 @@
 import React from "react";
 const styles = {
-//   barOutline: {
-//     backgroundColor: "grey",
-//     borderRadius: "13px",
-//     padding: "3px",
-//   },
+  //   barOutline: {
+  //     backgroundColor: "grey",
+  //     borderRadius: "13px",
+  //     padding: "3px",
+  //   },
 
-//   progressBar: {
-//     height: "20px",
-//     backgroundColor: "#573b8a",
-//     borderRadius: "10px",
-//     width: "40%",
-//   },
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-  }
-  
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
-  
-  .container {
-    padding: 2px 16px;
-  }
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    border-radius: 5px;
-    height: 30rem;
-    width: 40rem;
-    align: center;
-  }
-  
-  img {
-    border-radius: 5px 5px 0 0;
-  }
-  .baroutline {
-    background-color: grey;
-    border-radius: 13px;
-    padding: 3px;
-    line-height: 30%;
-  }
-  .h2 {
-    text-align: center;
-    padding-bottom: 20px;
-  }
-  .h3 {
-    text-align: center;
-    padding-bottom: 20px;
-  }
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
-  
-  .progressbar {
-    background-color: purple;
-    width: 30%;
-    height: 10px;
-    border-radius: 10px;
-  }
+  //   progressBar: {
+  //     height: "20px",
+  //     backgroundColor: "#573b8a",
+  //     borderRadius: "10px",
+  //     width: "40%",
+  //   },
+  card: {
+    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+    transition: "0.3s",
+  },
+
+  //   .card:hover {
+  //     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  //   },
+
+  container: {
+    padding: "2px 16px",
+  },
+
+  card: {
+    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+    transition: "0.3s",
+    borderRadius: "5px",
+    height: "30rem",
+    width: "40rem",
+    align: "center",
+  },
+
+  img: {
+    borderRadius: "5px 5px 0 0",
+  },
+
+  baroutline: {
+    backgroundColor: "grey",
+    borderRadius: "13px",
+    padding: "3px",
+    lineHeight: "30%",
+  },
+
+  h2: {
+    textAlign: "center",
+    paddingBottom: "20px",
+  },
+  h3: {
+    textAlign: "center",
+    paddingBottom: "20px",
+  },
+  center: {
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "50%",
+  },
+
+  progressbar: {
+    backgroundColor: "purple",
+    width: "30%",
+    height: "10px",
+    borderRadius: "10px",
+  },
 };
 function Progress() {
   return (
@@ -73,21 +76,22 @@ function Progress() {
     //   </div>
     // </div>
 
-<div class="center">
-<div class="card">
-  <h2 class="h2"><b>Feed Rat</b></h2>
-  <img src="./img/rat.png" class="center" style="width: 40%" />
-  <div class="container">
-    <!--Progress bar-->
-    <h3 class="h3">Hunger level</h3>
-    <div class="baroutline">
-      <div class="progressbar">
-        <div></div>
+    <div style={styles.center}>
+      <div style={styles.card}>
+        <h2 style={styles.h2}>
+          <b>Feed Rat</b>
+        </h2>
+        <img src="./rat.png" style={styles.center} style="width: 40%" />
+        <div style={styles.container}>
+          <h3 style={styles.h3}>Hunger level</h3>
+          <div style={styles.baroutline}>
+            <div style={styles.progressbar}>
+              <div></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-</div>
   );
 }
 export default Progress;
