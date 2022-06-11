@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 const mongoose = require ('mongoose');
 const bcrypt = require('bcrypt');
-=======
-const mongoose = require("mongoose");
->>>>>>> main
 
 const Schema = mongoose.Schema;
 
@@ -46,7 +42,6 @@ userSchema.virtual("friendCount").get(function () {
   return this.friends.length;
 });
 
-<<<<<<< HEAD
 // set up pre-save middleware to create password
 userSchema.pre('save', async function (next) {
 if (this.isNew || this.isModified('password')) {
@@ -63,8 +58,5 @@ return bcrypt.compare(password, this.password);
 };
 
 const User = mongoose.model('User', userSchema);
-=======
-const User = mongoose.model("User", userSchema);
->>>>>>> main
 
 module.exports = User;
