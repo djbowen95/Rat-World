@@ -151,6 +151,7 @@ const Signup = () => {
                 />
                 <button type='submit' style={styles.button}>Sign up</button>
             </form>
+            <a href="/">Already have an account </a>
             </div>
             )}
 

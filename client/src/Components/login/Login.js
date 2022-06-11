@@ -90,7 +90,7 @@ const Login = (props) => {
       [name]: value,
     });
   };
-  console.log("success")
+  console.log(Auth.getProfile())
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -148,6 +148,7 @@ const Login = (props) => {
             />
             <button style={styles.button} type= "submit">Login</button>
           </form>
+          <a href="/signup">Register Here</a>
         </div>
             )}
 
