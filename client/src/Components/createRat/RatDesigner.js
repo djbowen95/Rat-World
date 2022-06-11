@@ -61,7 +61,7 @@ function RatDesigner() {
           >
             ^
           </button>
-          <img style={styles.bum} src={bumArray[ratBumIndex]} />
+          <img style={styles.bum} data-bumIndex={ratBumIndex} src={bumArray[ratBumIndex]} id="ratBumImage" />
           <button
             data-bodypart="bum"
             data-nextprevious="previous"

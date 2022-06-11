@@ -45,6 +45,8 @@ const Rat = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    console.log(document.querySelector("#ratBumImage").dataset.bumindex);
+
     try {
       const { data } = await createRat({
         variables: {...ratFormState},
