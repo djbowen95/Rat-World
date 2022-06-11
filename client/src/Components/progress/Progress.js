@@ -1,26 +1,10 @@
 import React from "react";
 import ratimage from "../progress/rat.png";
 const styles = {
-  //   barOutline: {
-  //     backgroundColor: "grey",
-  //     borderRadius: "13px",
-  //     padding: "3px",
-  //   },
-
-  //   progressBar: {
-  //     height: "20px",
-  //     backgroundColor: "#573b8a",
-  //     borderRadius: "10px",
-  //     width: "40%",
-  //   },
   card: {
     boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
     transition: "0.3s",
   },
-
-  //   .card:hover {
-  //     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  //   },
 
   container: {
     padding: "2px 16px",
@@ -70,13 +54,6 @@ const styles = {
 };
 function Progress() {
   return (
-    // //progress bar
-    // <div style={styles.barOutline}>
-    //   <div style={styles.progressBar}>
-    //     <div></div>
-    //   </div>
-    // </div>
-
     <div style={styles.center}>
       <div style={styles.card}>
         <h2 style={styles.h2}>
