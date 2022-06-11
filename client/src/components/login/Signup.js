@@ -25,16 +25,6 @@ const styles = {
     padding: "50px",
     margin: "20px",
   },
-  login: {
-    height: "460px",
-    background: "rgb(250, 250, 250)",
-    borderRadius: "60% / 30%",
-    display: "inline-block",
-    width: "350px",
-    border: "black",
-    padding: "50px",
-    margin: "20px",
-  },
   label: {
     color: "#573b8a",
     fontSize: "2.3em",

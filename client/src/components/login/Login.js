@@ -15,16 +15,6 @@ const styles = {
     borderRadius: "10px",
     boxShadow: "5px 20px 50px #000",
   },
-  signup: {
-    height: "460px",
-    background: "rgb(250, 250, 250)",
-    float: "left",
-    borderRadius: "60% / 30%",
-    width: "350px",
-    border: "black",
-    padding: "50px",
-    margin: "20px",
-  },
   login: {
     height: "460px",
     background: "rgb(250, 250, 250)",
