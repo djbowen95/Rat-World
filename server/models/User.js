@@ -27,6 +27,7 @@ const userSchema = new Schema(
       required: true,
       default: 10
     },
+    inventory: [{type: Schema.Types.ObjectId, ref: "shopItem"}]
   },
   {
     // Virtuals enabled for friend count
