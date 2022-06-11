@@ -90,7 +90,6 @@ const Login = (props) => {
       [name]: value,
     });
   };
-  console.log(Auth.getProfile())
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
