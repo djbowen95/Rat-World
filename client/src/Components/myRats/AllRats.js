@@ -19,6 +19,7 @@ function AllRats() {
       justifyContent: "space-around",
       alignItems: "center",
     },
+    
   };
   return (
     <div style={styles.container}>
