@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const QUERY_RATS = gql`
+const QUERY_RATS = gql`
   query rats {
     rats {
       _id
@@ -9,3 +9,17 @@ export const QUERY_RATS = gql`
     }
   }
 `;
+
+const QUERY_SHOP = gql`
+query shopItems {
+  shopItems {
+    _id
+    itemName
+    image
+    description
+    price
+  }
+}
+`
+
+export {QUERY_RATS, QUERY_SHOP}
