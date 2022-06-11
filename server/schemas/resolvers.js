@@ -1,4 +1,4 @@
-const { Rat, User, ShopItem } = require("../models");
+const { Rat, User, ShopItem, Jobs } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
@@ -15,6 +15,9 @@ const resolvers = {
     },
     shopItems: async () => {
       return ShopItem.find();
+    },
+    jobs: async () => {
+      return Jobs.find();
     },
   },
 
@@ -93,6 +96,16 @@ const resolvers = {
         { $addToSet: { inventory: itemID } }
       );
       return user
+    },
+
+    getJob: async (parent, { jobName, image, description, wages }) => {
+      const newJob = await Jobs.create({
+        jobName,
+        image,
+        description,
+        wages,
+      });
+      return newJob;
     },
   },
 };
