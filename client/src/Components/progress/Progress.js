@@ -1,4 +1,5 @@
 import React from "react";
+import ratimage from "../progress/rat.png";
 const styles = {
   //   barOutline: {
   //     backgroundColor: "grey",
@@ -81,7 +82,7 @@ function Progress() {
         <h2 style={styles.h2}>
           <b>Feed Rat</b>
         </h2>
-        <img src="./rat.png" style={styles.center} style="width: 40%" />
+        <img src={ratimage} style={styles.center} />
         <div style={styles.container}>
           <h3 style={styles.h3}>Hunger level</h3>
           <div style={styles.baroutline}>
