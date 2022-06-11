@@ -1,60 +1,24 @@
 import React from "react";
 const styles = {
-  ProgressOuter: {
-    background: "#fff",
-    borderRadius: "50px",
-    padding: "25px",
-    margin: "10px 0",
-    boxShadow: "0 0 10px rgba(209, 219, 231, 0.7)",
-  },
-  Progress: {
-    height: "27px",
-    margin: "0",
-    overflow: "visible",
-    borderRadius: "50px",
-    background: "#eaedf3",
-    boxShadow: "inset 0 10px 10px rgba(244, 245, 250, 0.9)",
+  progresBar: {
+    backgroundColor: "grey",
+    borderRadius: "13px",
+    padding: "3px",
   },
 
-  ProgressBar: {
-    borderRadius: "50px",
-  },
-  progressValue: {
-    position: "relative",
-    left: "-45px",
-    top: "4px",
-    fontSize: "10.5px",
-    fontWeight: "bold",
-    color: "#fff",
-    letterSpacing: "2px",
-  },
-  //   progressBarActive: {
-  //     animation: "reverse progress-bar-stripes 0.4s linear infinite
-  //       animatePositive: "2s",
-  //   },
-
-  center: {
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
+  progressBar: {
+    height: "20px",
+    backgroundColor: "#573b8a",
+    borderRadius: "10px",
     width: "40%",
   },
 };
 function Progress() {
   return (
-    <div style={styles.container}>
-      <div style={styles.progressOuter}>
-        <div style={styles.progress}>
-          <div
-            style={styles.progressBar}
-            class="progress-bar progress-bar-info progress-bar-striped active"
-          >
-            {" "}
-          </div>
-          <div style={styles.progressValue}>
-            <div style={styles.center}>40</div>
-          </div>
-        </div>
+    //progress bar
+    <div style={styles.progresBar}>
+      <div style={styles.progressBar}>
+        <div></div>
       </div>
     </div>
   );
