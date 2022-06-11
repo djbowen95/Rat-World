@@ -15,9 +15,7 @@ const styles = {
     background: "#eaedf3",
     boxShadow: "inset 0 10px 10px rgba(244, 245, 250, 0.9)",
   },
-  Progress: {
-    borderRadius: "50px",
-  },
+
   ProgressBar: {
     borderRadius: "50px",
   },
@@ -34,16 +32,6 @@ const styles = {
   //     animation: "reverse progress-bar-stripes 0.4s linear infinite
   //       animatePositive: "2s",
   //   },
-  //   @-webkit-keyframes animate-positive {
-  //     0% {
-  //       width: 0%;
-  //     }
-  //   }
-  //   @keyframes animate-positive {
-  //     0% {
-  //       width: 0%;
-  //     }
-  //   }
 
   center: {
     display: "block",
@@ -60,8 +48,10 @@ function Progress() {
           <div
             style={styles.progressBar}
             class="progress-bar progress-bar-info progress-bar-striped active"
-          ></div>
-          <div class="progress-value">
+          >
+            {" "}
+          </div>
+          <div style={styles.progressValue}>
             <div style={styles.center}>40</div>
           </div>
         </div>
