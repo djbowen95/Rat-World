@@ -1,0 +1,10 @@
+button:hover {
+  background: #906fce;
+}
+.login label {
+  color: #573b8a;
+}
+.signup label {
+  display: none;
+  color: #573b8a;
+}
