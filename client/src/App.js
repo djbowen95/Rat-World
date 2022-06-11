@@ -16,6 +16,7 @@ import RatDesigner from "./components/createRat/RatDesigner";
 import Login from "./components/login/Login";
 import Cemetery from "./components/myRats/Cemetery";
 import MyFriends from "./components/myRats/MyFriends";
+import TestPage from "./components/testpage/TestPage";
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -48,6 +49,8 @@ function App() {
           <Route path="/ratdesigner" element={<RatDesigner />} />
           <Route path="/cemetery" element={<Cemetery/>} />
           <Route path="/myfriends" element={<MyFriends/>} />
+          <Route path="/createrat" element={<CreateRat/>} />
+          <Route path="/testpage" element={<TestPage/>} />
         </Routes>
         <Footer />
       </Router>
