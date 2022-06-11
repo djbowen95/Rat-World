@@ -27,17 +27,6 @@ const resolvers = {
       const token = signToken(user);
       // Return an `Auth` object that consists of the signed token and user's information
       return { token, user };
-
-      // bcrypt.genSalt(10, (err, salt) => {
-      //     bcrypt.hash(newUser.password, salt, (err, hash) => {
-      //         if (err) throw err;
-      //         newUser.password = hash;
-      //         newUser
-      //             .save()
-      //             .then(user => json(user))
-      //             .catch(err => console.log(err));
-      //     });
-      // });
     },
 
     //login a user
@@ -51,12 +40,12 @@ const resolvers = {
       }
 
       // If there is a user found, execute the `isCorrectPassword` instance method and check if the correct password was provided
-      // const correctPw = await user.isCorrectPassword(password);
+      const correctPw = await user.isCorrectPassword(password);
 
-      // // If the password is incorrect, return an Authentication error stating so
-      // if (!correctPw) {
-      //   throw new AuthenticationError('Incorrect credentials');
-      // }
+      // If the password is incorrect, return an Authentication error stating so
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
 
       // If email and password are correct, sign user into the application with a JWT
       const token = signToken(user);
@@ -65,13 +54,17 @@ const resolvers = {
       return { token, user };
     },
 
+    //adding a friend by id
     addFriend: async (parent, { userID, friendID }, userInfo) => {
+      //finding a user by id and adding the friends id to the array in the user's model
       await User.findOneAndUpdate(
         { _id: userID },
         { $addToSet: { friends: friendID } }
       );
       return;
     },
+
+    //creating a new rat
     createRat: async (parent, { name }) => {
       const rat = await Rat.create({ name });
       return rat;

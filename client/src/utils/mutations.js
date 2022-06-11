@@ -10,3 +10,26 @@ export const CREATE_RAT = gql`
     }
   }
 `;
+
+export const LOGIN_USER = gql`
+  mutation ($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      user {
+        _id
+      }
+    }
+  }
+`;
+
+export const REGISTER_USER = gql`
+  mutation ($name: String!, $email: String!, $password: String!) {
+    register(name: $name, email: $email, password: $password) {
+      token
+      user {
+        _id
+        name
+      }
+    }
+  }
+`;
