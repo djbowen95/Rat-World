@@ -31,8 +31,8 @@ const FriendCards = (props) => {
   return (
     <div>
       <div className="friendsContainer" style={styles.container}>
-        {props.friends.slice(0, visible).map((friend) => (
-          <div style={styles.cards}>
+        {props.friends.slice(0, visible).map((friend, index) => (
+          <div style={styles.cards} key={index}>
             {friend.image}
             {friend.username}
           </div>
