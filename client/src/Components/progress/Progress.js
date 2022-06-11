@@ -1,6 +1,6 @@
 import React from "react";
 const styles = {
-  progresBar: {
+  barOutline: {
     backgroundColor: "grey",
     borderRadius: "13px",
     padding: "3px",
@@ -16,7 +16,7 @@ const styles = {
 function Progress() {
   return (
     //progress bar
-    <div style={styles.progresBar}>
+    <div style={styles.barOutline}>
       <div style={styles.progressBar}>
         <div></div>
       </div>
