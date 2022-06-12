@@ -16,7 +16,7 @@ function Jobs() {
           key={index}
           id={job._id}
           jobName={job.jobName}
-          image
+          image={job.image}
           description={job.description}
           wages={job.wages}
         />

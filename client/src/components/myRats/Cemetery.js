@@ -25,14 +25,14 @@ const Cemetery = () => {
           alt="dead rat"
         />
         <div>
-          <p style={styles.text}>
+          <div style={styles.text}>
             Losing an animal companion such as a rat is a lot harder than it
             sounds.
             <p>
               You have loved your rat as much as you would have loved a friend,
               or maybe more.
             </p>
-          </p>
+          </div>
           <p className="RIP" style={styles.rip}>RIP 🐀</p>
         </div>
       </div>
