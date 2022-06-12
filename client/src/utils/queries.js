@@ -22,4 +22,17 @@ query shopItems {
 }
 `
 
-export {QUERY_RATS, QUERY_SHOP}
+const QUERY_JOBS = gql`
+query jobs {
+  jobs {
+    _id
+    jobName
+    image
+    description
+    wages
+  }
+}
+`
+
+
+export {QUERY_RATS, QUERY_SHOP, QUERY_JOBS}
