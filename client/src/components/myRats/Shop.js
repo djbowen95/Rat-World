@@ -4,14 +4,20 @@ import { useQuery } from "@apollo/client";
 import { QUERY_SHOP } from "../../utils/queries";
 import foodCheese from "../../images/items/swiss-cheese.png";
 
+const styles = {
+  container: {
+      display: 'flex',
+      justifyContent: 'space-around'
+  }
+}
+
 function Shop() {
   const { loading, data } = useQuery(QUERY_SHOP);
   const itemList = data?.shopItems || [];
- 
   
 
   return (
-    <div>
+    <div style={styles.container}>
       {itemList.map((item, index) => (
         <ShopCard
           key={index}

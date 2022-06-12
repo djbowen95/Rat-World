@@ -13,18 +13,15 @@ function MyRats() {
     aside: {
       width: "20%",
     },
+    mainArea: {
+      width: "80%"
+    }
   };
 
   const [sideMenuChoice, setMenuChoice] = useState("allRats");
 
   function renderMenuChoice() {
     switch (sideMenuChoice) {
-//       case "allRats":
-//         return <AllRats />;
-//       case "shop":
-//         return <Shop />;
-//       case "jobs":
-//         return <Jobs />;
       case 'allRats':
         return <AllRats/>;
       case 'shop':
@@ -61,7 +58,9 @@ function MyRats() {
           <li data-page='myFriends' onClick={sideMenuSelection}><button data-page='myFriends'>My Friends</button></li>
         </ul>
       </aside>
-      {renderMenuChoice()}
+      <div style={styles.mainArea}>
+        {renderMenuChoice()}
+      </div>
     </section>
   );
 }
