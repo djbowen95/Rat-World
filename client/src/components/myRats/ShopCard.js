@@ -1,4 +1,7 @@
 import React from "react";
+import Auth from "../../utils/Auth";
+import { useMutation } from "@apollo/client";
+import { BUY_ITEM } from "../../utils/mutations";
 
 function ShopCard({id, itemName, image, description, price }) {
   const styles = {
@@ -11,6 +14,19 @@ function ShopCard({id, itemName, image, description, price }) {
       width: "100%",
     },
   };
+
+  const [buyItem, {error}] = useMutation(BUY_ITEM)
+
+  async function buyItemHandler(e){
+    const itemId = e.target.dataset.id
+    const itemPrice = parseInt(e.target.dataset.price) 
+    const userId = Auth.getProfile().data._id
+    try {
+      const {data} = await buyItem({
+        variables: { userId: userId, itemId: itemId, price: itemPrice}
+      })
+    } catch(err){console.log(err)}
+  }
 
   return (
     <div style={styles.card}>
@@ -25,7 +41,7 @@ function ShopCard({id, itemName, image, description, price }) {
       </div>
       <div>
         <p>Cost: {price}</p>
-        <button data-id={id}>Buy</button>
+        <button data-id={id} data-price={price} onClick={buyItemHandler}>Buy</button>
       </div>
     </div>
   );

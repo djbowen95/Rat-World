@@ -6,7 +6,6 @@ import AddIcon from "@mui/icons-material/Add";
 function AllRats() {
   const styles = {
     container: {
-      width: "80%",
       backgroundColor: "grey",
     },
     heading: {

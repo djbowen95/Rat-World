@@ -4,6 +4,8 @@ import Shop from "./Shop";
 import Jobs from "./Jobs";
 import Cemetery from "./Cemetery";
 import MyFriends from "./MyFriends";
+import Auth from '../../utils/Auth';
+import Inventory from "../inventory/Inventory";
 
 function MyRats() {
   const styles = {
@@ -17,8 +19,9 @@ function MyRats() {
       width: "80%"
     }
   };
-
+  const username = Auth.getProfile().data.name
   const [sideMenuChoice, setMenuChoice] = useState("allRats");
+  const [showInventory, setShowInventory] = useState(false)
 
   function renderMenuChoice() {
     switch (sideMenuChoice) {
@@ -39,10 +42,32 @@ function MyRats() {
     setMenuChoice(e.target.dataset.page);
   }
 
+  function inventoryToggle(e){
+    console.log("hello")
+    if (showInventory) {
+      setShowInventory(false)
+      e.target.innerText = "View Inventory"
+    }
+    else {
+      setShowInventory(true)
+      e.target.innerText = "Hide Inventory"
+    }
+  }
+
+  function inventoryView(){
+    if (!showInventory) {
+      return
+    }
+    else {return <Inventory/>}
+  }
+
   return (
     <section style={styles.section}>
       <aside style={styles.aside}>
-        <h2>User Name</h2>
+        <div>
+          <h2>{username}</h2>
+          <button onClick={inventoryToggle}>View Inventory</button>
+        </div>
         <ul>
 
           <li data-page="allRats" onClick={sideMenuSelection}>
@@ -61,6 +86,7 @@ function MyRats() {
       <div style={styles.mainArea}>
         {renderMenuChoice()}
       </div>
+      {inventoryView()}
     </section>
   );
 }

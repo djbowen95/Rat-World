@@ -33,3 +33,13 @@ export const REGISTER_USER = gql`
     }
   }
 `;
+
+export const BUY_ITEM = gql`
+mutation buyItem($userId: String!, $itemId: String!, $price: Int!) {
+  buyItem(userID: $userId, itemID: $itemId, price: $price) {
+    inventory {
+      _id
+    }
+  }
+}
+`;
