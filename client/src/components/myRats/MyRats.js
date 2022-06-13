@@ -6,6 +6,7 @@ import Cemetery from "./Cemetery";
 import MyFriends from "./MyFriends";
 import Auth from '../../utils/Auth';
 import Inventory from "../inventory/Inventory";
+import $ from "jquery"
 
 function MyRats() {
   const styles = {
@@ -43,14 +44,13 @@ function MyRats() {
   }
 
   function inventoryToggle(e){
-    console.log("hello")
     if (showInventory) {
       setShowInventory(false)
-      e.target.innerText = "View Inventory"
+      $('#viewInvButton').text("View Inventory")
     }
     else {
       setShowInventory(true)
-      e.target.innerText = "Hide Inventory"
+      $('#viewInvButton').text("Hide Inventory")
     }
   }
 
@@ -58,7 +58,7 @@ function MyRats() {
     if (!showInventory) {
       return
     }
-    else {return <Inventory/>}
+    else {return <Inventory inventoryToggle={inventoryToggle}/>}
   }
 
   return (
@@ -66,7 +66,7 @@ function MyRats() {
       <aside style={styles.aside}>
         <div>
           <h2>{username}</h2>
-          <button onClick={inventoryToggle}>View Inventory</button>
+          <button id="viewInvButton" onClick={inventoryToggle}>View Inventory</button>
         </div>
         <ul>
 

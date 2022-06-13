@@ -19,11 +19,10 @@ function ShopCard({id, itemName, image, description, price }) {
 
   async function buyItemHandler(e){
     const itemId = e.target.dataset.id
-    const itemPrice = parseInt(e.target.dataset.price) 
     const userId = Auth.getProfile().data._id
     try {
       const {data} = await buyItem({
-        variables: { userId: userId, itemId: itemId, price: itemPrice}
+        variables: { userId: userId, itemId: itemId }
       })
     } catch(err){console.log(err)}
   }
@@ -34,14 +33,14 @@ function ShopCard({id, itemName, image, description, price }) {
         <h3>{itemName}</h3>
       </div>
       <div>
-        <img style={styles.image} src={image} />
+        <img style={styles.image} src={image}/>
       </div>
       <div>
         <p>{description}</p>
       </div>
       <div>
         <p>Cost: {price}</p>
-        <button data-id={id} data-price={price} onClick={buyItemHandler}>Buy</button>
+        <button data-id={id} onClick={buyItemHandler}>Buy</button>
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ function Shop() {
 
   return (
     <div>
-      <div>Money: {money}</div>
+      <div>Money: {money || 0}</div>
       <div style={styles.container}>
         {itemList.map((item, index) => (
           <ShopCard
