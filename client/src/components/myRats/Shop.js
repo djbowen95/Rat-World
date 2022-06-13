@@ -10,6 +10,7 @@ function Shop() {
  
   
 
+  
   return (
     <div>
       {itemList.map((item, index) => (

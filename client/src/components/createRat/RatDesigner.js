@@ -27,6 +27,8 @@ import ratBum7 from "../../images/ratBum/ratbum7.png";
 import ratBum8 from "../../images/ratBum/ratbum8.png";
 import ratBum9 from "../../images/ratBum/ratbum9.png";
 
+
+
 const headArray = [
   ratHead1,
   ratHead2,
