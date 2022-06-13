@@ -21,12 +21,18 @@ const Header = () => {
             <span></span>
           </label>
         </div>
-        <div class="nav-links">
-          <a href="/">Home</a>
-          <a href="/myrats">My Rats</a>
-          <a href="/myfriends">My Friends</a>
-          <button onClick={logout} className="btn btn-secondary m=1">Logout</button>
-        </div>
+        {Auth.loggedIn() ? (
+          <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/myrats">My Rats</a>
+            <a href="/myfriends">My Friends</a>
+            <button onClick={logout} className="btn btn-secondary m=1">Logout</button>
+          </div>          
+          ) : (
+          <div class="nav-links">
+            <a href="/">Home</a>
+          </div>
+          )}
     </div>
     )
 }
