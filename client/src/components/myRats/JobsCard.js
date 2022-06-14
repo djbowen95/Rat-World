@@ -11,7 +11,7 @@ const styles = {
     boxShadow: "0px 0px 5px black",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   image: {
     width: "100%",
@@ -26,16 +26,19 @@ function JobsCard({ id, jobName, image, description, wages }) {
           <h1>{jobName}</h1>
         </div>
         <div>
-          <img
-            src={image}
-            alt="rat with laptop"
-          />
+          <img src={image} alt="rat with laptop" />
         </div>
         <div>
           <h3>Job Description</h3>
           <p>{description}</p>
           <p>{wages}</p>
         </div>
+        <select className="rat-names" id="ratNames">
+          <option value="volvo">??</option>
+          <option value="saab">??</option>
+          <option value="mercedes">??</option>
+          <option value="audi">??</option>
+        </select>
       </section>
     </div>
   );
