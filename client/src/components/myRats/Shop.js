@@ -3,6 +3,8 @@ import ShopCard from "./ShopCard";
 import { useQuery } from "@apollo/client";
 import { QUERY_SHOP, QUERY_MONEY } from "../../utils/queries";
 import foodCheese from "../../images/items/swiss-cheese.png";
+import foodMeat from "../../images/items/meat.png"
+import foodChoc from "../../images/items/chocolate.png"
 import Auth from "../../utils/Auth";
 
 const styles = {
@@ -24,6 +26,17 @@ function Shop() {
   });
   const money = moneyData?.user.money || "";
 
+  function getImage(imageData){
+    switch(imageData){
+      case "cheese":
+        return foodCheese;
+      case "meat":
+        return foodMeat;
+      case "chocolate":
+        return foodChoc;
+    }
+  }
+
   return (
     <div>
       <div>Money: {money || 0}</div>
@@ -33,7 +46,7 @@ function Shop() {
             key={index}
             id={item._id}
             itemName={item.itemName}
-            image={foodCheese} //this needs to change
+            image={getImage(item.image)} //this needs to change
             description={item.description}
             price={item.price}
           />

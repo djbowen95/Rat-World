@@ -2,6 +2,7 @@ import React from "react";
 import Auth from "../../utils/Auth";
 import { useMutation } from "@apollo/client";
 import { BUY_ITEM } from "../../utils/mutations";
+import { padding } from "@mui/system";
 
 function ShopCard({id, itemName, image, description, price }) {
   const styles = {
@@ -9,6 +10,8 @@ function ShopCard({id, itemName, image, description, price }) {
       backgroundColor: "whitesmoke",
       width: "250px",
       textAlign: "center",
+      margin: "5px",
+      padding: "5px"
     },
     image: {
       width: "100%",
