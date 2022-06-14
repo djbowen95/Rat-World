@@ -8,13 +8,16 @@ const resolvers = {
       return Rat.find({});
     },
     users: async () => {
-      return User.find();
+      return User.find().populate("inventory");
     },
     user: async (parent, { _id }) => {
-      return User.findOne({ _id });
+      return User.findOne({ _id }).populate("inventory");
     },
     shopItems: async () => {
       return ShopItem.find();
+    },
+    shopItem: async (parent, { _id }) => {
+      return ShopItem.findOne({ _id });
     },
     jobs: async () => {
       return Jobs.find();
@@ -47,7 +50,7 @@ const resolvers = {
 
       // If the password is incorrect, return an Authentication error stating so
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect credentials");
       }
 
       // If email and password are correct, sign user into the application with a JWT
@@ -84,11 +87,18 @@ const resolvers = {
     },
 
     buyItem: async (parent, { userID, itemID }) => {
+      const item = await ShopItem.findById(itemID)
       const user = await User.findOneAndUpdate(
         { _id: userID },
-        { $addToSet: { inventory: itemID } }
+        { new: true }
       );
-      return user
+      if (user.money < item.price || user.inventory.length >= 9) {
+        return user;
+      }
+      user.inventory.push(itemID)
+      user.money = user.money - item.price;
+      await user.save();
+      return user;
     },
 
     getJob: async (parent, { jobName, image, description, wages }) => {

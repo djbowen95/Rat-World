@@ -14,7 +14,7 @@ const typeDefs = gql`
         password: String!
         money: Int!
         friends: [String]
-        inventory: [String]
+        inventory: [ShopItem]
     }
 
     type ShopItem {
@@ -43,6 +43,7 @@ const typeDefs = gql`
         users: [User]
         user(_id: ID!): User
         shopItems: [ShopItem]
+        shopItem(_id: ID!): ShopItem
         jobs: [Jobs]
     }
 
