@@ -11,7 +11,12 @@ function ShopCard({id, itemName, image, description, price }) {
       width: "250px",
       textAlign: "center",
       margin: "5px",
-      padding: "5px"
+      padding: "5px",
+      borderRadius: "10px",
+      boxShadow: "0px 0px 5px black",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between"
     },
     image: {
       width: "100%",
