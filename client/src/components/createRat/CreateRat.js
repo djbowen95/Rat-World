@@ -101,7 +101,7 @@ const Rat = () => {
           ></RatDesigner>
           <div className="card-body">
             <h5 className="card-title" style={styles.cardTitle}>
-              Rattata
+              Name Your New Rat!
             </h5>
           </div>
           <div>
