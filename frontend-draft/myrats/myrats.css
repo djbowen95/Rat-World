@@ -40,7 +40,7 @@ img {
 .feed-btn {
   margin-bottom: 10px;
   display: block;
-  width: 100%;
+  width: 50%;
   border: none;
   background-color: rgb(112, 111, 111);
   padding: 14px 28px;
@@ -49,11 +49,45 @@ img {
   text-align: center;
   border-radius: 10px;
   margin-top: 10px;
+  color: white;
+  float: left;
+  /* border: purple solid 3px; */
 }
+.feed-btn:hover {
+  color: black;
+  font-weight: 100px;
+  background-color: rgb(110, 8, 97);
+}
+
 .feed-btn:active {
   background-color: #f2f3f2;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+.work-btn {
+  margin-bottom: 10px;
+  display: block;
+  width: 50%;
+  border: none;
+  background-color: rgb(112, 111, 111);
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 10px;
+  color: white;
+  float: left;
+}
+.work-btn:active {
+  background-color: #f2f3f2;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.work-btn:hover {
+  color: black;
+  font-weight: 100px;
+  background-color: rgb(110, 8, 97);
 }
 .name {
   text-align: center;
