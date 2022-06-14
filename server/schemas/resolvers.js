@@ -49,8 +49,8 @@ const resolvers = {
       return
     },
     createRat: async (parent, { name, headIndex, bodyIndex, bumIndex }) => {
-      const ratName = await Rat.create({ name, headIndex, bodyIndex, bumIndex }); 
-      return { ratName }
+      const newRat = await Rat.create({ name, headIndex, bodyIndex, bumIndex }); 
+      return newRat;
     }
   }
 };

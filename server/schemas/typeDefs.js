@@ -34,7 +34,7 @@ const typeDefs = gql`
         register(name: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
         addFriend(userID: String!, friendID: String!): User
-        createRat(name: String!, headIndex: Int, bodyIndex: Int, bumIndex: Int): Auth
+        createRat(name: String!, headIndex: Int, bodyIndex: Int, bumIndex: Int): Rat
     }
 `;
 
