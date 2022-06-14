@@ -29,16 +29,16 @@ function RatDesigner(props) {
             data-bodypart="bum"
             data-nextprevious="next"
             onClick={props.changeBodyPart}
-            disabled={ratBumIndex >= bumArray.length - 1}
+            disabled={props.ratBumIndex >= bumArray.length - 1}
           >
             ^
           </button>
-          <img style={styles.bum} data-bumIndex={ratBumIndex} src={bumArray[ratBumIndex]} id="ratBumImage" />
+          <img style={styles.bum} data-bumIndex={props.ratBumIndex} src={bumArray[props.ratBumIndex]} id="ratBumImage" />
           <button
             data-bodypart="bum"
             data-nextprevious="previous"
             onClick={props.changeBodyPart}
-            disabled={ratBumIndex <= 0}
+            disabled={props.ratBumIndex <= 0}
           >
             ^
           </button>
@@ -48,16 +48,16 @@ function RatDesigner(props) {
             data-bodypart="body"
             data-nextprevious="next"
             onClick={props.changeBodyPart}
-            disabled={ratBodyIndex >= bodyArray.length - 1}
+            disabled={props.ratBodyIndex >= bodyArray.length - 1}
           >
             ^
           </button>
-          <img style={styles.body} src={bodyArray[ratBodyIndex]} />
+          <img style={styles.body} src={bodyArray[props.ratBodyIndex]} />
           <button
             data-bodypart="body"
             data-nextprevious="previous"
             onClick={props.changeBodyPart}
-            disabled={ratBodyIndex <= 0}
+            disabled={props.ratBodyIndex <= 0}
           >
             ^
           </button>
@@ -67,16 +67,16 @@ function RatDesigner(props) {
             data-bodypart="head"
             data-nextprevious="next"
             onClick={props.changeBodyPart}
-            disabled={ratHeadIndex >= headArray.length - 1}
+            disabled={props.ratHeadIndex >= headArray.length - 1}
           >
             ^
           </button>
-          <img style={styles.head} src={headArray[ratHeadIndex]} />
+          <img style={styles.head} src={headArray[props.ratHeadIndex]} />
           <button
             data-bodypart="head"
             data-nextprevious="previous"
             onClick={props.changeBodyPart}
-            disabled={ratHeadIndex <= 0}
+            disabled={props.ratHeadIndex <= 0}
           >
             ^
           </button>
