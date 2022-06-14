@@ -25,19 +25,6 @@ const resolvers = {
       const token = signToken(user);
       // Return an `Auth` object that consists of the signed token and user's information
       return { token, user };
-
-
-      // bcrypt.genSalt(10, (err, salt) => {
-      //     bcrypt.hash(newUser.password, salt, (err, hash) => {
-      //         if (err) throw err;
-      //         newUser.password = hash;
-      //         newUser
-      //             .save()
-      //             .then(user => json(user))
-      //             .catch(err => console.log(err));
-      //     });
-      // });
-
     },
 
     //login a user
@@ -50,14 +37,6 @@ const resolvers = {
         throw new AuthenticationError('No user found with this email address');
       }
 
-      // If there is a user found, execute the `isCorrectPassword` instance method and check if the correct password was provided
-      // const correctPw = await user.isCorrectPassword(password);
-
-      // // If the password is incorrect, return an Authentication error stating so
-      // if (!correctPw) {
-      //   throw new AuthenticationError('Incorrect credentials');
-      // }
-
       // If email and password are correct, sign user into the application with a JWT
       const token = signToken(user);
 
@@ -69,8 +48,8 @@ const resolvers = {
       await User.findOneAndUpdate({ _id: userID }, { $addToSet: { friends: friendID }});
       return
     },
-    createRat: async (parent, { name }) => {
-      const ratName = await Rat.create({ name }); 
+    createRat: async (parent, { name, headIndex, bodyIndex, bumIndex }) => {
+      const ratName = await Rat.create({ name, headIndex, bodyIndex, bumIndex }); 
       return { ratName }
     }
   }
