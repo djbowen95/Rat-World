@@ -43,3 +43,11 @@ mutation buyItem($userId: String!, $itemId: String! ) {
   }
 }
 `;
+
+export const JOB_APPLICATION = gql`
+mutation jobApplication($ratId: String!, $jobId: String!) {
+  applyForJob(ratId: $ratId, jobId: $jobId) {
+    _id
+  }
+}
+`;
