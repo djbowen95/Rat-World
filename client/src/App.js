@@ -7,7 +7,6 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CreateRat from "./components/createRat/CreateRat";
@@ -17,7 +16,9 @@ import Login from "./components/login/Login";
 import Signup from "./components/login/Signup";
 import Cemetery from "./components/myRats/Cemetery";
 import MyFriends from "./components/myRats/MyFriends";
+import Cartoon from "./components/cartoon/Cartoon";
 import Progress from "./components/progress/Progress";
+
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -52,6 +53,9 @@ function App() {
           <Route path="/cemetery" element={<Cemetery />} />
           <Route path="/myfriends" element={<MyFriends />} />
           <Route path="/progress" element={<Progress />} />
+          <Route path="/cartoon" element={<Cartoon />} />
+        
+      
         </Routes>
         <Footer />
       </Router>

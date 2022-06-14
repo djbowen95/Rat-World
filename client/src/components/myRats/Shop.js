@@ -37,6 +37,7 @@ function Shop() {
     }
   }
 
+  
   return (
     <div>
       <div>Money: {money || 0}</div>
