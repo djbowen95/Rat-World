@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import Auth from '../utils/Auth';
+import Auth from "../utils/Auth";
 
 const Header = () => {
     const logout = (e) => {
@@ -37,4 +37,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;

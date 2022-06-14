@@ -4,6 +4,9 @@ import Shop from "./Shop";
 import Jobs from "./Jobs";
 import Cemetery from "./Cemetery";
 import MyFriends from "./MyFriends";
+import Auth from '../../utils/Auth';
+import Inventory from "../inventory/Inventory";
+import $ from "jquery"
 
 function MyRats() {
   const styles = {
@@ -13,18 +16,16 @@ function MyRats() {
     aside: {
       width: "20%",
     },
+    mainArea: {
+      width: "80%"
+    }
   };
-
+  const username = Auth.getProfile().data.name
   const [sideMenuChoice, setMenuChoice] = useState("allRats");
+  const [showInventory, setShowInventory] = useState(false)
 
   function renderMenuChoice() {
     switch (sideMenuChoice) {
-//       case "allRats":
-//         return <AllRats />;
-//       case "shop":
-//         return <Shop />;
-//       case "jobs":
-//         return <Jobs />;
       case 'allRats':
         return <AllRats/>;
       case 'shop':
@@ -42,10 +43,31 @@ function MyRats() {
     setMenuChoice(e.target.dataset.page);
   }
 
+  function inventoryToggle(e){
+    if (showInventory) {
+      setShowInventory(false)
+      $('#viewInvButton').text("View Inventory")
+    }
+    else {
+      setShowInventory(true)
+      $('#viewInvButton').text("Hide Inventory")
+    }
+  }
+
+  function inventoryView(){
+    if (!showInventory) {
+      return
+    }
+    else {return <Inventory inventoryToggle={inventoryToggle}/>}
+  }
+
   return (
     <section style={styles.section}>
       <aside style={styles.aside}>
-        <h2>User Name</h2>
+        <div>
+          <h2>{username}</h2>
+          <button id="viewInvButton" onClick={inventoryToggle}>View Inventory</button>
+        </div>
         <ul>
 
           <li data-page="allRats" onClick={sideMenuSelection}>
@@ -61,7 +83,10 @@ function MyRats() {
           <li data-page='myFriends' onClick={sideMenuSelection}><button data-page='myFriends'>My Friends</button></li>
         </ul>
       </aside>
-      {renderMenuChoice()}
+      <div style={styles.mainArea}>
+        {renderMenuChoice()}
+      </div>
+      {inventoryView()}
     </section>
   );
 }

@@ -109,9 +109,9 @@ const Signup = () => {
             ) : (
             <div style={styles.signup}>
             <form onSubmit={handleFormSubmit} style={styles.form}>
-                <label style={styles.label} aria-hidden="true">
+                <h2 style={styles.label} aria-hidden="true">
                      Sign up
-                </label>
+                </h2>
                 <input
                     style={styles.input}
                     type="text"

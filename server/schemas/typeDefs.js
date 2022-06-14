@@ -14,7 +14,7 @@ const typeDefs = gql`
         password: String!
         money: Int!
         friends: [String]
-        inventory: [String]
+        inventory: [ShopItem]
     }
 
     type ShopItem {
@@ -23,6 +23,14 @@ const typeDefs = gql`
         image: String!
         description: String!
         price: Int
+    }
+
+    type Jobs {
+        _id: ID!
+        jobName: String!
+        image: String!
+        description: String!
+        wages: Int
     }
 
     type Auth {
@@ -35,6 +43,8 @@ const typeDefs = gql`
         users: [User]
         user(_id: ID!): User
         shopItems: [ShopItem]
+        shopItem(_id: ID!): ShopItem
+        jobs: [Jobs]
     }
 
     type Mutation {
@@ -43,6 +53,7 @@ const typeDefs = gql`
         addFriend(userID: String!, friendID: String!): User
         createRat(name: String!): Rat
         createShopItem(itemName: String!, image: String!, description: String!, price: Int!): ShopItem
+        getJob(jobName: String!, image: String!, description: String!, wages: Int! ): Jobs
         buyItem(userID: String!, itemID: String!): User
     }
 `;

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 
-import { LOGIN_USER } from '../../utils/mutations';
+import { LOGIN_USER } from "../../utils/mutations";
 
-import Auth from '../../utils/Auth';
+import Auth from "../../utils/Auth";
 
 const styles = {
   body: {
@@ -68,7 +68,7 @@ const styles = {
 
 //Login
 const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
   console.log(Auth.getProfile());
@@ -90,66 +90,62 @@ const Login = (props) => {
       const { data } = await login({
         variables: { ...formState },
       });
-      console.log("success")
+      console.log("success");
       Auth.login(data.login.token);
       Auth.getProfile();
-    } 
-    catch (e) {
+    } catch (e) {
       console.error(e);
     }
 
     // clear form values
     setFormState({
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     });
   };
   return (
-    <body>
-      
       <div>
-      {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/myrats">back to the homepage.</Link>
-              </p>
-            ) : (
-        <div style={styles.login}>
-          <form onSubmit={handleFormSubmit} style={styles.form}>
-            <label style={styles.label} aria-hidden="true">
-              Login
-            </label>
-            <input
-              style={styles.input}
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formState.email}
-              onChange= {handleChange}
-              required=""
-            />
-            <input
-              style={styles.input}
-              type="password"
-              name="password"
-              placeholder="******"
-              value={formState.password}
-              onChange= {handleChange}
-              required=""
-            />
-            <button style={styles.button} type= "submit">Login</button>
-          </form>
-          <a href="/signup">Register Here</a>
-        </div>
-            )}
+        {data ? (
+          <p>
+            Success! You may now head{" "}
+            <Link to="/myrats">back to the homepage.</Link>
+          </p>
+        ) : (
+          <div style={styles.login}>
+            <form onSubmit={handleFormSubmit} style={styles.form}>
+              <h2 style={styles.label} aria-hidden="true">
+                Login
+              </h2>
+              <input
+                style={styles.input}
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formState.email}
+                onChange={handleChange}
+                required=""
+              />
+              <input
+                style={styles.input}
+                type="password"
+                name="password"
+                placeholder="******"
+                value={formState.password}
+                onChange={handleChange}
+                required=""
+              />
+              <button style={styles.button} type="submit">
+                Login
+              </button>
+            </form>
+            <a href="/signup">Register Here</a>
+          </div>
+        )}
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
+        {error && (
+          <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+        )}
       </div>
-    </body>
   );
-}
+};
 export default Login;
