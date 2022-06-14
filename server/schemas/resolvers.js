@@ -86,18 +86,17 @@ const resolvers = {
       return newItem;
     },
 
-    buyItem: async (parent, { userID, itemID, price }) => {
+    buyItem: async (parent, { userID, itemID }) => {
+      const item = await ShopItem.findById(itemID)
       const user = await User.findOneAndUpdate(
         { _id: userID },
-        { $push: { inventory: itemID } },
         { new: true }
       );
-      if (user.money < price) {
-        user.inventory.pop();
-        user.save();
+      if (user.money < item.price || user.inventory.length >= 9) {
         return user;
       }
-      user.money = user.money - price;
+      user.inventory.push(itemID)
+      user.money = user.money - item.price;
       await user.save();
       return user;
     },

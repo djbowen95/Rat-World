@@ -54,7 +54,7 @@ const typeDefs = gql`
         createRat(name: String!): Rat
         createShopItem(itemName: String!, image: String!, description: String!, price: Int!): ShopItem
         getJob(jobName: String!, image: String!, description: String!, wages: Int! ): Jobs
-        buyItem(userID: String!, itemID: String!, price: Int!): User
+        buyItem(userID: String!, itemID: String!): User
     }
 `;
 
