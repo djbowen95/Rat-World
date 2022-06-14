@@ -34,6 +34,11 @@ const styles = {
 const Rat = () => {
   const [ratFormState, setRatFormState] = useState({ name: "" });
   const [ratInput, setRatInput] = useState("");
+
+  let [ratHeadIndex, setRatHead] = useState(0);
+  let [ratBodyIndex, setRatBody] = useState(0);
+  let [ratBumIndex, setRatBum] = useState(0);
+
   const [createRat, { error }] = useMutation(CREATE_RAT);
 
   const handleInputChange = (event) => {
@@ -49,13 +54,13 @@ const Rat = () => {
 
     try {
       const { data } = await createRat({
-        variables: {...ratFormState},
+        variables: { ...ratFormState },
       });
     } catch (err) {
       console.log(err);
-    };
+    }
 
-    console.log("Rat function finished.")
+    console.log("Rat function finished.");
     setRatInput("");
   };
 
@@ -67,7 +72,11 @@ const Rat = () => {
 
       <div className="container" style={styles.card}>
         <div className="card">
-          <RatDesigner />
+          <RatDesigner
+            setRatHead={setRatHead}
+            setRatBody={setRatBody}
+            setRatBum={setRatBum}
+          ></RatDesigner>
           <div className="card-body">
             <h5 className="card-title" style={styles.cardTitle}>
               Rattata

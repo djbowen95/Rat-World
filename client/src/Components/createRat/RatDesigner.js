@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { headArray, bodyArray, bumArray } from "../../images/ratParts";
 
-function RatDesigner() {
+function RatDesigner(props) {
   const styles = {
     container: {
       display: "flex",
@@ -20,10 +20,6 @@ function RatDesigner() {
       flexDirection: "column",
     },
   };
-
-  let [ratHeadIndex, setRatHead] = useState(0);
-  let [ratBodyIndex, setRatBody] = useState(0);
-  let [ratBumIndex, setRatBum] = useState(0);
 
   function changeBodyPart(e) {
     if (e.target.dataset.bodypart === "head") {
