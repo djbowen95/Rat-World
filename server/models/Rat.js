@@ -15,6 +15,10 @@ const ratSchema = new Schema({
     required: true,
     default: Date.now,
   },
+  job: {
+    type: Schema.Types.ObjectId, 
+    ref: "jobs"
+  }
 });
 
 const Rat = model("rat", ratSchema);

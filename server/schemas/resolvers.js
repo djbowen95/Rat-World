@@ -5,7 +5,7 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     rats: async () => {
-      return Rat.find({});
+      return Rat.find({}).populate("job");
     },
     users: async () => {
       return User.find().populate("inventory");
@@ -87,15 +87,12 @@ const resolvers = {
     },
 
     buyItem: async (parent, { userID, itemID }) => {
-      const item = await ShopItem.findById(itemID)
-      const user = await User.findOneAndUpdate(
-        { _id: userID },
-        { new: true }
-      );
+      const item = await ShopItem.findById(itemID);
+      const user = await User.findOneAndUpdate({ _id: userID }, { new: true });
       if (user.money < item.price || user.inventory.length >= 9) {
         return user;
       }
-      user.inventory.push(itemID)
+      user.inventory.push(itemID);
       user.money = user.money - item.price;
       await user.save();
       return user;
@@ -109,6 +106,13 @@ const resolvers = {
         wages,
       });
       return newJob;
+    },
+
+    applyForJob: async (parent, { ratId, jobId }) => {
+      const rat = await Rat.findById(ratId);
+      rat.job = jobId;
+      await rat.save()
+      return rat
     },
   },
 };
