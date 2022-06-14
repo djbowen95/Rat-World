@@ -5,6 +5,7 @@ const typeDefs = gql`
         _id: ID
         name: String!
         createdAt: String
+        job: Jobs
     }
 
     type User{
@@ -55,6 +56,7 @@ const typeDefs = gql`
         createShopItem(itemName: String!, image: String!, description: String!, price: Int!): ShopItem
         getJob(jobName: String!, image: String!, description: String!, wages: Int! ): Jobs
         buyItem(userID: String!, itemID: String!): User
+        applyForJob(ratId: String!, jobId: String!): Rat
     }
 `;
 
