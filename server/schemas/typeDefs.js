@@ -5,6 +5,10 @@ const typeDefs = gql`
         _id: ID
         name: String!
         createdAt: String
+        fedAt: String
+        headIndex: Int
+        bodyIndex: Int
+        bumIndex: Int
     }
 
     type User{
