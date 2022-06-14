@@ -18,7 +18,7 @@ const styles = {
   },
 };
 
-function JobsCard({ id, jobName, image, description, wages }) {
+function JobsCard({ id, jobName, image, description, wages, nameArray }) {
   return (
     <div style={styles.card}>
       <section className="jobs-card" style={styles.jobCard}>
@@ -33,11 +33,10 @@ function JobsCard({ id, jobName, image, description, wages }) {
           <p>{description}</p>
           <p>{wages}</p>
         </div>
-        <select className="rat-names" id="ratNames">
-          <option value="volvo">??</option>
-          <option value="saab">??</option>
-          <option value="mercedes">??</option>
-          <option value="audi">??</option>
+        <select>
+        {nameArray.map((rat, index) => (
+          <option key={index} value={rat.id}>{rat.name}</option>
+      ))}
         </select>
       </section>
     </div>

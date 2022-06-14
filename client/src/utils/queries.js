@@ -64,6 +64,18 @@ const QUERY_ITEM = gql`
   }
 `;
 
+const QUERY_RATNAMES = gql`
+  query {
+    rats {
+      _id
+      name
+      job {
+        _id
+      }
+    }
+  }
+`;
+
 export {
   QUERY_RATS,
   QUERY_SHOP,
@@ -71,4 +83,5 @@ export {
   QUERY_MONEY,
   QUERY_INVENTORY,
   QUERY_ITEM,
+  QUERY_RATNAMES,
 };

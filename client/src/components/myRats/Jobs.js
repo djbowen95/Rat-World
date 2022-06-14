@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_JOBS } from "../../utils/queries";
+import { QUERY_JOBS, QUERY_RATNAMES } from "../../utils/queries";
 import JobsCard from "./JobsCard";
 
 const styles = {
@@ -11,8 +11,10 @@ const styles = {
 };
 
 function Jobs() {
-  const { loading, data } = useQuery(QUERY_JOBS);
-  const jobList = data?.jobs || [];
+  const { loading, data: jobData } = useQuery(QUERY_JOBS);
+  const { data: ratNames } = useQuery(QUERY_RATNAMES);
+  const jobList = jobData?.jobs || [];
+  const nameList = ratNames?.rats || [];
 
   return (
     <div style={styles.container}>
@@ -24,6 +26,7 @@ function Jobs() {
           image
           description={job.description}
           wages={job.wages}
+          nameArray = {nameList} 
         />
       ))}
     </div>
