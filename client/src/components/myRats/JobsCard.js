@@ -1,24 +1,26 @@
 import React from "react";
 
 const styles = {
-  container: {
-    display: "flex",
-    alignItems: "center",
+  card: {
+    backgroundColor: "whitesmoke",
+    width: "250px",
     textAlign: "center",
-    width: "100%",
-    justifyContent: "center",
-    marginRight: "180px",
-  },
-  jobCard: {
+    margin: "5px",
+    padding: "5px",
+    borderRadius: "10px",
+    boxShadow: "0px 0px 5px black",
     display: "flex",
     flexDirection: "column",
-    paddingBottom: "20px",
+    justifyContent: "space-between"
+  },
+  image: {
+    width: "100%",
   },
 };
 
 function JobsCard({ id, jobName, image, description, wages }) {
   return (
-    <div style={styles.container}>
+    <div style={styles.card}>
       <section className="jobs-card" style={styles.jobCard}>
         <div>
           <h1>{jobName}</h1>
@@ -26,7 +28,7 @@ function JobsCard({ id, jobName, image, description, wages }) {
         <div>
           <img
             src={image}
-            alt=""
+            alt="rat with laptop"
           />
         </div>
         <div>
