@@ -98,6 +98,9 @@ const Rat = () => {
         <div className="card">
           <RatDesigner
             changeBodyPart={changeBodyPart}
+            ratHeadIndex={ratHeadIndex}
+            ratBodyIndex={ratBodyIndex}
+            ratBumIndex={ratBumIndex}
           ></RatDesigner>
           <div className="card-body">
             <h5 className="card-title" style={styles.cardTitle}>
