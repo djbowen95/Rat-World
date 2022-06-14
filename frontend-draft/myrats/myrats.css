@@ -33,3 +33,69 @@ img {
   display: inline-block;
   margin-left: 490px;
 }
+.header {
+  margin-top: 200px;
+  margin-left: 280px;
+}
+.feed-btn {
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: rgb(112, 111, 111);
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.feed-btn:active {
+  background-color: #f2f3f2;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.name {
+  text-align: center;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+.progressbar {
+  background-color: purple;
+  width: 30%;
+  height: 10px;
+  border-radius: 10px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 350px 350px 500px;
+  row-gap: 50px;
+  margin-left: 350px;
+  margin-bottom: 50px;
+}
+.adopt-btn {
+  float: right;
+  display: inline-block;
+  width: 20%;
+  border: none;
+  background-color: rgb(112, 111, 111);
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-right: 50px;
+  font-weight: bold;
+}
+.adopt-btn:active {
+  background-color: #f2f3f2;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
