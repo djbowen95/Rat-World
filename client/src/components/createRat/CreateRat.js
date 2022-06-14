@@ -47,6 +47,30 @@ const Rat = () => {
     setRatInput(value);
   };
 
+  function changeBodyPart(e) {
+    if (e.target.dataset.bodypart === "head") {
+      if (e.target.dataset.nextprevious === "next") {
+        setRatHead((ratHeadIndex += 1));
+      } else {
+        setRatHead((ratHeadIndex -= 1));
+      }
+    }
+    if (e.target.dataset.bodypart === "body") {
+      if (e.target.dataset.nextprevious === "next") {
+        setRatBody((ratBodyIndex += 1));
+      } else {
+        setRatBody((ratBodyIndex -= 1));
+      }
+    }
+    if (e.target.dataset.bodypart === "bum") {
+      if (e.target.dataset.nextprevious === "next") {
+        setRatBum((ratBumIndex += 1));
+      } else {
+        setRatBum((ratBumIndex -= 1));
+      }
+    }
+  }
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -73,9 +97,7 @@ const Rat = () => {
       <div className="container" style={styles.card}>
         <div className="card">
           <RatDesigner
-            setRatHead={setRatHead}
-            setRatBody={setRatBody}
-            setRatBum={setRatBum}
+            changeBodyPart={changeBodyPart}
           ></RatDesigner>
           <div className="card-body">
             <h5 className="card-title" style={styles.cardTitle}>

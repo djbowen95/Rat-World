@@ -21,30 +21,6 @@ function RatDesigner(props) {
     },
   };
 
-  function changeBodyPart(e) {
-    if (e.target.dataset.bodypart === "head") {
-      if (e.target.dataset.nextprevious === "next") {
-        setRatHead((ratHeadIndex += 1));
-      } else {
-        setRatHead((ratHeadIndex -= 1));
-      }
-    }
-    if (e.target.dataset.bodypart === "body") {
-      if (e.target.dataset.nextprevious === "next") {
-        setRatBody((ratBodyIndex += 1));
-      } else {
-        setRatBody((ratBodyIndex -= 1));
-      }
-    }
-    if (e.target.dataset.bodypart === "bum") {
-      if (e.target.dataset.nextprevious === "next") {
-        setRatBum((ratBumIndex += 1));
-      } else {
-        setRatBum((ratBumIndex -= 1));
-      }
-    }
-  }
-
   return (
     <div>
       <div style={styles.container}>
@@ -52,7 +28,7 @@ function RatDesigner(props) {
           <button
             data-bodypart="bum"
             data-nextprevious="next"
-            onClick={changeBodyPart}
+            onClick={props.changeBodyPart}
             disabled={ratBumIndex >= bumArray.length - 1}
           >
             ^
@@ -61,7 +37,7 @@ function RatDesigner(props) {
           <button
             data-bodypart="bum"
             data-nextprevious="previous"
-            onClick={changeBodyPart}
+            onClick={props.changeBodyPart}
             disabled={ratBumIndex <= 0}
           >
             ^
@@ -71,7 +47,7 @@ function RatDesigner(props) {
           <button
             data-bodypart="body"
             data-nextprevious="next"
-            onClick={changeBodyPart}
+            onClick={props.changeBodyPart}
             disabled={ratBodyIndex >= bodyArray.length - 1}
           >
             ^
@@ -80,7 +56,7 @@ function RatDesigner(props) {
           <button
             data-bodypart="body"
             data-nextprevious="previous"
-            onClick={changeBodyPart}
+            onClick={props.changeBodyPart}
             disabled={ratBodyIndex <= 0}
           >
             ^
@@ -90,7 +66,7 @@ function RatDesigner(props) {
           <button
             data-bodypart="head"
             data-nextprevious="next"
-            onClick={changeBodyPart}
+            onClick={props.changeBodyPart}
             disabled={ratHeadIndex >= headArray.length - 1}
           >
             ^
@@ -99,7 +75,7 @@ function RatDesigner(props) {
           <button
             data-bodypart="head"
             data-nextprevious="previous"
-            onClick={changeBodyPart}
+            onClick={props.changeBodyPart}
             disabled={ratHeadIndex <= 0}
           >
             ^
