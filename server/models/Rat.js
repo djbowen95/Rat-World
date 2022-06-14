@@ -5,6 +5,18 @@ const ratSchema = new Schema({
     type: String,
     required: true,
   },
+  headIndex: {
+    type: Number,
+    required: false,
+  },
+  bodyIndex: {
+    type: Number,
+    required: false,
+  },
+  bumIndex: {
+    type: Number,
+    required: false,
+  },
   createdAt: {
     type: Date,
     required: true,
