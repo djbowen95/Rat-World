@@ -1,32 +1,21 @@
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-}
-
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.container {
-  padding: 2px 16px;
-}
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 5px;
-  height: 19rem;
+  height: 23.5rem;
   width: 20rem;
-  align: center;
-}
-.flex {
-  flex-basis: 33.333333%;
+  background-color: rgb(168, 160, 160);
 }
 
 img {
   border-radius: 5px 5px 0 0;
 }
 .baroutline {
-  background-color: grey;
+  background-color: rgb(255, 255, 255);
   border-radius: 13px;
   padding: 3px;
   line-height: 30%;
@@ -35,23 +24,12 @@ img {
   text-align: center;
   padding-bottom: 20px;
 }
-.feed-btn {
-  margin-bottom: 10px;
-}
-.h3 {
+.rat-info {
   text-align: center;
-  padding-bottom: px;
+  align-items: center;
 }
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-
-.progressbar {
-  background-color: purple;
-  width: 30%;
-  height: 10px;
-  border-radius: 10px;
+.title {
+  text-align: center;
+  display: inline-block;
+  margin-left: 490px;
 }
