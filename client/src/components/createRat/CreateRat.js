@@ -32,7 +32,12 @@ const styles = {
 };
 
 const Rat = () => {
-  const [ratFormState, setRatFormState] = useState({ name: "", headIndex: 0, bodyIndex: 0 });
+  const [ratFormState, setRatFormState] = useState({
+    name: "",
+    headIndex: 0,
+    bodyIndex: 0,
+    bumIndex: 0,
+  });
   const [ratInput, setRatInput] = useState("");
 
   let [ratHeadIndex, setRatHead] = useState(0);
@@ -63,8 +68,7 @@ const Rat = () => {
       } else {
         setRatBody((ratBodyIndex -= 1));
       }
-      setRatFormState({ ...ratFormState, bodyIndex: ratBodyIndex })
-
+      setRatFormState({ ...ratFormState, bodyIndex: ratBodyIndex });
     }
     if (e.target.dataset.bodypart === "bum") {
       if (e.target.dataset.nextprevious === "next") {
@@ -72,6 +76,7 @@ const Rat = () => {
       } else {
         setRatBum((ratBumIndex -= 1));
       }
+      setRatFormState({ ...ratFormState, bumIndex: ratBumIndex });
     }
   }
 
@@ -83,10 +88,7 @@ const Rat = () => {
     console.log("Body index: " + ratBodyIndex);
     console.log("Bum index: " + ratBumIndex);
 
-
     console.log("Rat form state: " + ratFormState);
-
-    await setRatFormState({ name: ratInput, headIndex: ratHeadIndex });
 
     try {
       const { data } = await createRat({
