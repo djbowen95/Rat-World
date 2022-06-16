@@ -43,3 +43,12 @@ mutation buyItem($userId: String!, $itemId: String! ) {
   }
 }
 `;
+
+export const ADD_FRIEND= gql`
+mutation AddFriend($userId: String!, $friendId: String!) {
+  addFriend(userID: $userId, friendID: $friendId) {
+    _id
+    email
+  }
+}
+`;

@@ -64,6 +64,15 @@ const QUERY_ITEM = gql`
   }
 `;
 
+const QUERY_USER = gql`
+query Users {
+  users {
+    email
+    _id
+  }
+}
+`;
+
 export {
   QUERY_RATS,
   QUERY_SHOP,
@@ -71,4 +80,5 @@ export {
   QUERY_MONEY,
   QUERY_INVENTORY,
   QUERY_ITEM,
+  QUERY_USER,
 };

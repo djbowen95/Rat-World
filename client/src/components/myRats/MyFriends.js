@@ -1,7 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import LoadFriends from "./LoadFriends";
+import { QUERY_USER } from "../../utils/queries";
+import { useQuery } from "@apollo/client";
 
 const MyFriends = () => {
+  const { loading, data } = useQuery(QUERY_USER);
+
   const styles = {
     flex: {
       textAlign: "center",
@@ -40,6 +44,7 @@ const MyFriends = () => {
       marginLeft: "20px",
     },
   };
+  console.log(data?.users);
 
   const [addFriend, setAddFriend] = useState();
   const addFriendRef = useRef();
