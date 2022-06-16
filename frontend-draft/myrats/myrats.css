@@ -1,68 +1,68 @@
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  border-radius: 5px;
-  height: 23.5rem;
-  width: 20rem;
-  background-color: rgb(168, 160, 160);
+  background-color: #cec9cb;
+  border-radius: 0.5rem;
+  box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45);
+  padding-bottom: 1rem;
 }
-
 img {
-  border-radius: 5px 5px 0 0;
+  width: 100%;
 }
-.baroutline {
-  background-color: rgb(255, 255, 255);
-  border-radius: 13px;
-  padding: 3px;
-  line-height: 30%;
+* {
+  box-sizing: border-box;
 }
-.h2 {
+p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
-  padding-bottom: 20px;
-}
-.rat-info {
-  text-align: center;
-  align-items: center;
-}
-.title {
-  text-align: center;
-  display: inline-block;
-  margin-left: 490px;
-}
-.header {
-  margin-top: 200px;
-  margin-left: 280px;
-}
-.feed-btn {
-  margin-bottom: 10px;
-  display: block;
-  width: 50%;
-  border: none;
-  background-color: rgb(112, 111, 111);
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 10px;
-  margin-top: 10px;
-  color: white;
-  float: left;
-  /* border: purple solid 3px; */
-}
-.feed-btn:hover {
-  color: black;
-  font-weight: 100px;
-  background-color: rgb(110, 8, 97);
 }
 
-.feed-btn:active {
-  background-color: #f2f3f2;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+body {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  line-height: 1.5;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #444;
+  background-color: #e4d4f7;
+}
+
+.card h3 {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.card a {
+  color: inherit;
+}
+
+.card-wrapper {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+  grid-gap: 1.5rem;
+  max-width: 100vw;
+  width: 120ch;
+  /* padding-left: 1rem;
+  padding-right: 1rem; */
+  margin-top: 60px;
+}
+.card-wrapper-2 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+  grid-gap: 1.5rem;
+  max-width: 100vw;
+  width: 120ch;
+  /* padding-left: 1rem;
+  padding-right: 1rem; */
+  margin-top: 40px;
 }
 .work-btn {
   margin-bottom: 10px;
@@ -87,49 +87,68 @@ img {
 .work-btn:hover {
   color: black;
   font-weight: 100px;
-  background-color: rgb(110, 8, 97);
+  background-color: rgb(136, 24, 121);
 }
-.name {
-  text-align: center;
-}
-.center {
+
+.feed-btn {
+  margin-bottom: 0px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
-}
-
-.progressbar {
-  background-color: purple;
-  width: 30%;
-  height: 10px;
-  border-radius: 10px;
-}
-
-.wrapper {
-  display: grid;
-  grid-template-columns: 350px 350px 500px;
-  row-gap: 50px;
-  margin-left: 350px;
-  margin-bottom: 50px;
-}
-.adopt-btn {
-  float: right;
-  display: inline-block;
-  width: 20%;
+  width: 50%;
   border: none;
   background-color: rgb(112, 111, 111);
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 10px;
   margin-top: 10px;
-  margin-right: 50px;
-  font-weight: bold;
+  color: white;
+  float: right;
+}
+.feed-btn:active {
+  background-color: #f2f3f2;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.feed-btn:hover {
+  color: black;
+  font-weight: 100px;
+  background-color: rgb(136, 24, 121);
+}
+.progressbar {
+  background-color: purple;
+  width: 30%;
+  height: 10px;
+  border-radius: 10px;
+}
+.baroutline {
+  background-color: rgb(255, 255, 255);
+  border-radius: 13px;
+  padding: 3px;
+  line-height: 30%;
+}
+
+.adopt-btn {
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: rgb(112, 111, 111);
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 10px;
+  /* margin-top: 10px; */
+  color: white;
 }
 .adopt-btn:active {
   background-color: #f2f3f2;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+.adopt-btn:hover {
+  color: black;
+  font-weight: 100px;
+  background-color: rgb(136, 24, 121);
 }
