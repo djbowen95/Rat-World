@@ -9,7 +9,7 @@ import { fontFamily } from "@mui/system";
 
 const styles = {
   container: {
-    backgroundColor: "#ff5252",
+    backgroundColor: "rgb(231 155 128)",
     borderRadius: "10px",
     padding: "10px",
     boxShadow: "0px 0px 5px black",

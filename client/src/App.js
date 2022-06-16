@@ -17,7 +17,7 @@ import MyFriends from "./components/myRats/MyFriends";
 import Cartoon from "./components/cartoon/Cartoon";
 import Progress from "./components/progress/Progress";
 import LoginContainer from "./components/login/LoginContainer";
-import backgroundImage from "./images/backgrounds/meadow.jpg"
+import backgroundImage from "./images/backgrounds/rat_img.jpeg"
 
 const httpLink = createHttpLink({
   uri: "/graphql",
