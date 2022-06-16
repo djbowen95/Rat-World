@@ -6,6 +6,7 @@ const typeDefs = gql`
         name: String!
         createdAt: String
         fedAt: String
+        lastFed: String
         headIndex: Int
         bodyIndex: Int
         bumIndex: Int

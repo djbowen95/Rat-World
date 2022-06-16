@@ -26,6 +26,11 @@ const TestPage = () => {
     },
   };
 
+  function formatDate (date) {
+    return new Date(date).toLocaleString();
+};
+
+
   // Return rats[index] to return the rat name for the rat with that index.
   return (
     <div>
@@ -35,6 +40,8 @@ const TestPage = () => {
                 <h2>{rat.name}</h2>
                 <li>Image: <img src={bumArray[rat.bumIndex]} style={styles.bum} /><img src={bodyArray[rat.bodyIndex]} style={styles.body} /><img src={headArray[rat.headIndex]} style={styles.head} /> </li>
                 <li>Created at: {rat.createdAt}</li>
+                <li>Fed at: {rat.fedAt}</li>
+                <li>Last fed: {rat.lastFed}</li>
             </div>
         ))}
       <h1>{rats.map((rat) => (<p>{rat.name}</p>))}
