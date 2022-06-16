@@ -19,12 +19,10 @@ const server = new ApolloServer({
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+console.log('node env', process.env.NODE_ENV)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
-
-
-
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
@@ -32,7 +30,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
   server.applyMiddleware({ app });
 
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/"));
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
   });
 
   db.once("open", () => {
