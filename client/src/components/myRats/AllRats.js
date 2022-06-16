@@ -5,10 +5,6 @@ import AddIcon from "@mui/icons-material/Add";
 
 function AllRats() {
   const styles = {
-    container: {
-      width: "80%",
-      backgroundColor: "grey",
-    },
     heading: {
       display: "flex",
       justifyContent: "space-around",
@@ -19,9 +15,10 @@ function AllRats() {
       justifyContent: "space-around",
       alignItems: "center",
     },
+    
   };
   return (
-    <div style={styles.container}>
+    <div className="innerBox">
       <div style={styles.heading}>
         <h2>My Rats</h2>
         <div style={styles.adoptRat}>

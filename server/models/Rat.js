@@ -27,6 +27,10 @@ const ratSchema = new Schema({
     required: true,
     default: Date.now,
   },
+  job: {
+    type: Schema.Types.ObjectId, 
+    ref: "jobs"
+  }
 });
 
 // This virtual didn't work, so Kenny suggested I do this in the resolver instead.
