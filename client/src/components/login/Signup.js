@@ -59,7 +59,8 @@ const Signup = () => {
       const { data } = await register({
         variables: { ...formState },
       });
-      Auth.login(data.addUser.token);
+      Auth.login(data.register.token);
+      window.location.replace("/myrats")
     } catch (e) {
       console.error(e);
     }
