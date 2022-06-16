@@ -18,7 +18,7 @@ function MyRats() {
     aside: {
       width: "18%",
       padding: "10px",
-      backgroundColor: "#ff5252",
+      backgroundColor: "#e59274",
       borderRadius: "10px",
       boxShadow: "0px 0px 5px black inset",
     },
@@ -26,7 +26,7 @@ function MyRats() {
       width: "75%",
       backgroundColor: "whitesmoke",
       borderRadius: "20px",
-      border: "5px solid #ff5252",
+      border: "5px solid #e9b699",
       boxShadow: "0px 0px 10px black inset"
     },
     list: {
