@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_RATS } from "../../utils/queries";
+import { bumArray, headArray, bodyArray } from "../../images/ratParts"
 
 const TestPage = () => {
   const { loading, data } = useQuery(QUERY_RATS);
@@ -13,7 +14,7 @@ const TestPage = () => {
         {rats.map((rat) => (
             <div>
                 <h2>{rat.name}</h2>
-                <li>Image: {rat.headIndex} {rat.bodyIndex} {rat.bumIndex} </li>
+                <li>Image: <img src={bumArray[rat.bumIndex]} /> {rat.bodyIndex} {rat.headIndex} </li>
                 <li>Created at: {rat.createdAt}</li>
             </div>
         ))}
