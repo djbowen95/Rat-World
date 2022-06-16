@@ -4,20 +4,12 @@
     color: #fff;
   }
   
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0px;
-    font-family: "segoe ui";
-  }
-  
   .nav {
-    height: 70px;
     width: 100%;
-    background-color: #444444;
-    position: relative;
+    background-color: #ff5252;
+    opacity: 0.9;
+    box-shadow: 0px 0px 10px black;
+    position: fixed;
   }
   
   .nav > .nav-header {
@@ -29,6 +21,7 @@
     display: inline-block;
     font-size: 22px;
     color: #efefef;
+    text-shadow: 2px 2px 0px black;
     font-weight: bold;
     padding: 10px 10px 10px 10px;
     font-family: "Montserrat", sans-serif;
@@ -50,6 +43,7 @@
     padding: 13px 10px 13px 20px;
     text-decoration: none;
     color: #efefef;
+    transition: 0.5s all;
   }
   
   .nav > .nav-links > a:hover {

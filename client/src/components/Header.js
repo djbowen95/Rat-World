@@ -1,7 +1,14 @@
+import { style } from "@mui/system";
 import React from "react";
 import { Link } from "react-router-dom";
 
 import Auth from "../utils/Auth";
+
+const styles = {
+  navButton: {
+    width: "60px"
+  }
+}
 
 const Header = () => {
     const logout = (e) => {
@@ -26,7 +33,7 @@ const Header = () => {
             <a href="/">Home</a>
             <a href="/myrats">My Rats</a>
             <a href="/myfriends">My Friends</a>
-            <button onClick={logout} className="btn btn-secondary m=1">Logout</button>
+            <button onClick={logout} style={styles.navButton} className="btn btn-secondary m=1">Logout</button>
           </div>          
           ) : (
           <div class="nav-links">

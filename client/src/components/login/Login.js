@@ -1,77 +1,45 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-
 import { LOGIN_USER } from "../../utils/mutations";
 
 import Auth from "../../utils/Auth";
+import { margin } from "@mui/system";
+import { fontFamily } from "@mui/system";
 
 const styles = {
-  body: {
-    width: "350px",
-    height: "500px",
-    background: "grey",
-    overflow: "hidden",
+  container: {
+    backgroundColor: "#ff5252",
     borderRadius: "10px",
-    boxShadow: "5px 20px 50px #000",
+    padding: "10px",
+    boxShadow: "0px 0px 5px black",
+    margin: "10px",
+    width: "40%",
   },
-  login: {
-    height: "460px",
-    background: "rgb(250, 250, 250)",
-    borderRadius: "60% / 30%",
-    display: "inline-block",
-    width: "350px",
-    border: "black",
-    padding: "50px",
-    margin: "20px",
-  },
-  label: {
-    color: "#573b8a",
-    fontSize: "2.3em",
-    justifyContent: "center",
+  form: {
     display: "flex",
-    margin: "60px",
-    fontWeight: "bold",
-    cursor: "pointer",
-    transition: "0.5s ease-in-out",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    height: "100%"
   },
   input: {
-    width: "60%",
-    height: "20px",
-    background: "#e0dede",
-    justifyContent: "center",
-    display: "flex",
-    margin: "20px auto",
-    padding: "10px",
-    border: "none",
-    outline: "none",
-    borderRadius: "5px",
+    backgroundColor: "#9effcf",
+    padding: "8px",
+    margin: "1px",
+    borderRadius: "5px"
   },
-  button: {
-    width: "60%",
-    height: "40px",
-    margin: "10px auto",
-    justifyContent: "center",
-    display: "block",
-    color: "#fff",
-    background: "#573b8a",
-    fontSize: "1em",
-    fontWeight: "bold",
-    marginTop: "20px",
-    outline: "none",
-    border: "none",
-    borderRadius: "5px",
-    transition: "0.2s ease-in",
-    cursor: "pointer",
-  },
+  title: {
+    color: 'white',
+    textShadow: '2px 2px 0px black',
+    margin: "5px",
+    textDecoration: "underline"
+  }
 };
 
 //Login
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
-
-  console.log(Auth.getProfile());
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -85,7 +53,6 @@ const Login = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
     try {
       const { data } = await login({
         variables: { ...formState },
@@ -93,6 +60,7 @@ const Login = (props) => {
       console.log("success");
       Auth.login(data.login.token);
       Auth.getProfile();
+      window.location.replace("/myrats")
     } catch (e) {
       console.error(e);
     }
@@ -104,48 +72,34 @@ const Login = (props) => {
     });
   };
   return (
-      <div>
-        {data ? (
-          <p>
-            Success! You may now head{" "}
-            <Link to="/myrats">back to the homepage.</Link>
-          </p>
-        ) : (
-          <div style={styles.login}>
-            <form onSubmit={handleFormSubmit} style={styles.form}>
-              <h2 style={styles.label} aria-hidden="true">
-                Login
-              </h2>
-              <input
-                style={styles.input}
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formState.email}
-                onChange={handleChange}
-                required=""
-              />
-              <input
-                style={styles.input}
-                type="password"
-                name="password"
-                placeholder="******"
-                value={formState.password}
-                onChange={handleChange}
-                required=""
-              />
-              <button style={styles.button} type="submit">
-                Login
-              </button>
-            </form>
-            <a href="/signup">Register Here</a>
-          </div>
-        )}
-
-        {error && (
-          <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
-        )}
-      </div>
+    <div style={styles.container}>
+      <form onSubmit={handleFormSubmit} style={styles.form}>
+        <h2 style={styles.title} aria-hidden="true">
+          Login
+        </h2>
+        <input
+          style={styles.input}
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          value={formState.email}
+          onChange={handleChange}
+        />
+        <input
+          style={styles.input}
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formState.password}
+          onChange={handleChange}
+        />
+        <button type="submit">Login</button>
+      </form>
+      {error && (
+        <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+      )}
+    </div>
   );
 };
 export default Login;

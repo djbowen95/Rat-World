@@ -2,7 +2,7 @@ import React from "react";
 import Auth from "../../utils/Auth";
 import { useMutation } from "@apollo/client";
 import { BUY_ITEM } from "../../utils/mutations";
-import { padding } from "@mui/system";
+import $ from "jquery"
 
 function ShopCard({id, itemName, image, description, price }) {
   const styles = {
@@ -27,6 +27,8 @@ function ShopCard({id, itemName, image, description, price }) {
 
   async function buyItemHandler(e){
     const itemId = e.target.dataset.id
+    $(e.target).css('display', 'none')
+    setTimeout(()=>$($(e.target).css('display', 'block')), 1000)
     const userId = Auth.getProfile().data._id
     try {
       const {data} = await buyItem({
