@@ -7,6 +7,25 @@ const TestPage = () => {
   const { loading, data } = useQuery(QUERY_RATS);
   const rats = data?.rats || [];
 
+  const styles = {
+    container: {
+      display: "flex",
+    },
+    head: {
+      width: "45px",
+    },
+    body: {
+      width: "60px",
+    },
+    bum: {
+      width: "75px",
+    },
+    controller: {
+      display: "flex",
+      flexDirection: "column",
+    },
+  };
+
   // Return rats[index] to return the rat name for the rat with that index.
   return (
     <div>
@@ -14,7 +33,7 @@ const TestPage = () => {
         {rats.map((rat) => (
             <div>
                 <h2>{rat.name}</h2>
-                <li>Image: <img src={bumArray[rat.bumIndex]} /><img src={bodyArray[rat.bodyIndex]} /><img src={headArray[rat.headIndex]} /> </li>
+                <li>Image: <img src={bumArray[rat.bumIndex]} style={styles.bum} /><img src={bodyArray[rat.bodyIndex]} style={styles.body} /><img src={headArray[rat.headIndex]} style={styles.head} /> </li>
                 <li>Created at: {rat.createdAt}</li>
             </div>
         ))}
