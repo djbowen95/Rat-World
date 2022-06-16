@@ -4,38 +4,54 @@ import Shop from "./Shop";
 import Jobs from "./Jobs";
 import Cemetery from "./Cemetery";
 import MyFriends from "./MyFriends";
-import Auth from '../../utils/Auth';
+import Auth from "../../utils/Auth";
 import Inventory from "../inventory/Inventory";
-import $ from "jquery"
+import $ from "jquery";
+import { borderRadius } from "@mui/system";
 
 function MyRats() {
   const styles = {
     section: {
       display: "flex",
+      justifyContent: "space-around"
     },
     aside: {
-      width: "20%",
+      width: "18%",
+      padding: "10px",
+      backgroundColor: "#ff5252",
+      borderRadius: "10px",
+      boxShadow: "0px 0px 5px black inset",
     },
     mainArea: {
-      width: "80%"
-    }
+      width: "75%",
+      backgroundColor: "whitesmoke",
+      borderRadius: "20px",
+      border: "5px solid #ff5252",
+      boxShadow: "0px 0px 10px black inset"
+    },
+    list: {
+      listStyleType: "none",
+      margin: "0px",
+      padding: "0px",
+      padding: "10px",
+    },
   };
-  const username = Auth.getProfile().data.name
+  const username = Auth.getProfile().data.name;
   const [sideMenuChoice, setMenuChoice] = useState("allRats");
-  const [showInventory, setShowInventory] = useState(false)
+  const [showInventory, setShowInventory] = useState(false);
 
   function renderMenuChoice() {
     switch (sideMenuChoice) {
-      case 'allRats':
-        return <AllRats/>;
-      case 'shop':
-        return <Shop/>;
-      case 'jobs':
-        return <Jobs/>;
-      case 'cemetery':
-        return <Cemetery/>
-        case 'myFriends':
-          return <MyFriends/>
+      case "allRats":
+        return <AllRats />;
+      case "shop":
+        return <Shop />;
+      case "jobs":
+        return <Jobs />;
+      case "cemetery":
+        return <Cemetery />;
+      case "myFriends":
+        return <MyFriends />;
     }
   }
 
@@ -43,33 +59,36 @@ function MyRats() {
     setMenuChoice(e.target.dataset.page);
   }
 
-  function inventoryToggle(e){
+  function inventoryToggle(e) {
     if (showInventory) {
-      setShowInventory(false)
-      $('#viewInvButton').text("View Inventory")
-    }
-    else {
-      setShowInventory(true)
-      $('#viewInvButton').text("Hide Inventory")
+      setShowInventory(false);
+      $("#viewInvButton").text("View Inventory");
+    } else {
+      setShowInventory(true);
+      $("#viewInvButton").text("Hide Inventory");
     }
   }
 
-  function inventoryView(){
+  function inventoryView() {
     if (!showInventory) {
-      return
+      return;
+    } else {
+      return <Inventory inventoryToggle={inventoryToggle} />;
     }
-    else {return <Inventory inventoryToggle={inventoryToggle}/>}
   }
 
   return (
     <section style={styles.section}>
-      <aside style={styles.aside}>
+      <aside className="boxStyle" style={styles.aside}>
         <div>
-          <h2>{username}</h2>
-          <button id="viewInvButton" onClick={inventoryToggle}>View Inventory</button>
+          <h2 className="textStyle">{username}'s Rat Hub</h2>
         </div>
-        <ul>
-
+        <ul style={styles.list}>
+          <li>
+            <button id="viewInvButton" onClick={inventoryToggle}>
+              View Inventory
+            </button>
+          </li>
           <li data-page="allRats" onClick={sideMenuSelection}>
             <button data-page="allRats">My Rats</button>
           </li>
@@ -79,13 +98,15 @@ function MyRats() {
           <li data-page="jobs" onClick={sideMenuSelection}>
             <button data-page="jobs">Jobs</button>
           </li>
-          <li data-page='cemetery' onClick={sideMenuSelection}><button data-page='cemetery'>Cemetery</button></li>
-          <li data-page='myFriends' onClick={sideMenuSelection}><button data-page='myFriends'>My Friends</button></li>
+          <li data-page="cemetery" onClick={sideMenuSelection}>
+            <button data-page="cemetery">Cemetery</button>
+          </li>
+          <li data-page="myFriends" onClick={sideMenuSelection}>
+            <button data-page="myFriends">My Friends</button>
+          </li>
         </ul>
       </aside>
-      <div style={styles.mainArea}>
-        {renderMenuChoice()}
-      </div>
+      <div style={styles.mainArea}>{renderMenuChoice()}</div>
       {inventoryView()}
     </section>
   );

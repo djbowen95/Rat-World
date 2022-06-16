@@ -72,6 +72,17 @@ query Users {
   }
 }
 `;
+const QUERY_RATNAMES = gql`
+  query {
+    rats {
+      _id
+      name
+      job {
+        _id
+      }
+    }
+  }
+`;
 
 export {
   QUERY_RATS,
@@ -81,4 +92,5 @@ export {
   QUERY_INVENTORY,
   QUERY_ITEM,
   QUERY_USER,
+  QUERY_RATNAMES,
 };
