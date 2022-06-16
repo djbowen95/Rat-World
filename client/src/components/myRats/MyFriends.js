@@ -5,6 +5,20 @@ import { useQuery } from "@apollo/client";
 
 const MyFriends = () => {
   const { loading, data } = useQuery(QUERY_USER);
+  const [inputText, setInputText] = useState("");
+
+  console.log(data?.users);
+  let inputHandler = (e) => {
+    //convert input text to lower case
+    var lowerCase = e.target.value.toLowerCase();
+    console.log(lowerCase)
+    setInputText(lowerCase);
+  }; 
+
+  function handleSearch(e) {
+    console.log(e);
+    setInputText(e);
+  }
 
   const styles = {
     flex: {
@@ -44,19 +58,6 @@ const MyFriends = () => {
       marginLeft: "20px",
     },
   };
-  console.log(data?.users);
-
-  const [addFriend, setAddFriend] = useState();
-  const addFriendRef = useRef();
-
-  useEffect(() => {}, []);
-
-  function handleAddFriend(e) {
-    const name = addFriendRef.current.value;
-    if (name === "") return;
-    addFriendRef.current.value = null;
-    console.log(name);
-  }
 
   return (
     <div style={styles.flex}>
@@ -70,16 +71,36 @@ const MyFriends = () => {
         <div className="add-friend-card" style={styles.addFriend}>
           <img style={styles.friendImage} src="" alt="" />
           <div style={styles.inputBtn}>
-            <input
+            <input 
+              value={inputText}
+              onChange={inputHandler}
               style={styles.input}
-              ref={addFriendRef}
               type="text"
               className="input"
               placeholder="Enter email address..."
             ></input>
-            <button onClick={handleAddFriend} style={styles.btn}>
-              Submit
+            <button onClick={()=>handleSearch(inputText)} style={styles.btn}>
+              Search
             </button>
+          </div>
+          <div className="dropdownEmail">
+            { data?.users.filter( item => {
+              const searchUser = inputText.toLowerCase();
+              const userEmail = item.email.toLowerCase();
+
+              return searchUser && userEmail.startsWith(searchUser) && userEmail != searchUser
+            })
+              .slice(0,10)
+              .map((item) => (
+                <div 
+                onClick = {() => handleSearch(item.email)} 
+                className="dropdownRow"
+                key={item.email}
+                >
+                  {item.email}
+                </div>
+              ))
+            }
           </div>
         </div>
       </section>
