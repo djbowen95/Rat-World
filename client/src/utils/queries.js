@@ -6,6 +6,9 @@ export const QUERY_RATS = gql`
       _id
       name
       createdAt
+      headIndex
+      bodyIndex
+      bumIndex
     }
   }
 `;

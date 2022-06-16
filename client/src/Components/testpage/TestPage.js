@@ -13,7 +13,7 @@ const TestPage = () => {
         {rats.map((rat) => (
             <div>
                 <h2>{rat.name}</h2>
-                <li>Image here.</li>
+                <li>Image: {rat.headIndex} {rat.bodyIndex} {rat.bumIndex} </li>
                 <li>Created at: {rat.createdAt}</li>
             </div>
         ))}
