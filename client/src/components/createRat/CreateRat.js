@@ -32,7 +32,7 @@ const styles = {
 };
 
 const Rat = () => {
-  const [ratFormState, setRatFormState] = useState({ name: "" });
+  const [ratFormState, setRatFormState] = useState({ name: "", headIndex: 0, bodyIndex: 0 });
   const [ratInput, setRatInput] = useState("");
 
   let [ratHeadIndex, setRatHead] = useState(0);
@@ -43,8 +43,9 @@ const Rat = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setRatFormState({ name: value });
+    setRatFormState({ ...ratFormState, name: value });
     setRatInput(value);
+    // Not sure why console log of 'ratInput' here puts the previous value.
   };
 
   function changeBodyPart(e) {
@@ -54,6 +55,7 @@ const Rat = () => {
       } else {
         setRatHead((ratHeadIndex -= 1));
       }
+      setRatFormState({ ...ratFormState, headIndex: ratHeadIndex });
     }
     if (e.target.dataset.bodypart === "body") {
       if (e.target.dataset.nextprevious === "next") {
@@ -61,6 +63,8 @@ const Rat = () => {
       } else {
         setRatBody((ratBodyIndex -= 1));
       }
+      setRatFormState({ ...ratFormState, bodyIndex: ratBodyIndex })
+
     }
     if (e.target.dataset.bodypart === "bum") {
       if (e.target.dataset.nextprevious === "next") {
@@ -74,9 +78,15 @@ const Rat = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    console.log("Rat name input: " + ratInput);
     console.log("Head index: " + ratHeadIndex);
     console.log("Body index: " + ratBodyIndex);
     console.log("Bum index: " + ratBumIndex);
+
+
+    console.log("Rat form state: " + ratFormState);
+
+    await setRatFormState({ name: ratInput, headIndex: ratHeadIndex });
 
     try {
       const { data } = await createRat({

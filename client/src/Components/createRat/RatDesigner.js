@@ -33,7 +33,7 @@ function RatDesigner(props) {
           >
             ^
           </button>
-          <img style={styles.bum} data-bumIndex={props.ratBumIndex} src={bumArray[props.ratBumIndex]} id="ratBumImage" />
+          <img style={styles.bum} src={bumArray[props.ratBumIndex]} id="ratBumImage" />
           <button
             data-bodypart="bum"
             data-nextprevious="previous"
