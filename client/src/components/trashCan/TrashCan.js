@@ -1,6 +1,6 @@
 import React from "react";
-import './cartoon.css';
-import { Button } from 'react-bootstrap';
+import './trashcan.css';
+// import { Button } from 'react-bootstrap';
 import cartoon from "../../images/cartoons/cartoon.png";
 
 function Cartoon() {

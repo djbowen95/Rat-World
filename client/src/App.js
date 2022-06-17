@@ -10,13 +10,12 @@ import { setContext } from "@apollo/client/link/context";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MyRats from "./components/myRats/MyRats";
-import RatDesigner from "./components/createRat/RatDesigner";
-import Signup from "./components/login/Signup";
+import Signup from "./components/login/Signup"; // This should be deleted.
 import Cemetery from "./components/myRats/Cemetery";
 import MyFriends from "./components/myRats/MyFriends";
 import TestPage from "./components/testpage/TestPage";
-import Cartoon from "./components/cartoon/Cartoon";
-import Progress from "./components/progress/Progress";
+import TrashCan from "./components/trashCan/TrashCan";
+import Progress from "./components/progress/Progress"; // This one should be deleted
 import LoginContainer from "./components/login/LoginContainer";
 import backgroundImage from "./images/backgrounds/rat_img.jpeg"
 import CreateRat from "./components/createRat/CreateRat"
@@ -55,15 +54,14 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<LoginContainer />} />
-          <Route path="/signup" element={<Signup/>} /> 
+          <Route path="/signup" element={<Signup/>} />
           <Route path="/myrats" element={<MyRats />} />
-          <Route path="/ratdesigner" element={<RatDesigner />} />
           <Route path="/createrat" element={<CreateRat/>} />
           <Route path="/testpage" element={<TestPage/>} />
           <Route path="/cemetery" element={<Cemetery />} />
           <Route path="/myfriends" element={<MyFriends />} />
           <Route path="/progress" element={<Progress />} />
-          <Route path="/cartoon" element={<Cartoon />} />
+          <Route path="/trashcan" element={<TrashCan />} />
         </Routes>
         <Footer />
       </Router>
