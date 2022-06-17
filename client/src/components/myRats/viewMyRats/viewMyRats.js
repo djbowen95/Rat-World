@@ -1,4 +1,8 @@
 import React from "react";
+
+import { useQuery } from "@apollo/client";
+import { QUERY_RATS } from "../../../utils/queries";
+
 import RatCard from "./ratCards";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
@@ -15,8 +19,11 @@ function AllRats() {
       justifyContent: "space-around",
       alignItems: "center",
     },
-    
   };
+
+  const { loading, data } = useQuery(QUERY_RATS);
+  const rats = data?.rats || [];
+  
   return (
     <div className="innerBox">
       <div style={styles.heading}>
