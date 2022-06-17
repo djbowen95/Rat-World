@@ -2,7 +2,7 @@
 // This defines the side bar and then routes to all of the pages within the 'My Rats' umbrella.
 
 import React, { useState } from "react";
-import AllRats from "./AllRats";
+import ViewMyRats from "./viewMyRats/AllRats";
 import CreateRat from "./createRat/CreateRat";
 import Shop from "./Shop";
 import Jobs from "./Jobs";
@@ -42,13 +42,13 @@ function MyRats() {
     },
   };
   const username = Auth.getProfile().data.name;
-  const [sideMenuChoice, setMenuChoice] = useState("allRats");
+  const [sideMenuChoice, setMenuChoice] = useState("viewMyRats");
   const [showInventory, setShowInventory] = useState(false);
 
   function renderMenuChoice() {
     switch (sideMenuChoice) {
-      case "allRats":
-        return <AllRats />;
+      case "viewMyRats":
+        return <ViewMyRats />;
       case "createRat":
         return <CreateRat />;
       case "shop":
@@ -98,8 +98,8 @@ function MyRats() {
               View Inventory
             </button>
           </li>
-          <li data-page="allRats" onClick={sideMenuSelection}>
-            <button data-page="allRats">My Rats</button>
+          <li data-page="viewMyRats" onClick={sideMenuSelection}>
+            <button data-page="viewMyRats">My Rats</button>
           </li>
           <li data-page="createRat" onClick={sideMenuSelection}>
             <button data-page="createRat">Adopt a Rat</button>

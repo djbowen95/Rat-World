@@ -11,7 +11,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MyRats from "./components/myRats/MyRats";
 import Signup from "./components/login/Signup"; // This should be deleted.
-import Cemetery from "./components/myRats/Cemetery";
 import MyFriends from "./components/myRats/MyFriends";
 import Progress from "./components/progress/Progress"; // This one should be deleted
 import LoginContainer from "./components/login/LoginContainer";
@@ -57,7 +56,6 @@ function App() {
           <Route path="/" element={<LoginContainer />} />
           <Route path="/signup" element={<Signup/>} />
           <Route path="/myrats" element={<MyRats />} />
-          <Route path="/cemetery" element={<Cemetery />} />
           <Route path="/myfriends" element={<MyFriends />} />
           <Route path="/progress" element={<Progress />} />
         </Routes>

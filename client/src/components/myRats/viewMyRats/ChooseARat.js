@@ -1,5 +1,5 @@
 import React from "react";
-import RatCards from "../ratCards/RatCards";
+// import RatCards from "../ratCards/RatCards";
 
 const ChooseARat = () => {
   const cards = [
@@ -15,9 +15,9 @@ const ChooseARat = () => {
 
   return (
     <div>
-      <RatCards cards = {cards} />
+      
     </div>
   );
 };
-
+//<RatCards cards = {cards} />
 export default ChooseARat;
