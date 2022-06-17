@@ -1,15 +1,21 @@
+/* This is not being used - but kept because we might want to use the button CSS? */
 .card {
   background-color: #cec9cb;
   border-radius: 0.5rem;
   box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45);
   padding-bottom: 1rem;
 }
+
+
+
 img {
   width: 100%;
 }
+
 * {
   box-sizing: border-box;
 }
+
 p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
@@ -64,6 +70,8 @@ body {
   padding-right: 1rem; */
   margin-top: 40px;
 }
+
+/* Skipped buttons for now */ 
 .work-btn {
   margin-bottom: 10px;
   display: block;
@@ -115,6 +123,8 @@ body {
   font-weight: 100px;
   background-color: rgb(136, 24, 121);
 }
+
+
 .progressbar {
   background-color: purple;
   width: 30%;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { headArray, bodyArray, bumArray } from "../../images/ratParts";
+import { headArray, bodyArray, bumArray } from "../../../images/ratParts";
 
 function RatDesigner(props) {
   const styles = {

@@ -1,3 +1,5 @@
+// This should be in a Friends directory, not under rat cards. 
+
 import React, { useState } from "react";
 
 const FriendCards = (props) => {

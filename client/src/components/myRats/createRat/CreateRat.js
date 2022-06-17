@@ -3,7 +3,7 @@ import RatDesigner from "./RatDesigner";
 import { useState } from "react";
 
 import { useMutation } from "@apollo/client";
-import { CREATE_RAT } from "../../utils/mutations";
+import { CREATE_RAT } from "../../../utils/mutations";
 
 const styles = {
   title: {
@@ -31,7 +31,7 @@ const styles = {
   },
 };
 
-const Rat = () => {
+const CreateRat = () => {
   const [ratFormState, setRatFormState] = useState({
     name: "",
     headIndex: 0,
@@ -140,4 +140,4 @@ const Rat = () => {
   );
 };
 
-export default Rat;
+export default CreateRat;
