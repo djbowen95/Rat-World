@@ -31,7 +31,7 @@ const styles = {
   },
 };
 
-const Rat = () => {
+const CreateRat = () => {
   const [ratFormState, setRatFormState] = useState({
     name: "",
     headIndex: 0,
@@ -140,4 +140,4 @@ const Rat = () => {
   );
 };
 
-export default Rat;
+export default CreateRat;

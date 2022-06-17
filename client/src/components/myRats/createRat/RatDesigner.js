@@ -3,9 +3,6 @@ import { headArray, bodyArray, bumArray } from "../../../images/ratParts";
 
 function RatDesigner(props) {
   const styles = {
-    mainContainer: {
-      margin: "auto",
-    },
     container: {
       display: "flex",
     },
@@ -25,7 +22,7 @@ function RatDesigner(props) {
   };
 
   return (
-    <div style ={styles.mainContainer}>
+    <div>
       <div style={styles.container}>
         <div style={styles.controller}>
           <button
