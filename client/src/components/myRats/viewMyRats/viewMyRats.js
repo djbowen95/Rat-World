@@ -4,29 +4,23 @@ import { useQuery } from "@apollo/client";
 import { QUERY_RATS } from "../../../utils/queries";
 
 import RatCard from "./ratCards";
+import styles from "./viewMyRatsStyles";
 
 function ViewMyRats() {
-  const styles = {
-    heading: {
-      display: "flex",
-      justifyContent: "space-around",
-      alignItems: "center",
-    },
 
-  };
 
   const { loading, data } = useQuery(QUERY_RATS);
   const rats = data?.rats || [];
 
   return (
-    <div>
-    <header class="header">
+    <div style={styles.all}>
+    <header class="header" style={styles.heading}>
       <h1 class="title">My Rats</h1>
-      <button class="adopt-btn">+ Adopt a rat</button>
+      <button class="adopt-btn">+ Adopt a Rat</button>
     </header>
 
-    <ul class="card-wrapper">
-      <div>{rats.map((rat) => (<RatCard rat={rat}/>))}</div>
+    <ul style={styles.cardWrapper}>
+      {rats.map((rat) => (<RatCard rat={rat}/>))}
       </ul>
     </div>
   );
