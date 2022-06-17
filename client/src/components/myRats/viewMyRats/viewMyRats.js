@@ -7,7 +7,7 @@ import RatCard from "./ratCards";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 
-function AllRats() {
+function ViewMyRats() {
   const styles = {
     heading: {
       display: "flex",
@@ -23,7 +23,7 @@ function AllRats() {
 
   const { loading, data } = useQuery(QUERY_RATS);
   const rats = data?.rats || [];
-  
+
   return (
     <div className="innerBox">
       <div style={styles.heading}>
@@ -40,11 +40,16 @@ function AllRats() {
           </Fab>
         </div>
       </div>
-      <RatCard />
-      <RatCard />
-      <RatCard />
+      <div>{rats.map((rat) => (<RatCard rat={rat}/>))}</div>
     </div>
   );
 }
 
-export default AllRats;
+// {inventory?.map((item, index) => (
+//   <div style={styles.item} key={index}>
+//     <div>{item.itemName}</div>
+//     <div title={item.description}><img style={styles.img} src={getImage(item.image)}/></div>
+//   </div>
+// ))}
+
+export default ViewMyRats;

@@ -7,7 +7,6 @@ const QUERY_RATS = gql`
       name
       createdAt
       fedAt
-      lastFed
       headIndex
       bodyIndex
       bumIndex

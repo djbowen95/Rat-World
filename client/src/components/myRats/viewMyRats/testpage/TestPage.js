@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_RATS } from "../../utils/queries";
-import { bumArray, headArray, bodyArray } from "../../images/ratParts"
+import { QUERY_RATS } from "../../../../utils/queries";
+import { bumArray, headArray, bodyArray } from "../../../../images/ratParts";
 
 const TestPage = () => {
   const { loading, data } = useQuery(QUERY_RATS);
