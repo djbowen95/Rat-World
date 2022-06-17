@@ -1,17 +1,18 @@
 const { Rat, User, ShopItem, Jobs } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
+const moment = require("moment")
 
-// const populateLastFedOnRat = rat => {
-//   rat.lastFed = "Test";
-//   return rat;
-// }
-// .populate("job").map(populateLastFedOnRat);
+
+const populateLastFedOnRat = (rat) => {
+  rat.lastFed = "Test";
+  return rat;
+};
 
 const resolvers = {
   Query: {
     rats: async () => {
-      return Rat.find({});
+      return Rat.find({}).populate("job");
     },
     users: async () => {
       return User.find().populate("inventory");
@@ -71,10 +72,10 @@ const resolvers = {
       return;
     },
     createRat: async (parent, { name, headIndex, bodyIndex, bumIndex }) => {
-      const newRat = await Rat.create({ name, headIndex, bodyIndex, bumIndex }); 
+      const newRat = await Rat.create({ name, headIndex, bodyIndex, bumIndex });
       return newRat;
     },
-  
+
     createShopItem: async (parent, { itemName, image, description, price }) => {
       const newItem = await ShopItem.create({
         itemName,
@@ -110,8 +111,26 @@ const resolvers = {
     applyForJob: async (parent, { ratId, jobId }) => {
       const rat = await Rat.findById(ratId);
       rat.job = jobId;
-      await rat.save()
-      return rat
+      await rat.save();
+      return rat;
+    },
+
+    attendWork: async (parent, { ratId, userId }) => {
+      const rat = await Rat.findById(ratId);
+      const user = await User.findById(userId);
+      const job = await Jobs.findById(rat.job._id)
+      try {
+      if (rat.attendedWork){
+        if (Date.now() < rat.attendedWork.getTime() + 86400000 ) {
+          return rat
+        }
+      }
+      rat.attendedWork = Date.now();
+      user.money += job.wages;
+      await rat.save();
+      await user.save();
+      return rat;
+      } catch (err) {console.log(err)}
     },
   },
 };
