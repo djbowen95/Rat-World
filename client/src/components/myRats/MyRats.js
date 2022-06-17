@@ -1,8 +1,13 @@
+// This file is the CONTAINER file, rather than the VIEW MY RATS page.
+// This defines the side bar and then routes to all of the pages within the 'My Rats' umbrella.
+
+
 import React, { useState } from "react";
 import AllRats from "./AllRats";
 import Shop from "./Shop";
 import Jobs from "./Jobs";
 import Cemetery from "./Cemetery";
+import TrashCan from "./trashCan/TrashCan"
 import MyFriends from "./MyFriends";
 import Auth from "../../utils/Auth";
 import Inventory from "../inventory/Inventory";
@@ -52,6 +57,8 @@ function MyRats() {
         return <Cemetery />;
       case "myFriends":
         return <MyFriends />;
+      case "trashCan":
+        return <TrashCan />
     }
   }
 
@@ -103,6 +110,9 @@ function MyRats() {
           </li>
           <li data-page="myFriends" onClick={sideMenuSelection}>
             <button data-page="myFriends">My Friends</button>
+          </li>
+          <li data-page="trashCan" onClick={sideMenuSelection}>
+            <button data-page="trashCan">Trash Can</button>
           </li>
         </ul>
       </aside>

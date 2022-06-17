@@ -9,12 +9,11 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import MyRats from "./components/myRats/MyRats";
+import MyRats from "./components/MyRats/MyRats";
 import Signup from "./components/login/Signup"; // This should be deleted.
-import Cemetery from "./components/myRats/Cemetery";
-import MyFriends from "./components/myRats/MyFriends";
+import Cemetery from "./components/MyRats/Cemetery";
+import MyFriends from "./components/MyRats/MyFriends";
 import TestPage from "./components/testpage/TestPage";
-import TrashCan from "./components/trashCan/TrashCan";
 import Progress from "./components/progress/Progress"; // This one should be deleted
 import LoginContainer from "./components/login/LoginContainer";
 import backgroundImage from "./images/backgrounds/rat_img.jpeg"
@@ -46,6 +45,10 @@ const styles = {
   backgroundSize: "cover"
 }
 
+// NOTE BEFORE ROUTING: If you want your page to appear in the main container
+// Do not add your page here. Add it in the 'MyRats' page.
+// Otherwise there will be no side bar / universal formatting. 
+
 function App() {
   return (
     <main style={styles}>
@@ -61,7 +64,6 @@ function App() {
           <Route path="/cemetery" element={<Cemetery />} />
           <Route path="/myfriends" element={<MyFriends />} />
           <Route path="/progress" element={<Progress />} />
-          <Route path="/trashcan" element={<TrashCan />} />
         </Routes>
         <Footer />
       </Router>

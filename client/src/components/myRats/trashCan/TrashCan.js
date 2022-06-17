@@ -1,7 +1,7 @@
 import React from "react";
 import './trashcan.css';
 // import { Button } from 'react-bootstrap';
-import cartoon from "../../images/cartoons/cartoon.png";
+import cartoon from "../../../images/cartoons/cartoon.png";
 
 function Cartoon() {
     return (
