@@ -9,11 +9,10 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import MyRats from "./components/MyRats/MyRats";
+import MyRats from "./components/myRats/MyRats";
 import Signup from "./components/login/Signup"; // This should be deleted.
-import Cemetery from "./components/MyRats/Cemetery";
-import MyFriends from "./components/MyRats/MyFriends";
-import TestPage from "./components/testpage/TestPage";
+import Cemetery from "./components/myRats/Cemetery";
+import MyFriends from "./components/myRats/MyFriends";
 import Progress from "./components/progress/Progress"; // This one should be deleted
 import LoginContainer from "./components/login/LoginContainer";
 import backgroundImage from "./images/backgrounds/rat_img.jpeg";
@@ -58,7 +57,6 @@ function App() {
           <Route path="/" element={<LoginContainer />} />
           <Route path="/signup" element={<Signup/>} />
           <Route path="/myrats" element={<MyRats />} />
-          <Route path="/testpage" element={<TestPage/>} />
           <Route path="/cemetery" element={<Cemetery />} />
           <Route path="/myfriends" element={<MyFriends />} />
           <Route path="/progress" element={<Progress />} />
