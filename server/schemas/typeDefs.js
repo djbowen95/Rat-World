@@ -11,6 +11,7 @@ const typeDefs = gql`
         bodyIndex: Int
         bumIndex: Int
         job: Jobs
+        attendedWork: String
     }
 
     type User{
@@ -62,6 +63,7 @@ const typeDefs = gql`
         getJob(jobName: String!, image: String!, description: String!, wages: Int! ): Jobs
         buyItem(userID: String!, itemID: String!): User
         applyForJob(ratId: String!, jobId: String!): Rat
+        attendWork(ratId: String!, userId: String!): Rat
     }
 `;
 
