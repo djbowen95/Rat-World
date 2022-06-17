@@ -1,3 +1,4 @@
+/* This is not being used - but kept because we might want to use the button CSS? */
 .card {
   background-color: #cec9cb;
   border-radius: 0.5rem;
@@ -122,6 +123,8 @@ body {
   font-weight: 100px;
   background-color: rgb(136, 24, 121);
 }
+
+
 .progressbar {
   background-color: purple;
   width: 30%;

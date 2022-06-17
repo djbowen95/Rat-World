@@ -17,6 +17,10 @@ function RatCard (props) {
         return;
     };
 
+    function formatDate (date) {
+      return new Date(date).toLocaleString();
+  };
+
     return <div>
         <li style={styles.card}>
         <img src={bumArray[props.rat.bumIndex]} style={styles.ratBum} />

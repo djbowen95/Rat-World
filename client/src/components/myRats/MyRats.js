@@ -7,14 +7,13 @@ import ViewMyRats from "./viewMyRats/viewMyRats";
 import CreateRat from "./createRat/CreateRat";
 import Shop from "./Shop";
 import Jobs from "./Jobs";
-import Cemetery from "./Cemetery";
+import Cemetery from "./cemetery/Cemetery";
 import TrashCan from "./trashCan/TrashCan";
 import MyFriends from "./MyFriends";
 import Auth from "../../utils/Auth";
 import Inventory from "../inventory/Inventory";
-import TestPage from "./viewMyRats/testpage/TestPage";
 import $ from "jquery";
-import { borderRadius } from "@mui/system";
+import { borderRadius } from "@mui/system"; // Delete?
 
 function MyRats() {
   const styles = {
@@ -64,8 +63,6 @@ function MyRats() {
         return <MyFriends />;
       case "trashCan":
         return <TrashCan />;
-      case "testPage":
-        return <TestPage />;
     }
   }
 
@@ -123,9 +120,6 @@ function MyRats() {
           </li>
           <li data-page="trashCan" onClick={sideMenuSelection}>
             <button data-page="trashCan">Trash Can</button>
-          </li>
-          <li data-page="testPage" onClick={sideMenuSelection}>
-            <button data-page="testPage">Test Page</button>
           </li>
         </ul>
       </aside>
