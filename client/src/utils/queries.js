@@ -10,6 +10,12 @@ const QUERY_RATS = gql`
       headIndex
       bodyIndex
       bumIndex
+      attendedWork
+      rattributes
+      mazeSolving
+      speed
+      trapAvoidance
+      magic
     }
   }
 `;
