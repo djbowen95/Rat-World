@@ -12,7 +12,6 @@ import Footer from "./components/Footer";
 import MyRats from "./components/myRats/MyRats";
 import Signup from "./components/login/Signup"; // This should be deleted.
 import MyFriends from "./components/myRats/MyFriends";
-import Progress from "./components/progress/Progress"; // This one should be deleted
 import LoginContainer from "./components/login/LoginContainer";
 import backgroundImage from "./images/backgrounds/rat_img.jpeg";
 
@@ -57,7 +56,6 @@ function App() {
           <Route path="/signup" element={<Signup/>} />
           <Route path="/myrats" element={<MyRats />} />
           <Route path="/myfriends" element={<MyFriends />} />
-          <Route path="/progress" element={<Progress />} />
         </Routes>
         <Footer />
       </Router>

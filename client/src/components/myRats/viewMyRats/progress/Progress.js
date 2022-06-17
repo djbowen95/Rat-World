@@ -1,5 +1,5 @@
 import React from "react";
-import ratimage from "../progress/rat.png";
+import ratimage from "./rat.png";
 const styles = {
   card: {
     boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",

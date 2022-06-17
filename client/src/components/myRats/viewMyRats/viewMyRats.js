@@ -1,5 +1,5 @@
 import React from "react";
-import ChooseARat from "./ChooseARat";
+import RatCard from "./ratCards";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 
@@ -33,7 +33,9 @@ function AllRats() {
           </Fab>
         </div>
       </div>
-      <ChooseARat />
+      <RatCard />
+      <RatCard />
+      <RatCard />
     </div>
   );
 }

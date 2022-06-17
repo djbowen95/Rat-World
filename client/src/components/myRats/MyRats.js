@@ -2,7 +2,7 @@
 // This defines the side bar and then routes to all of the pages within the 'My Rats' umbrella.
 
 import React, { useState } from "react";
-import ViewMyRats from "./viewMyRats/AllRats";
+import ViewMyRats from "./viewMyRats/viewMyRats";
 import CreateRat from "./createRat/CreateRat";
 import Shop from "./Shop";
 import Jobs from "./Jobs";
@@ -99,7 +99,7 @@ function MyRats() {
             </button>
           </li>
           <li data-page="viewMyRats" onClick={sideMenuSelection}>
-            <button data-page="viewMyRats">My Rats</button>
+            <button data-page="viewMyRats">View My Rats</button>
           </li>
           <li data-page="createRat" onClick={sideMenuSelection}>
             <button data-page="createRat">Adopt a Rat</button>
