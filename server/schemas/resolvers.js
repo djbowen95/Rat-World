@@ -2,15 +2,16 @@ const { Rat, User, ShopItem, Jobs } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
-const populateLastFedOnRat = rat => {
-  rat.lastFed = "Test";
-  return rat;
-}
+// const populateLastFedOnRat = rat => {
+//   rat.lastFed = "Test";
+//   return rat;
+// }
+// .populate("job").map(populateLastFedOnRat);
 
 const resolvers = {
   Query: {
     rats: async () => {
-      return Rat.find({}).populate("job").map(populateLastFedOnRat);
+      return Rat.find({});
     },
     users: async () => {
       return User.find().populate("inventory");
