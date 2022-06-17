@@ -19,6 +19,7 @@ import Cartoon from "./components/cartoon/Cartoon";
 import Progress from "./components/progress/Progress";
 import LoginContainer from "./components/login/LoginContainer";
 import backgroundImage from "./images/backgrounds/rat_img.jpeg"
+import CreateRat from "./components/createRat/CreateRat"
 
 const httpLink = createHttpLink({
   uri: "/graphql",
