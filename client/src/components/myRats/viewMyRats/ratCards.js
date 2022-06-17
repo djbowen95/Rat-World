@@ -29,8 +29,14 @@ function RatCard (props) {
         <h3 style={styles.cardHeading}>{props.rat.name}</h3>
         <p style={styles.p}>
           Age: {props.rat.createdAt} <br />
-          Job: [ Developer ] <br />
-          Last Fed: {props.rat.fedAt}
+          Job: [Developer] <br />
+          Last Fed: {props.rat.fedAt} <br />
+          Last Worked: {props.rat.attendedWork} <br />
+          Rattributes: {props.rat.rattributes[0]}, {props.rat.rattributes[1]}, {props.rat.rattributes[2]}, {props.rat.rattributes[3]}, {props.rat.rattributes[4]} <br />
+          Maze-Solving: {props.rat.mazeSolving} <br />
+          Speed: {props.rat.speed} <br/>
+          Trap Avoidance: {props.rat.trapAvoidance} <br />
+          Magic: {props.rat.magic} <br />
         </p>
         <div style={styles.progressBarOutline}>
           <div style={styles.progressBar}></div>
