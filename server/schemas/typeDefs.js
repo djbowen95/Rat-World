@@ -12,6 +12,11 @@ const typeDefs = gql`
         bumIndex: Int
         job: Jobs
         attendedWork: String
+        rattributes: [String]
+        mazeSolving: Int
+        speed: Int
+        trapAvoidance: Int
+        magic: Int
     }
 
     type User{
