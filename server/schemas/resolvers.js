@@ -2,10 +2,15 @@ const { Rat, User, ShopItem, Jobs } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
+const populateLastFedOnRat = rat => {
+  rat.lastFed = "Test";
+  return rat;
+}
+
 const resolvers = {
   Query: {
     rats: async () => {
-      return Rat.find({}).populate("job");
+      return Rat.find({}).populate("job").map(populateLastFedOnRat);
     },
     users: async () => {
       return User.find().populate("inventory");
@@ -69,13 +74,11 @@ const resolvers = {
       );
       return;
     },
-
-    //creating a new rat
-    createRat: async (parent, { name }) => {
-      const rat = await Rat.create({ name });
-      return rat;
+    createRat: async (parent, { name, headIndex, bodyIndex, bumIndex }) => {
+      const newRat = await Rat.create({ name, headIndex, bodyIndex, bumIndex }); 
+      return newRat;
     },
-
+  
     createShopItem: async (parent, { itemName, image, description, price }) => {
       const newItem = await ShopItem.create({
         itemName,

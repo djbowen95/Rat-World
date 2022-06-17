@@ -14,10 +14,12 @@ import RatDesigner from "./components/createRat/RatDesigner";
 import Signup from "./components/login/Signup";
 import Cemetery from "./components/myRats/Cemetery";
 import MyFriends from "./components/myRats/MyFriends";
+import TestPage from "./components/testpage/TestPage";
 import Cartoon from "./components/cartoon/Cartoon";
 import Progress from "./components/progress/Progress";
 import LoginContainer from "./components/login/LoginContainer";
 import backgroundImage from "./images/backgrounds/rat_img.jpeg"
+import CreateRat from "./components/createRat/CreateRat"
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -56,6 +58,8 @@ function App() {
           <Route path="/signup" element={<Signup/>} /> 
           <Route path="/myrats" element={<MyRats />} />
           <Route path="/ratdesigner" element={<RatDesigner />} />
+          <Route path="/createrat" element={<CreateRat/>} />
+          <Route path="/testpage" element={<TestPage/>} />
           <Route path="/cemetery" element={<Cemetery />} />
           <Route path="/myfriends" element={<MyFriends />} />
           <Route path="/progress" element={<Progress />} />

@@ -6,6 +6,11 @@ const QUERY_RATS = gql`
       _id
       name
       createdAt
+      fedAt
+      lastFed
+      headIndex
+      bodyIndex
+      bumIndex
     }
   }
 `;
