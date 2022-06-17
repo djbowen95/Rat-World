@@ -19,9 +19,9 @@ function RatCard (props) {
 
     return <div>
         <li style={styles.card}>
-        <img src={bumArray[props.rat.bumIndex]} style={styles.ratBum} width="100px"/>
-        <img src={bodyArray[props.rat.bodyIndex]} style={styles.ratBody} width="80px"/>
-        <img src={headArray[props.rat.headIndex]} style={styles.ratHead} width="60px" />
+        <img src={bumArray[props.rat.bumIndex]} style={styles.ratBum} />
+        <img src={bodyArray[props.rat.bodyIndex]} style={styles.ratBody} />
+        <img src={headArray[props.rat.headIndex]} style={styles.ratHead} />
         <h3 style={styles.cardHeading}>{props.rat.name}</h3>
         <p style={styles.p}>
           Age: {props.rat.createdAt} <br />

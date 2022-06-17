@@ -75,6 +75,18 @@ const styles = {
     borderRadius: "13px",
     padding: "3px",
     lineHeight: "30%",
+  },
+
+  ratBum: {
+    width: "41%",
+  },
+
+  ratBody: {
+    width: "33%",
+  },
+
+  ratHead: {
+    width: "25%",
   }
 };
 
