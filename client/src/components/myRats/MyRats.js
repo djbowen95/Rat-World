@@ -1,13 +1,13 @@
 // This file is the CONTAINER file, rather than the VIEW MY RATS page.
 // This defines the side bar and then routes to all of the pages within the 'My Rats' umbrella.
 
-
 import React, { useState } from "react";
 import AllRats from "./AllRats";
+import CreateRat from "./createRat/CreateRat";
 import Shop from "./Shop";
 import Jobs from "./Jobs";
 import Cemetery from "./Cemetery";
-import TrashCan from "./trashCan/TrashCan"
+import TrashCan from "./trashCan/TrashCan";
 import MyFriends from "./MyFriends";
 import Auth from "../../utils/Auth";
 import Inventory from "../inventory/Inventory";
@@ -18,7 +18,7 @@ function MyRats() {
   const styles = {
     section: {
       display: "flex",
-      justifyContent: "space-around"
+      justifyContent: "space-around",
     },
     aside: {
       width: "18%",
@@ -32,7 +32,7 @@ function MyRats() {
       backgroundColor: "whitesmoke",
       borderRadius: "20px",
       border: "5px solid #e9b699",
-      boxShadow: "0px 0px 10px black inset"
+      boxShadow: "0px 0px 10px black inset",
     },
     list: {
       listStyleType: "none",
@@ -49,6 +49,8 @@ function MyRats() {
     switch (sideMenuChoice) {
       case "allRats":
         return <AllRats />;
+      case "createRat":
+        return <CreateRat />;
       case "shop":
         return <Shop />;
       case "jobs":
@@ -58,7 +60,7 @@ function MyRats() {
       case "myFriends":
         return <MyFriends />;
       case "trashCan":
-        return <TrashCan />
+        return <TrashCan />;
     }
   }
 
@@ -98,6 +100,9 @@ function MyRats() {
           </li>
           <li data-page="allRats" onClick={sideMenuSelection}>
             <button data-page="allRats">My Rats</button>
+          </li>
+          <li data-page="createRat" onClick={sideMenuSelection}>
+            <button data-page="createRat">Adopt a Rat</button>
           </li>
           <li data-page="shop" onClick={sideMenuSelection}>
             <button data-page="shop">Shop</button>

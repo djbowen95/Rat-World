@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { headArray, bodyArray, bumArray } from "../../images/ratParts";
+import { headArray, bodyArray, bumArray } from "../../../images/ratParts";
 
 function RatDesigner(props) {
   const styles = {
+    mainContainer: {
+      margin: "auto",
+    },
     container: {
       display: "flex",
     },
@@ -22,7 +25,7 @@ function RatDesigner(props) {
   };
 
   return (
-    <div>
+    <div style ={styles.mainContainer}>
       <div style={styles.container}>
         <div style={styles.controller}>
           <button
