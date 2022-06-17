@@ -4,10 +4,9 @@ import { useQuery } from "@apollo/client";
 import { QUERY_RATS } from "../../../utils/queries";
 
 import RatCard from "./ratCards";
-import styles from "./viewMyRatsStyles";
+import styles from "./ratStyles";
 
-function ViewMyRats() {
-
+function ViewMyRats(props) {
 
   const { loading, data } = useQuery(QUERY_RATS);
   const rats = data?.rats || [];
@@ -16,7 +15,7 @@ function ViewMyRats() {
     <div style={styles.all}>
     <header class="header" style={styles.heading}>
       <h1 class="title">My Rats</h1>
-      <button class="adopt-btn">+ Adopt a Rat</button>
+      <button class="adopt-btn" data-page="createRat" onClick={props.sideMenuSelection}>+ Adopt a Rat</button>
     </header>
 
     <ul style={styles.cardWrapper}>

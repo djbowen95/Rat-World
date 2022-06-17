@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./viewMyRatsStyles";
+import styles from "./ratStyles";
 import { bumArray, headArray, bodyArray } from "../../../images/ratParts";
 
 
