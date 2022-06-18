@@ -19,7 +19,7 @@ const Header = () => {
       <div class="nav">
         <input type="checkbox" id="nav-check" />
         <div class="nav-header">
-          <div class="nav-title">Rats!</div>
+          <div class="nav-title">RatHub</div>
         </div>
         <div class="nav-btn">
           <label for="nav-check">
