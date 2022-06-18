@@ -28,13 +28,32 @@ function RatCard(props) {
       return `${Math.floor(hours / 168)} weeks and ${Math.floor(hours / 24)} days old`;
     }
   };
-  
+
   function getLastFed() {
-    return;
+    const lastFed = props.rat.fedAt;
+    const difference = now - lastFed;
+    const hours = Math.floor(difference / (1000 * 60 * 60));
+    if (hours === 0) {
+      return "Just fed!"
+    }
+    return `${hours} hours ago`;
   }
 
   function getHungerLevel() {
-    return;
+    const lastFed = props.rat.fedAt;
+    const difference = now - lastFed;
+    const hours = Math.floor(difference / (1000 * 60 * 60));
+    if (hours < 8) {
+      return "Completely Full";
+    } else if (hours < 24) {
+      return "Satisfied";
+    } else if (hours < 48) {
+      return "A bit hungry";
+    } else if (hours < 72) {
+      return "Starving";
+    } else {
+      return "Angry little beast";
+    }
   }
 
   function formatDate(date) {
@@ -50,7 +69,8 @@ function RatCard(props) {
         <h3 style={styles.cardHeading}>{props.rat.name}</h3>
         <p style={styles.p}>
           Age: {getAge()} <br />
-          Last Fed: {props.rat.fedAt} <br />
+          Last Fed: {getLastFed()} <br />
+          Hunger Level: {getHungerLevel()}
           Last Worked: {props.rat.attendedWork} <br />
           Job: {getJob()} <br />
           Rattributes: {props.rat.rattributes[0]}, {props.rat.rattributes[1]},{" "}
