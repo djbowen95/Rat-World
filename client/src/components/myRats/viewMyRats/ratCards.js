@@ -56,6 +56,26 @@ function RatCard(props) {
     }
   }
 
+  function progressBar() {
+    const lastFed = props.rat.fedAt;
+    const difference = now - lastFed;
+    const hours = Math.floor(difference / (1000 * 60 * 60));
+    const barWidth = `${100 - hours*3}%`;
+    let barColor = "";
+    if (hours < 33) {
+      barColor = "green";
+    } else if (hours < 66) {
+      barColor = "orange";
+    } else {
+      barColor = "red";
+    };
+    return {
+      backgroundColor: barColor,
+      width: barWidth,
+      height: "10px",
+      borderRadius: "10px",
+    }
+  };
 
   return (
     <div>
