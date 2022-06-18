@@ -17,15 +17,16 @@
     "i": "^0.3.7",
     "jquery": "^3.6.0",
     "jwt-decode": "^3.1.2",
+    "moment": "^2.29.3",
     "npm": "^8.12.1",
     "react": "^18.1.0",
+    "react-bootstrap": "^2.4.0",
     "react-dom": "^18.1.0",
     "react-draggable": "^4.4.5",
+    "react-hook-form": "^7.31.3",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4",
-    "react-bootstrap": "^2.4.0",
-    "react-hook-form": "^7.31.3"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

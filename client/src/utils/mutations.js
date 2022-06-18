@@ -1,18 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const CREATE_RAT = gql`
-  mutation createRat(
-    $name: String!
-    $headIndex: Int!
-    $bodyIndex: Int!
-    $bumIndex: Int!
-  ) {
-    createRat(
-      name: $name
-      headIndex: $headIndex
-      bodyIndex: $bodyIndex
-      bumIndex: $bumIndex
-    ) {
+  mutation createRat($userId: String!, $name: String!, $headIndex: Int, $bodyIndex: Int, $bumIndex: Int) {
+    createRat(userId: $userId, name: $name, headIndex: $headIndex, bodyIndex: $bodyIndex, bumIndex: $bumIndex) {
       _id
     }
   }
@@ -68,13 +58,12 @@ export const JOB_APPLICATION = gql`
   }
 `;
 
-
 export const ATTEND_WORK = gql`
-mutation attendWork($ratId: String!, $userId: String!) {
-  attendWork(ratId: $ratId, userId: $userId) {
-    _id
-    name
-    attendedWork
+  mutation attendWork($ratId: String!, $userId: String!) {
+    attendWork(ratId: $ratId, userId: $userId) {
+      _id
+      name
+      attendedWork
+    }
   }
-}
 `;

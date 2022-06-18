@@ -1,9 +1,9 @@
 import React from "react";
 import RatDesigner from "./RatDesigner";
 import { useState } from "react";
-
 import { useMutation } from "@apollo/client";
 import { CREATE_RAT } from "../../../utils/mutations";
+import Auth from "../../../utils/Auth";
 
 const styles = {
   title: {
@@ -32,6 +32,9 @@ const styles = {
 };
 
 const CreateRat = () => {
+
+  const userId = Auth.getProfile().data._id
+  console.log(userId)
   const [ratFormState, setRatFormState] = useState({
     name: "",
     headIndex: 0,
@@ -83,16 +86,9 @@ const CreateRat = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    console.log("Rat name input: " + ratInput);
-    console.log("Head index: " + ratHeadIndex);
-    console.log("Body index: " + ratBodyIndex);
-    console.log("Bum index: " + ratBumIndex);
-
-    console.log("Rat form state: " + ratFormState);
-
     try {
       const { data } = await createRat({
-        variables: { ...ratFormState },
+        variables: { ...ratFormState, userId: userId, },
       });
     } catch (err) {
       console.log(err);
