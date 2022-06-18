@@ -39,26 +39,6 @@ function RatCard(props) {
     return `${hours} hours ago`;
   }
 
-  function getHungerLevel() {
-    const lastFed = props.rat.fedAt;
-    const difference = now - lastFed;
-    const hours = Math.floor(difference / (1000 * 60 * 60));
-    if (hours < 8) {
-      return "Completely Full";
-    } else if (hours < 24) {
-      return "Satisfied";
-    } else if (hours < 48) {
-      return "A bit hungry";
-    } else if (hours < 72) {
-      return "Starving";
-    } else {
-      return "Angry little beast";
-    }
-  }
-
-  function formatDate(date) {
-    return new Date(date).toLocaleString();
-  }
 
   return (
     <div>
@@ -68,21 +48,23 @@ function RatCard(props) {
         <img src={headArray[props.rat.headIndex]} style={styles.ratHead} />
         <h3 style={styles.cardHeading}>{props.rat.name}</h3>
         <p style={styles.p}>
-          Age: {getAge()} <br />
-          Last Fed: {getLastFed()} <br />
-          Hunger Level: {getHungerLevel()}
-          Last Worked: {props.rat.attendedWork} <br />
-          Job: {getJob()} <br />
-          Rattributes: {props.rat.rattributes[0]}, {props.rat.rattributes[1]},{" "}
+          <strong>Age:</strong> {getAge()} <br />
+          <strong>Job:</strong> {getJob()} <br />
+          <strong>Last Worked:</strong> {props.rat.attendedWork} <br />
+          <br/>
+          <strong>Rattributes: </strong>{props.rat.rattributes[0]}, {props.rat.rattributes[1]},{" "}
           {props.rat.rattributes[2]}, {props.rat.rattributes[3]},{" "}
           {props.rat.rattributes[4]} <br />
-          Maze-Solving: {props.rat.mazeSolving} <br />
-          Speed: {props.rat.speed} <br />
-          Trap Avoidance: {props.rat.trapAvoidance} <br />
-          Magic: {props.rat.magic} <br />
+          <br/>
+          Maze-Solving: {props.rat.mazeSolving} | Speed: {props.rat.speed} | Trap Avoidance: {props.rat.trapAvoidance} | Magic: {props.rat.magic} <br />
+          <br />
+          <strong>Last Fed:</strong> {getLastFed()} <br />
+          <strong>Hunger Level:</strong> {getHungerLevel()} <br />
+
+         
         </p>
         <div style={styles.progressBarOutline}>
-          <div style={styles.progressBar}></div>
+          <div style={progressBar()}></div>
         </div>
         <div class="buttons">
           <button class="feed-btn">Feed Rat!</button>
