@@ -65,7 +65,7 @@ const styles = {
 
   progressBar: {
     backgroundColor: "purple",
-    width: "70%",
+    width: "50%",
     height: "10px",
     borderRadius: "10px",
   },

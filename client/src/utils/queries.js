@@ -14,6 +14,7 @@ const QUERY_RATS = gql`
       job {
         _id
         jobName
+        wages
       }
       attendedWork
       rattributes
