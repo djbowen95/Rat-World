@@ -10,6 +10,10 @@ const QUERY_RATS = gql`
       headIndex
       bodyIndex
       bumIndex
+      job {
+        jobName
+        wages
+      }
       attendedWork
       rattributes
       mazeSolving

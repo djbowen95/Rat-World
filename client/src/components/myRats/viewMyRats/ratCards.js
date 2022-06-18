@@ -4,7 +4,13 @@ import { bumArray, headArray, bodyArray } from "../../../images/ratParts";
 
 
 function RatCard (props) {
-    
+  function getJob() {
+    if (!props.rat.job) {
+      return "Unemployed";
+    }
+    return props.rat.job.jobName;
+  };
+
     function getAge() {
         return;
     };
@@ -29,9 +35,9 @@ function RatCard (props) {
         <h3 style={styles.cardHeading}>{props.rat.name}</h3>
         <p style={styles.p}>
           Age: {props.rat.createdAt} <br />
-          Job: [Developer] <br />
           Last Fed: {props.rat.fedAt} <br />
           Last Worked: {props.rat.attendedWork} <br />
+          Job: {getJob()} <br />
           Rattributes: {props.rat.rattributes[0]}, {props.rat.rattributes[1]}, {props.rat.rattributes[2]}, {props.rat.rattributes[3]}, {props.rat.rattributes[4]} <br />
           Maze-Solving: {props.rat.mazeSolving} <br />
           Speed: {props.rat.speed} <br/>
@@ -50,3 +56,4 @@ function RatCard (props) {
 };
 
 export default RatCard;
+
