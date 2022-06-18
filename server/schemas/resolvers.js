@@ -1,11 +1,26 @@
 const { Rat, User, ShopItem, Jobs } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
+const moment = require("moment")
+
+
+const populateLastFedOnRat = (rat) => {
+  rat.lastFed = "Test";
+  return rat;
+};
+
+const calculateBirthday = (rat) => {
+  const createdAt = rat.createdAt;
+  return createdAt;
+}
 
 const resolvers = {
   Query: {
     rats: async () => {
-      return Rat.find({}).populate("job");
+      // const rats = Rat.find({}).populate("job");
+      // const birthdayRats = rats.map((rat) => calculateBirthday(rat));
+      // return birthdayRats;
+      return  Rat.find({}).populate("job");
     },
     users: async () => {
       return User.find().populate("inventory");
@@ -39,23 +54,18 @@ const resolvers = {
     login: async (parent, { email, password }) => {
       // Look up the user by the provided email address. Since the `email` field is unique, we know that only one person will exist with that email
       const user = await User.findOne({ email });
-
       // If there is no user with that email address, return an Authentication error stating so
       if (!user) {
         throw new AuthenticationError("No user found with this email address");
       }
-
       // If there is a user found, execute the `isCorrectPassword` instance method and check if the correct password was provided
       const correctPw = await user.isCorrectPassword(password);
-
       // If the password is incorrect, return an Authentication error stating so
       if (!correctPw) {
         throw new AuthenticationError("Incorrect credentials");
       }
-
       // If email and password are correct, sign user into the application with a JWT
       const token = signToken(user);
-
       // Return an `Auth` object that consists of the signed token and user's information
       return { token, user };
     },
@@ -69,11 +79,16 @@ const resolvers = {
       );
       return;
     },
+    createRat: async (parent, { name, headIndex, bodyIndex, bumIndex }) => {
+      const newRat = await Rat.create({ name, headIndex, bodyIndex, bumIndex });
+      return newRat;
+    },
 
-    //creating a new rat
-    createRat: async (parent, { name }) => {
-      const rat = await Rat.create({ name });
-      return rat;
+    feedRat: async (parent, { ratId }) => {
+      const fedRat = await Rat.findById(ratId);
+      fedRat.fedAt = Date.now();
+      await fedRat.save();
+      return fedRat;
     },
 
     createShopItem: async (parent, { itemName, image, description, price }) => {
@@ -109,10 +124,29 @@ const resolvers = {
     },
 
     applyForJob: async (parent, { ratId, jobId }) => {
+      console.log(ratId, jobId)
       const rat = await Rat.findById(ratId);
       rat.job = jobId;
-      await rat.save()
-      return rat
+      await rat.save();
+      return rat;
+    },
+
+    attendWork: async (parent, { ratId, userId }) => {
+      const rat = await Rat.findById(ratId);
+      const user = await User.findById(userId);
+      const job = await Jobs.findById(rat.job._id)
+      try {
+      if (rat.attendedWork){
+        if (Date.now() < rat.attendedWork.getTime() + 86400000 ) {
+          return rat
+        }
+      }
+      rat.attendedWork = Date.now();
+      user.money += job.wages;
+      await rat.save();
+      await user.save();
+      return rat;
+      } catch (err) {console.log(err)}
     },
   },
 };

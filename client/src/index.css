@@ -12,7 +12,7 @@ main {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background-image: url();
+      background-image: url(https://res.cloudinary.com/dk-find-out/image/upload/q_80,w_1440,f_auto/50491001_kupidw.png);
   }
 
 section {
@@ -52,7 +52,7 @@ button:active {
 
 .boxStyle {
     background-color: whitesmoke;
-    border: 5px solid #ff5252;
+    border: 5px solid #e9b699;
     box-shadow: 0px 0px 10px black;
     border-radius: 20px;
 }

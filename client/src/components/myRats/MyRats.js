@@ -1,24 +1,30 @@
+// This file is the CONTAINER file, rather than the VIEW MY RATS page.
+// This defines the side bar and then routes to all of the pages within the 'My Rats' umbrella.
+
 import React, { useState } from "react";
-import AllRats from "./AllRats";
+
+import ViewMyRats from "./viewMyRats/viewMyRats";
+import CreateRat from "./createRat/CreateRat";
 import Shop from "./Shop";
 import Jobs from "./Jobs";
-import Cemetery from "./Cemetery";
+import Cemetery from "./cemetery/Cemetery";
+import TrashCan from "./trashCan/TrashCan";
 import MyFriends from "./MyFriends";
 import Auth from "../../utils/Auth";
 import Inventory from "../inventory/Inventory";
 import $ from "jquery";
-import { borderRadius } from "@mui/system";
+import { borderRadius } from "@mui/system"; // Delete?
 
 function MyRats() {
   const styles = {
     section: {
       display: "flex",
-      justifyContent: "space-around"
+      justifyContent: "space-around",
     },
     aside: {
       width: "18%",
       padding: "10px",
-      backgroundColor: "#ff5252",
+      backgroundColor: "#e59274",
       borderRadius: "10px",
       boxShadow: "0px 0px 5px black inset",
     },
@@ -26,8 +32,8 @@ function MyRats() {
       width: "75%",
       backgroundColor: "whitesmoke",
       borderRadius: "20px",
-      border: "5px solid #ff5252",
-      boxShadow: "0px 0px 10px black inset"
+      border: "5px solid #e9b699",
+      boxShadow: "0px 0px 10px black inset",
     },
     list: {
       listStyleType: "none",
@@ -37,13 +43,16 @@ function MyRats() {
     },
   };
   const username = Auth.getProfile().data.name;
-  const [sideMenuChoice, setMenuChoice] = useState("allRats");
+
+  const [sideMenuChoice, setMenuChoice] = useState("viewMyRats");
   const [showInventory, setShowInventory] = useState(false);
 
   function renderMenuChoice() {
     switch (sideMenuChoice) {
-      case "allRats":
-        return <AllRats />;
+      case "viewMyRats":
+        return <ViewMyRats sideMenuSelection={sideMenuSelection} />;
+      case "createRat":
+        return <CreateRat />;
       case "shop":
         return <Shop />;
       case "jobs":
@@ -52,6 +61,8 @@ function MyRats() {
         return <Cemetery />;
       case "myFriends":
         return <MyFriends />;
+      case "trashCan":
+        return <TrashCan />;
     }
   }
 
@@ -89,8 +100,11 @@ function MyRats() {
               View Inventory
             </button>
           </li>
-          <li data-page="allRats" onClick={sideMenuSelection}>
-            <button data-page="allRats">My Rats</button>
+          <li data-page="viewMyRats" onClick={sideMenuSelection}>
+            <button data-page="viewMyRats">View My Rats</button>
+          </li>
+          <li data-page="createRat" onClick={sideMenuSelection}>
+            <button data-page="createRat">Adopt a Rat</button>
           </li>
           <li data-page="shop" onClick={sideMenuSelection}>
             <button data-page="shop">Shop</button>
@@ -103,6 +117,9 @@ function MyRats() {
           </li>
           <li data-page="myFriends" onClick={sideMenuSelection}>
             <button data-page="myFriends">My Friends</button>
+          </li>
+          <li data-page="trashCan" onClick={sideMenuSelection}>
+            <button data-page="trashCan">Trash Can</button>
           </li>
         </ul>
       </aside>

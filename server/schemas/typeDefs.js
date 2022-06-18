@@ -5,7 +5,18 @@ const typeDefs = gql`
         _id: ID
         name: String!
         createdAt: String
+        fedAt: String
+        lastFed: String
+        headIndex: Int
+        bodyIndex: Int
+        bumIndex: Int
         job: Jobs
+        attendedWork: String
+        rattributes: [String]
+        mazeSolving: Int
+        speed: Int
+        trapAvoidance: Int
+        magic: Int
     }
 
     type User{
@@ -52,11 +63,13 @@ const typeDefs = gql`
         register(name: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
         addFriend(userID: String!, friendID: String!): User
-        createRat(name: String!): Rat
+        createRat(name: String!, headIndex: Int, bodyIndex: Int, bumIndex: Int): Rat
         createShopItem(itemName: String!, image: String!, description: String!, price: Int!): ShopItem
         getJob(jobName: String!, image: String!, description: String!, wages: Int! ): Jobs
         buyItem(userID: String!, itemID: String!): User
         applyForJob(ratId: String!, jobId: String!): Rat
+        attendWork(ratId: String!, userId: String!): Rat
+        feedRat(ratId: String!): Rat
     }
 `;
 

@@ -10,14 +10,10 @@ import { setContext } from "@apollo/client/link/context";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MyRats from "./components/myRats/MyRats";
-import RatDesigner from "./components/createRat/RatDesigner";
-import Signup from "./components/login/Signup";
-import Cemetery from "./components/myRats/Cemetery";
+import Signup from "./components/login/Signup"; // This should be deleted.
 import MyFriends from "./components/myRats/MyFriends";
-import Cartoon from "./components/cartoon/Cartoon";
-import Progress from "./components/progress/Progress";
 import LoginContainer from "./components/login/LoginContainer";
-import backgroundImage from "./images/backgrounds/meadow.jpg"
+import backgroundImage from "./images/backgrounds/rat_img.jpeg";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -45,6 +41,10 @@ const styles = {
   backgroundSize: "cover"
 }
 
+// NOTE BEFORE ROUTING: If you want your page to appear in the main container
+// Do not add your page here. Add it in the 'MyRats' page.
+// Otherwise there will be no side bar / universal formatting. 
+
 function App() {
   return (
     <main style={styles}>
@@ -53,13 +53,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<LoginContainer />} />
-          <Route path="/signup" element={<Signup/>} /> 
+          <Route path="/signup" element={<Signup/>} />
           <Route path="/myrats" element={<MyRats />} />
-          <Route path="/ratdesigner" element={<RatDesigner />} />
-          <Route path="/cemetery" element={<Cemetery />} />
           <Route path="/myfriends" element={<MyFriends />} />
-          <Route path="/progress" element={<Progress />} />
-          <Route path="/cartoon" element={<Cartoon />} />
         </Routes>
         <Footer />
       </Router>
