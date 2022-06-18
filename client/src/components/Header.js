@@ -14,6 +14,7 @@ const Header = () => {
     const logout = (e) => {
         e.preventDefault();
         Auth.logout();
+       window.location.replace("/")
     };
     return (
       <div class="nav">

@@ -50,6 +50,15 @@ export const BUY_ITEM = gql`
   }
 `;
 
+export const ADD_FRIEND= gql`
+mutation AddFriend($userId: String!, $friendId: String!) {
+  addFriend(userID: $userId, friendID: $friendId) {
+    _id
+    email
+  }
+}
+`;
+
 export const JOB_APPLICATION = gql`
   mutation jobApplication($ratId: String!, $jobId: String!) {
     applyForJob(ratId: $ratId, jobId: $jobId) {
