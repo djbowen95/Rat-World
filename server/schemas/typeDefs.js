@@ -27,6 +27,7 @@ const typeDefs = gql`
         money: Int!
         friends: [String]
         inventory: [ShopItem]
+        rats: [Rat]
     }
 
     type ShopItem {
@@ -63,7 +64,7 @@ const typeDefs = gql`
         register(name: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
         addFriend(userID: String!, friendID: String!): User
-        createRat(name: String!, headIndex: Int, bodyIndex: Int, bumIndex: Int): Rat
+        createRat(userId: String!, name: String!, headIndex: Int, bodyIndex: Int, bumIndex: Int): Rat
         createShopItem(itemName: String!, image: String!, description: String!, price: Int!): ShopItem
         getJob(jobName: String!, image: String!, description: String!, wages: Int! ): Jobs
         buyItem(userID: String!, itemID: String!): User

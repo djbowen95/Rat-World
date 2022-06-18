@@ -26,7 +26,7 @@ const resolvers = {
       return User.find().populate("inventory");
     },
     user: async (parent, { _id }) => {
-      return User.findOne({ _id }).populate("inventory");
+      return User.findOne({ _id }).populate([{path: 'inventory'}, {path: 'rats'}]);
     },
     shopItems: async () => {
       return ShopItem.find();
@@ -79,9 +79,15 @@ const resolvers = {
       );
       return;
     },
-    createRat: async (parent, { name, headIndex, bodyIndex, bumIndex }) => {
+    createRat: async (parent, { userId, name, headIndex, bodyIndex, bumIndex }) => {
+      console.log('Reached here')
       const newRat = await Rat.create({ name, headIndex, bodyIndex, bumIndex });
-      return newRat;
+      const user = await User.findOneAndUpdate(
+        { _id: userId },
+        { $addToSet: { rats: newRat._id }
+       });
+       console.log(user)
+      return user;
     },
 
     feedRat: async (parent, { ratId }) => {
