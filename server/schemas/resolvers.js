@@ -9,10 +9,18 @@ const populateLastFedOnRat = (rat) => {
   return rat;
 };
 
+const calculateBirthday = (rat) => {
+  const createdAt = rat.createdAt;
+  return createdAt;
+}
+
 const resolvers = {
   Query: {
     rats: async () => {
-      return Rat.find({}).populate("job");
+      // const rats = Rat.find({}).populate("job");
+      // const birthdayRats = rats.map((rat) => calculateBirthday(rat));
+      // return birthdayRats;
+      return  Rat.find({}).populate("job");
     },
     users: async () => {
       return User.find().populate("inventory");
@@ -74,6 +82,13 @@ const resolvers = {
     createRat: async (parent, { name, headIndex, bodyIndex, bumIndex }) => {
       const newRat = await Rat.create({ name, headIndex, bodyIndex, bumIndex });
       return newRat;
+    },
+
+    feedRat: async (parent, { ratId }) => {
+      const fedRat = await Rat.findById(ratId);
+      fedRat.fedAt = Date.now();
+      await fedRat.save();
+      return fedRat;
     },
 
     createShopItem: async (parent, { itemName, image, description, price }) => {

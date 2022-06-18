@@ -69,6 +69,7 @@ const typeDefs = gql`
         buyItem(userID: String!, itemID: String!): User
         applyForJob(ratId: String!, jobId: String!): Rat
         attendWork(ratId: String!, userId: String!): Rat
+        feedRat(ratId: String!): Rat
     }
 `;
 
