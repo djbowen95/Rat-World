@@ -1,8 +1,25 @@
 import React from "react";
+import { useMutation } from "@apollo/client";
+import { FEED_RAT } from "../../../utils/mutations"
+
 import styles from "./ratStyles";
 import { bumArray, headArray, bodyArray } from "../../../images/ratParts";
 
 function RatCard(props) {
+  const [feedRatMutation, { error }] = useMutation(FEED_RAT);
+
+  function feedRat () {
+    const ratsId =  props.rat._id;
+    try {
+      const { data } = feedRatMutation({
+        variables: { ratId: ratsId },
+      });
+    } catch (err) {
+      console.log(err);
+    }
+    window.location.reload(); // Must be a better way to do this.
+  }
+
   const now = Date.now();
 
   function getJob() {
@@ -104,7 +121,7 @@ function RatCard(props) {
           <div style={progressBar()}></div>
         </div>
         <div class="buttons">
-          <button class="feed-btn">Feed Rat!</button>
+          <button class="feed-btn" onClick={feedRat}>Feed Rat!</button>
           <button class="work-btn">Go to Work</button>
         </div>
       </li>
