@@ -47,4 +47,16 @@ mutation jobApplication($ratId: String!, $jobId: String!) {
     _id
   }
 }
-`;
+`
+
+export const ATTEND_WORK = gql`
+mutation attendWork($ratId: String!, $userId: String!) {
+  attendWork(ratId: $ratId, userId: $userId) {
+    _id
+    name
+    attendedWork
+  }
+}
+`
+
+;

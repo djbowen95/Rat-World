@@ -7,9 +7,20 @@ const QUERY_RATS = gql`
       name
       createdAt
       fedAt
+      lastFed
       headIndex
       bodyIndex
       bumIndex
+      job {
+        _id
+        jobName
+      }
+      attendedWork
+      rattributes
+      mazeSolving
+      speed
+      trapAvoidance
+      magic
     }
   }
 `;

@@ -109,6 +109,7 @@ const resolvers = {
     },
 
     applyForJob: async (parent, { ratId, jobId }) => {
+      console.log(ratId, jobId)
       const rat = await Rat.findById(ratId);
       rat.job = jobId;
       await rat.save();

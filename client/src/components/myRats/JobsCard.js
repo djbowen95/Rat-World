@@ -2,6 +2,7 @@ import React from "react";
 import $ from "jquery"
 import { useMutation } from "@apollo/client"; 
 import { JOB_APPLICATION } from "../../utils/mutations";
+import { useState } from "react";
 
 const styles = {
   card: {
@@ -22,17 +23,23 @@ const styles = {
 };
 
 function JobsCard({ id, jobName, image, description, wages, nameArray }) {
+
   const [jobApplication, {error}] = useMutation(JOB_APPLICATION)
 
+  const [applyingFor, setApplyingFor] = useState()
+
   async function applyJobHandler(e){
-    console.log($('#rat-select').val())
-    const ratId = $('#rat-select').val()
+    const ratId = applyingFor
     const jobId = e.target.dataset.id
     try {
       const {data} = await jobApplication({
         variables: { ratId:ratId, jobId:jobId }
       })
     } catch(err){console.log(err)}
+  }
+
+  function getIdForJobApplication(e){
+    setApplyingFor(e.target.value)
   }
 
   return (
@@ -49,7 +56,7 @@ function JobsCard({ id, jobName, image, description, wages, nameArray }) {
           <p>{description}</p>
           <p>{wages}</p>
         </div>
-        <select id="rat-select">
+        <select onChange={getIdForJobApplication}>
         {nameArray.map((rat, index) => (
           <option key={index} value={rat._id} label={rat.name}></option>
       ))}
