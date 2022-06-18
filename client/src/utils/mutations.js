@@ -67,3 +67,14 @@ export const JOB_APPLICATION = gql`
     }
   }
 `;
+
+
+export const ATTEND_WORK = gql`
+mutation attendWork($ratId: String!, $userId: String!) {
+  attendWork(ratId: $ratId, userId: $userId) {
+    _id
+    name
+    attendedWork
+  }
+}
+`;

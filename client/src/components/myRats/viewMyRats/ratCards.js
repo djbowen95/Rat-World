@@ -1,9 +1,10 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
-import { FEED_RAT } from "../../../utils/mutations"
+import { FEED_RAT, ATTEND_WORK } from "../../../utils/mutations";
 
 import styles from "./ratStyles";
 import { bumArray, headArray, bodyArray } from "../../../images/ratParts";
+import Auth from "../../../utils/Auth";
 
 function RatCard(props) {
   const [feedRatMutation, { error }] = useMutation(FEED_RAT);
@@ -14,8 +15,8 @@ function RatCard(props) {
       const { data } = feedRatMutation({
         variables: { ratId: ratsId },
       });
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
     window.location.reload(); // Must be a better way to do this.
   }
@@ -94,6 +95,36 @@ function RatCard(props) {
     }
   };
 
+  const [attendWork, { err }] = useMutation(ATTEND_WORK);
+
+  async function attendWorkHandler() {
+    const ratId = props.rat._id;
+    const userId = Auth.getProfile().data._id;
+    try {
+      const { data } = await attendWork({
+        variables: { ratId, userId },
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  function recentlyAttendedWork() {
+    if (props.rat.job) {
+      if (!props.rat.attendedWork) {return <button class="work-btn" onClick={attendWorkHandler}>Go to Work</button>}
+      if (Date.now() < props.rat.attendWork + 86400000) {
+        return (
+          <button class="work-btn" onClick={attendWorkHandler}>
+            Go to Work
+          </button>
+        );
+      } else
+        return (
+          <p>{props.rat.name} has been to work already today, let them rest!</p>
+        );
+    } else return <p class="work-btn">Get a job you bum!</p>;
+  }
+
   return (
     <div>
       <li style={styles.card}>
@@ -122,7 +153,7 @@ function RatCard(props) {
         </div>
         <div class="buttons">
           <button class="feed-btn" onClick={feedRat}>Feed Rat!</button>
-          <button class="work-btn">Go to Work</button>
+          {recentlyAttendedWork()}
         </div>
       </li>
     </div>
