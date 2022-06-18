@@ -4,7 +4,7 @@ import { QUERY_JOBS, QUERY_RATNAMES, QUERY_USERS_RATS } from "../../utils/querie
 import JobsCard from "./JobsCard";
 import Auth from "../../utils/Auth";
 
-const userId = Auth.getProfile().data._id
+
 
 const styles = {
   container: {
@@ -14,6 +14,7 @@ const styles = {
 };
 
 function Jobs() {
+  const userId = Auth.getProfile().data._id
   const { loading, data: jobData } = useQuery(QUERY_JOBS);
   const { data: ratNames } = useQuery(QUERY_USERS_RATS, {
     variables: {id: userId}
