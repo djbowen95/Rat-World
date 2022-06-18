@@ -39,6 +39,23 @@ function RatCard(props) {
     return `${hours} hours ago`;
   }
 
+  function getHungerLevel() {
+    const lastFed = props.rat.fedAt;
+    const difference = now - lastFed;
+    const hours = Math.floor(difference / (1000 * 60 * 60));
+    if (hours < 8) {
+      return "Completely Full";
+    } else if (hours < 24) {
+      return "Satisfied";
+    } else if (hours < 48) {
+      return "A bit hungry";
+    } else if (hours < 72) {
+      return "Starving";
+    } else {
+      return "Angry little beast";
+    }
+  }
+
 
   return (
     <div>
