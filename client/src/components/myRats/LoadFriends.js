@@ -1,11 +1,17 @@
 import React from "react";
 import FriendCards from "../ratCards/FriendsCards";
 import Auth from "../../utils/Auth";
+import { QUERY_ONLY_ME } from "../../utils/queries";
+import { useQuery } from "@apollo/client";
 
 const LoadFriends = () => {
 
-  const User = Auth.getProfile()
-  // console.log( User.  )
+  // const User = Auth.getProfile()
+  // console.log( User.data._id )
+  // const [ user_info, {loading, data} ] = useQuery(QUERY_USER);
+
+
+  
 
   const friends = [
     {
@@ -35,7 +41,7 @@ const LoadFriends = () => {
   ];
 
   return <div>
-      {/* <FriendCards friends = {friends}/> */}
+      <FriendCards friends = {friends}/>
   </div>;
 };
 
