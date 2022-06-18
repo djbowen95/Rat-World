@@ -7,7 +7,7 @@ const MyFriends = () => {
   const { loading, data } = useQuery(QUERY_USER);
   const [inputText, setInputText] = useState("");
 
-  console.log(data?.users);
+  // console.log(data?.users);
   let inputHandler = (e) => {
     //convert input text to lower case
     var lowerCase = e.target.value.toLowerCase();
@@ -69,7 +69,7 @@ const MyFriends = () => {
       <section className="add-friend-container" style={styles.section}>
         <h2 style={styles.friendTitle}>Add a Friend</h2>
         <div className="add-friend-card" style={styles.addFriend}>
-          <img style={styles.friendImage} src="" alt="" />
+          {/* <img style={styles.friendImage} src="" alt="" /> */}
           <div style={styles.inputBtn}>
             <input 
               value={inputText}
