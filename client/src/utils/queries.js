@@ -26,6 +26,34 @@ const QUERY_RATS = gql`
   }
 `;
 
+const QUERY_USERS_RATS = gql`
+query userRats ($id: ID!) {
+  user(_id: $id) {
+    _id
+    name
+    rats {
+      _id
+      name
+      createdAt
+      fedAt
+      lastFed
+      headIndex
+      bodyIndex
+      bumIndex
+      job {
+        jobName
+      }
+      attendedWork
+      rattributes
+      mazeSolving
+      speed
+      trapAvoidance
+      magic
+    }
+  }
+}
+`
+
 const QUERY_SHOP = gql`
   query shopItems {
     shopItems {
@@ -122,4 +150,5 @@ export {
   QUERY_ITEM,
   QUERY_USER,
   QUERY_RATNAMES,
+  QUERY_USERS_RATS
 };

@@ -1,7 +1,10 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_JOBS, QUERY_RATNAMES } from "../../utils/queries";
+import { QUERY_JOBS, QUERY_RATNAMES, QUERY_USERS_RATS } from "../../utils/queries";
 import JobsCard from "./JobsCard";
+import Auth from "../../utils/Auth";
+
+
 
 const styles = {
   container: {
@@ -11,10 +14,13 @@ const styles = {
 };
 
 function Jobs() {
+  const userId = Auth.getProfile().data._id
   const { loading, data: jobData } = useQuery(QUERY_JOBS);
-  const { data: ratNames } = useQuery(QUERY_RATNAMES);
+  const { data: ratNames } = useQuery(QUERY_USERS_RATS, {
+    variables: {id: userId}
+  });
   const jobList = jobData?.jobs || [];
-  const nameList = ratNames?.rats || [];
+  const nameList = ratNames?.user.rats || [];
 
   return (
     <div style={styles.container}>

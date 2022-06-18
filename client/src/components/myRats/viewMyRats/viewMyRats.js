@@ -1,15 +1,19 @@
 import React from "react";
 
 import { useQuery } from "@apollo/client";
-import { QUERY_RATS } from "../../../utils/queries";
-
+import { QUERY_USERS_RATS } from "../../../utils/queries";
+import Auth from "../../../utils/Auth";
 import RatCard from "./ratCards";
 import styles from "./ratStyles";
 
 function ViewMyRats(props) {
 
-  const { loading, data } = useQuery(QUERY_RATS);
-  const rats = data?.rats || [];
+  const userId = Auth.getProfile().data._id
+
+  const { loading, data } = useQuery(QUERY_USERS_RATS, {
+    variables: {id: userId}
+  });
+  const rats = data?.user.rats || [];
 
   return (
     <div style={styles.all}>

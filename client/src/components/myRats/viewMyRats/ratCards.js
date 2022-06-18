@@ -1,6 +1,7 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
 import { FEED_RAT, ATTEND_WORK } from "../../../utils/mutations";
+import moment from "moment"
 
 import styles from "./ratStyles";
 import { bumArray, headArray, bodyArray } from "../../../images/ratParts";
@@ -135,7 +136,7 @@ function RatCard(props) {
         <p style={styles.p}>
           <strong>Age:</strong> {getAge()} <br />
           <strong>Job:</strong> {getJob()} <br />
-          <strong>Last Worked:</strong> {props.rat.attendedWork} <br />
+          <strong>Last Worked:</strong> {(props.rat.attendedWork)? moment.unix(props.rat.attendedWork/1000).utc().format('DD/MM/yyy HH:mm'): "Never"} <br />
           <br/>
           <strong>Rattributes: </strong>{props.rat.rattributes[0]}, {props.rat.rattributes[1]},{" "}
           {props.rat.rattributes[2]}, {props.rat.rattributes[3]},{" "}
