@@ -109,6 +109,27 @@ const QUERY_ITEM = gql`
   }
 `;
 
+const QUERY_USER = gql`
+query Users {
+  users {
+    email
+    _id
+    
+  }
+}
+`;
+
+// const QUERY_ONLY_ME = gql`
+// query User($id: ID!) {
+//   user(_id: $id) {
+//     _id
+//     name
+//     email
+//     friends
+//   }
+// }
+// ;`
+
 const QUERY_RATNAMES = gql`
   query {
     rats {
@@ -128,6 +149,7 @@ export {
   QUERY_MONEY,
   QUERY_INVENTORY,
   QUERY_ITEM,
+  QUERY_USER,
   QUERY_RATNAMES,
   QUERY_USERS_RATS
 };
