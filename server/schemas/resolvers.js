@@ -26,7 +26,7 @@ const resolvers = {
       return User.find().populate("inventory");
     },
     user: async (parent, { _id }) => {
-      return User.findOne({ _id }).populate([{path: 'inventory'}, {path: 'rats'}]);
+      return User.findOne({ _id }).populate([{path: 'inventory'}, {path: 'rats', populate: {path: 'job'}}]);
     },
     shopItems: async () => {
       return ShopItem.find();

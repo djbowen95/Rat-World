@@ -1,7 +1,6 @@
 const styles = {
   // I put the * styling and the 'body' styling in here as there isn't an element named either of these things.
   all: {
-    boxSizing: "border-box",
     display: "grid",
     placeContent: "center",
     justifyItems: "center",
@@ -12,6 +11,7 @@ const styles = {
     fontFamily: "Arial, Helvetica, sans-serif",
     color: "#444",
     backgroundColor: "#e4d4f7",
+    borderRadius: "14px"
   },
 
   card: {
@@ -78,11 +78,11 @@ const styles = {
   },
 
   ratBum: {
-    width: "41%",
+    width: "41.6667%",
   },
 
   ratBody: {
-    width: "33%",
+    width: "33.3333%",
   },
 
   ratHead: {

@@ -41,6 +41,7 @@ query userRats ($id: ID!) {
       bodyIndex
       bumIndex
       job {
+        _id
         jobName
       }
       attendedWork

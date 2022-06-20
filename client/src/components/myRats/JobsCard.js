@@ -57,6 +57,7 @@ function JobsCard({ id, jobName, image, description, wages, nameArray }) {
           <p>{wages}</p>
         </div>
         <select onChange={getIdForJobApplication}>
+          <option>Select a rat...</option>
         {nameArray.map((rat, index) => (
           <option key={index} value={rat._id} label={rat.name}></option>
       ))}
