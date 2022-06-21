@@ -17,27 +17,27 @@ const Header = () => {
        window.location.replace("/")
     };
     return (
-      <div class="nav">
+      <div className="nav">
         <input type="checkbox" id="nav-check" />
-        <div class="nav-header">
-          <div class="nav-title">RatHub</div>
+        <div className="nav-header">
+          <div className="nav-title">RatHub</div>
         </div>
-        <div class="nav-btn">
-          <label for="nav-check">
+        <div className="nav-btn">
+          <label htmlFor="nav-check">
             <span></span>
             <span></span>
             <span></span>
           </label>
         </div>
         {Auth.loggedIn() ? (
-          <div class="nav-links">
+          <div className="nav-links">
             <a href="/">Home</a>
             <a href="/myrats">My Rats</a>
             <a href="/myfriends">My Friends</a>
             <button onClick={logout} style={styles.navButton} className="btn btn-secondary m=1">Logout</button>
           </div>          
           ) : (
-          <div class="nav-links">
+          <div className="nav-links">
             <a href="/">Home</a>
           </div>
           )}

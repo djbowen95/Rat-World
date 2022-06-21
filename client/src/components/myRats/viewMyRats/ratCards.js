@@ -116,14 +116,14 @@ function RatCard(props) {
     if (props.rat.job) {
       if (!props.rat.attendedWork) {
         return (
-          <button class="work-btn" onClick={attendWorkHandler}>
+          <button className="work-btn" onClick={attendWorkHandler}>
             Go to Work
           </button>
         );
       }
       if (Date.now() < props.rat.attendWork + 86400000) {
         return (
-          <button class="work-btn" onClick={attendWorkHandler}>
+          <button className="work-btn" onClick={attendWorkHandler}>
             Go to Work
           </button>
         );
@@ -131,7 +131,7 @@ function RatCard(props) {
         return (
           <p>{props.rat.name} has been to work already today, let them rest!</p>
         );
-    } else return <p class="work-btn">Get a job you bum!</p>;
+    } else return <p className="work-btn">Get a job you bum!</p>;
   }
 
   return (
@@ -170,8 +170,8 @@ function RatCard(props) {
         <div style={styles.progressBarOutline}>
           <div style={progressBar()}></div>
         </div>
-        <div class="buttons">
-          <button class="feed-btn" onClick={feedRat}>
+        <div className="buttons">
+          <button className="feed-btn" onClick={feedRat}>
             Feed Rat!
           </button>
           {recentlyAttendedWork()}

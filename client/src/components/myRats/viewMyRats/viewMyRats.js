@@ -17,13 +17,13 @@ function ViewMyRats(props) {
 
   return (
     <div style={styles.all}>
-    <header class="header" style={styles.heading}>
-      <h1 class="title">My Rats</h1>
-      <button class="adopt-btn" data-page="createRat" onClick={props.sideMenuSelection}>+ Adopt a Rat</button>
+    <header className="header" style={styles.heading}>
+      <h1 className="title">My Rats</h1>
+      <button className="adopt-btn" data-page="createRat" onClick={props.sideMenuSelection}>+ Adopt a Rat</button>
     </header>
 
     <ul style={styles.cardWrapper}>
-      {rats.map((rat) => (<RatCard rat={rat}/>))}
+      {rats.map((rat, index) => (<RatCard key={index} rat={rat}/>))}
       </ul>
     </div>
   );

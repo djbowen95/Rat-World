@@ -14,6 +14,7 @@ import Signup from "./components/login/Signup"; // This should be deleted.
 import MyFriends from "./components/myRats/MyFriends";
 import LoginContainer from "./components/login/LoginContainer";
 import backgroundImage from "./images/backgrounds/rat_img.jpeg";
+import Auth from "./utils/Auth";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -53,9 +54,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<LoginContainer />} />
-          <Route path="/signup" element={<Signup/>} />
-          <Route path="/myrats" element={<MyRats />} />
-          <Route path="/myfriends" element={<MyFriends />} />
+          <Route path="/myrats" element={Auth.loggedIn() ? <MyRats /> : <LoginContainer /> } />
+          <Route path="/myfriends" element={Auth.loggedIn() ? <MyFriends /> : <LoginContainer /> } />
         </Routes>
         <Footer />
       </Router>
