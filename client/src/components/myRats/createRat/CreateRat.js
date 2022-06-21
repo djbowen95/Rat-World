@@ -9,32 +9,26 @@ const styles = {
   title: {
     textAlign: "center",
   },
-  card: {
-    textAlign: "center",
-    marginTop: "100px",
-  },
-  img: {
-    width: "20%",
-  },
   cardTitle: {
     fontSize: "25px",
   },
   input: {
-    width: "200px",
-    padding: "5px",
+    padding: "10px",
+    backgroundColor: "rgb(228 212 247)",
     borderRadius: "5px",
+    boxShadow: "0px 0px 5px black inset",
+    fontWeight: "bold",
   },
-  btn: {
-    padding: "5px",
-    marginLeft: "10px",
-    cursor: "pointer",
-  },
+  designContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+  }
 };
 
 const CreateRat = () => {
+  const userId = Auth.getProfile().data._id;
 
-  const userId = Auth.getProfile().data._id
-  console.log(userId)
   const [ratFormState, setRatFormState] = useState({
     name: "",
     headIndex: 0,
@@ -88,14 +82,12 @@ const CreateRat = () => {
 
     try {
       const { data } = await createRat({
-        variables: { ...ratFormState, userId: userId, },
+        variables: { ...ratFormState, userId: userId },
       });
     } catch (err) {
       console.log(err);
     }
-
-    console.log("Rat function finished.");
-    setRatInput("");
+    window.location.reload();
   };
 
   return (
@@ -103,35 +95,25 @@ const CreateRat = () => {
       <div>
         <h1 className="title">Adopt A Rat!</h1>
       </div>
-
-      <div className="container" style={styles.card}>
-        <div className="card">
+        <div className="card" style={styles.designContainer}>
           <RatDesigner
             changeBodyPart={changeBodyPart}
             ratHeadIndex={ratHeadIndex}
             ratBodyIndex={ratBodyIndex}
             ratBumIndex={ratBumIndex}
           ></RatDesigner>
-          <div className="card-body">
-            <h5 className="card-title" style={styles.cardTitle}>
-              Name Your New Rat!
-            </h5>
-          </div>
-          <div>
-            <form onSubmit={handleFormSubmit}>
-              <input
-                style={styles.input}
-                type="text"
-                className="input"
-                placeholder="Name Your Rat!"
-                onChange={handleInputChange}
-                value={ratInput}
-              ></input>
-              <input type="submit" value="Submit" />
-            </form>
-          </div>
+          <form onSubmit={handleFormSubmit}>
+            <input
+              style={styles.input}
+              type="text"
+              className="input"
+              placeholder="Name Your Rat!"
+              onChange={handleInputChange}
+              value={ratInput}
+            ></input>
+            <button type="submit">Adopt!</button>
+          </form>
         </div>
-      </div>
     </div>
   );
 };

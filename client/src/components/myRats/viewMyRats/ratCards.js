@@ -1,7 +1,7 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
 import { FEED_RAT, ATTEND_WORK } from "../../../utils/mutations";
-import moment from "moment"
+import moment from "moment";
 
 import styles from "./ratStyles";
 import { bumArray, headArray, bodyArray } from "../../../images/ratParts";
@@ -10,8 +10,8 @@ import Auth from "../../../utils/Auth";
 function RatCard(props) {
   const [feedRatMutation, { error }] = useMutation(FEED_RAT);
 
-  function feedRat () {
-    const ratsId =  props.rat._id;
+  function feedRat() {
+    const ratsId = props.rat._id;
     try {
       const { data } = feedRatMutation({
         variables: { ratId: ratsId },
@@ -44,16 +44,18 @@ function RatCard(props) {
     } else if (hours < 168) {
       return `${Math.floor(hours / 24)} days and ${hours % 24} hours old`;
     } else {
-      return `${Math.floor(hours / 168)} weeks and ${Math.floor(hours / 24)} days old`;
+      return `${Math.floor(hours / 168)} weeks and ${Math.floor(
+        hours / 24
+      )} days old`;
     }
-  };
+  }
 
   function getLastFed() {
     const lastFed = props.rat.fedAt;
     const difference = now - lastFed;
     const hours = Math.floor(difference / (1000 * 60 * 60));
     if (hours === 0) {
-      return "Just fed!"
+      return "Just fed!";
     }
     return `${hours} hours ago`;
   }
@@ -79,7 +81,7 @@ function RatCard(props) {
     const lastFed = props.rat.fedAt;
     const difference = now - lastFed;
     const hours = Math.floor(difference / (1000 * 60 * 60));
-    const barWidth = `${100 - hours*3}%`;
+    const barWidth = `${100 - hours * 3}%`;
     let barColor = "";
     if (hours < 33) {
       barColor = "green";
@@ -87,14 +89,14 @@ function RatCard(props) {
       barColor = "orange";
     } else {
       barColor = "red";
-    };
+    }
     return {
       backgroundColor: barColor,
       width: barWidth,
       height: "10px",
       borderRadius: "10px",
-    }
-  };
+    };
+  }
 
   const [attendWork, { err }] = useMutation(ATTEND_WORK);
 
@@ -112,7 +114,13 @@ function RatCard(props) {
 
   function recentlyAttendedWork() {
     if (props.rat.job) {
-      if (!props.rat.attendedWork) {return <button class="work-btn" onClick={attendWorkHandler}>Go to Work</button>}
+      if (!props.rat.attendedWork) {
+        return (
+          <button class="work-btn" onClick={attendWorkHandler}>
+            Go to Work
+          </button>
+        );
+      }
       if (Date.now() < props.rat.attendWork + 86400000) {
         return (
           <button class="work-btn" onClick={attendWorkHandler}>
@@ -128,35 +136,47 @@ function RatCard(props) {
 
   return (
     <div>
-      <li style={styles.card}>
-        <img src={bumArray[props.rat.bumIndex]} style={styles.ratBum} />
-        <img src={bodyArray[props.rat.bodyIndex]} style={styles.ratBody} />
-        <img src={headArray[props.rat.headIndex]} style={styles.ratHead} />
+      <div style={styles.card}>
         <h3 style={styles.cardHeading}>{props.rat.name}</h3>
+        <div style={styles.imgContainer}>
+          <img src={bumArray[props.rat.bumIndex]} style={styles.ratBum} />
+          <img src={bodyArray[props.rat.bodyIndex]} style={styles.ratBody} />
+          <img src={headArray[props.rat.headIndex]} style={styles.ratHead} />
+        </div>
         <p style={styles.p}>
           <strong>Age:</strong> {getAge()} <br />
           <strong>Job:</strong> {getJob()} <br />
-          <strong>Last Worked:</strong> {(props.rat.attendedWork)? moment.unix(props.rat.attendedWork/1000).utc().format('DD/MM/yyy HH:mm'): "Never"} <br />
-          <br/>
-          <strong>Rattributes: </strong>{props.rat.rattributes[0]}, {props.rat.rattributes[1]},{" "}
+          <strong>Last Worked:</strong>{" "}
+          {props.rat.attendedWork
+            ? moment
+                .unix(props.rat.attendedWork / 1000)
+                .utc()
+                .format("DD/MM/yyy HH:mm")
+            : "Never"}{" "}
+          <br />
+          <br />
+          <strong>Rattributes: </strong>
+          {props.rat.rattributes[0]}, {props.rat.rattributes[1]},{" "}
           {props.rat.rattributes[2]}, {props.rat.rattributes[3]},{" "}
           {props.rat.rattributes[4]} <br />
-          <br/>
-          Maze-Solving: {props.rat.mazeSolving} | Speed: {props.rat.speed} | Trap Avoidance: {props.rat.trapAvoidance} | Magic: {props.rat.magic} <br />
+          <br />
+          Maze-Solving: {props.rat.mazeSolving} | Speed: {props.rat.speed} |
+          Trap Avoidance: {props.rat.trapAvoidance} | Magic: {props.rat.magic}{" "}
+          <br />
           <br />
           <strong>Last Fed:</strong> {getLastFed()} <br />
           <strong>Hunger Level:</strong> {getHungerLevel()} <br />
-
-         
         </p>
         <div style={styles.progressBarOutline}>
           <div style={progressBar()}></div>
         </div>
         <div class="buttons">
-          <button class="feed-btn" onClick={feedRat}>Feed Rat!</button>
+          <button class="feed-btn" onClick={feedRat}>
+            Feed Rat!
+          </button>
           {recentlyAttendedWork()}
         </div>
-      </li>
+      </div>
     </div>
   );
 }

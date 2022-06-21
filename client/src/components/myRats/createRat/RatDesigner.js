@@ -3,28 +3,33 @@ import { headArray, bodyArray, bumArray } from "../../../images/ratParts";
 
 function RatDesigner(props) {
   const styles = {
+    overallWidth: {
+      width: "60%"
+    },
     container: {
       display: "flex",
     },
     head: {
-      width: "150px",
+      width: "25%",
+      display: "flex",
+      flexDirection: "column",
     },
     body: {
-      width: "200px",
+      width: "33.3333%",
+      display: "flex",
+      flexDirection: "column",
     },
     bum: {
-      width: "250px",
-    },
-    controller: {
+      width: "41.6667%",
       display: "flex",
       flexDirection: "column",
     },
   };
 
   return (
-    <div>
+    <div style={styles.overallWidth}>
       <div style={styles.container}>
-        <div style={styles.controller}>
+        <div style={styles.bum}>
           <button
             data-bodypart="bum"
             data-nextprevious="next"
@@ -33,7 +38,7 @@ function RatDesigner(props) {
           >
             ^
           </button>
-          <img style={styles.bum} src={bumArray[props.ratBumIndex]} id="ratBumImage" />
+          <img src={bumArray[props.ratBumIndex]} id="ratBumImage" />
           <button
             data-bodypart="bum"
             data-nextprevious="previous"
@@ -43,7 +48,7 @@ function RatDesigner(props) {
             ^
           </button>
         </div>
-        <div style={styles.controller}>
+        <div style={styles.body}>
           <button
             data-bodypart="body"
             data-nextprevious="next"
@@ -52,7 +57,7 @@ function RatDesigner(props) {
           >
             ^
           </button>
-          <img style={styles.body} src={bodyArray[props.ratBodyIndex]} />
+          <img src={bodyArray[props.ratBodyIndex]} />
           <button
             data-bodypart="body"
             data-nextprevious="previous"
@@ -62,7 +67,7 @@ function RatDesigner(props) {
             ^
           </button>
         </div>
-        <div style={styles.controller}>
+        <div style={styles.head}>
           <button
             data-bodypart="head"
             data-nextprevious="next"
@@ -71,7 +76,7 @@ function RatDesigner(props) {
           >
             ^
           </button>
-          <img style={styles.head} src={headArray[props.ratHeadIndex]} />
+          <img src={headArray[props.ratHeadIndex]} />
           <button
             data-bodypart="head"
             data-nextprevious="previous"

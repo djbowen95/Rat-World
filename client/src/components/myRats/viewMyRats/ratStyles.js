@@ -19,10 +19,13 @@ const styles = {
     borderRadius: "0.5rem",
     boxShadow: "0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45)",
     paddingBottom: "1rem",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
   },
 
   cardHeading: {
-    marginTop: "1rem",
+    marginTop: "0px",
     fontSize: "1.25rem",
     textAlign: "center",
   },
@@ -71,6 +74,7 @@ const styles = {
   },
   
   progressBarOutline: {
+    width: "50%",
     backgroundColor: "rgb(255, 255, 255)",
     borderRadius: "13px",
     padding: "3px",
@@ -87,7 +91,13 @@ const styles = {
 
   ratHead: {
     width: "25%",
+  },
+
+  imgContainer: {
+    width: "80%"
   }
 };
+
+
 
 export default styles;
