@@ -1,4 +1,4 @@
-## Rat Hub
+# Rat Hub
 
 ## Description
 
@@ -61,13 +61,13 @@ Longer term:
 ## Technology Stack
 
 ### Frontend
-
+----
 - ReactJS
 - Custom CSS
 - jQuery
-
+----
 ### Backend
-
+----
 - NodeJS
 - Express
 - Apollo
@@ -76,7 +76,7 @@ Longer term:
 - JSON Web Token
 - Mongo DB
 - Mongoose
-
+----
 ## Contributing
 
 Daniel Bowen
