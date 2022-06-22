@@ -79,10 +79,15 @@ Longer term:
 
 ## Contributing
 
+Daniel Bowen
+
 Ben Growcott - [GitHub](https://github.com/BGrowcott)
 
-## Questions
+Ayaanle
 
+Fatumo
+
+Girish
 
 ## Questions
 
