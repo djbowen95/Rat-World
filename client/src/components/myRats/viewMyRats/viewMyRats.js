@@ -19,7 +19,7 @@ function ViewMyRats(props) {
     <div style={styles.all}>
     <header className="header" style={styles.heading}>
       <h1 className="title">My Rats</h1>
-      <button className="adopt-btn" data-page="createRat" onClick={props.sideMenuSelection}>+ Adopt a Rat</button>
+      <button style={styles.adoptRatButton} className="adopt-btn" data-page="createRat" onClick={props.sideMenuSelection}>+ Adopt a Rat</button>
     </header>
 
     <ul style={styles.cardWrapper}>

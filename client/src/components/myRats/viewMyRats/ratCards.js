@@ -121,7 +121,7 @@ function RatCard(props) {
           </button>
         );
       }
-      if (Date.now() < props.rat.attendWork + 86400000) {
+      if (Date.now() < props.rat.attendedWork + 86400000) {
         return (
           <button className="work-btn" onClick={attendWorkHandler}>
             Go to Work
@@ -135,7 +135,6 @@ function RatCard(props) {
   }
 
   return (
-    <div>
       <div style={styles.card}>
         <h3 style={styles.cardHeading}>{props.rat.name}</h3>
         <div style={styles.imgContainer}>
@@ -158,7 +157,8 @@ function RatCard(props) {
           <strong>Rattributes: </strong>
           {props.rat.rattributes[0]}, {props.rat.rattributes[1]},{" "}
           {props.rat.rattributes[2]}, {props.rat.rattributes[3]},{" "}
-          {props.rat.rattributes[4]} <br />
+          {props.rat.rattributes[4]} 
+          <br />
           <br />
           Maze-Solving: {props.rat.mazeSolving} | Speed: {props.rat.speed} |
           Trap Avoidance: {props.rat.trapAvoidance} | Magic: {props.rat.magic}{" "}
@@ -177,7 +177,6 @@ function RatCard(props) {
           {recentlyAttendedWork()}
         </div>
       </div>
-    </div>
   );
 }
 
