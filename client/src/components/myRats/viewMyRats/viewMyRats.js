@@ -15,13 +15,18 @@ function ViewMyRats(props) {
   });
   const rats = data?.user.rats || [];
 
+  function displayAdoptRatButton(){
+    if (rats.length === 0) {
+      return <button style={styles.adoptRatButton} className="adopt-btn" data-page="createRat" onClick={props.sideMenuSelection}>+ Adopt a Rat</button>;
+    }
+  }
+
   return (
     <div style={styles.all}>
     <header className="header" style={styles.heading}>
-      <h1 className="title">My Rats</h1>
-      <button style={styles.adoptRatButton} className="adopt-btn" data-page="createRat" onClick={props.sideMenuSelection}>+ Adopt a Rat</button>
+      <h1 className="title" style={styles.title}>My Rats</h1>
     </header>
-
+    {displayAdoptRatButton()}
     <ul style={styles.cardWrapper}>
       {rats.map((rat, index) => (<RatCard key={index} rat={rat}/>))}
       </ul>

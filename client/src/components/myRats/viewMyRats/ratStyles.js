@@ -4,7 +4,7 @@ const styles = {
     display: "grid",
     placeContent: "center",
     justifyItems: "center",
-    minHeight: "100vh",
+    height: "100%",
     margin: "0",
     padding: "1rem",
     lineHeight: "1.5",
@@ -110,11 +110,16 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-around",
-    width: "60%",
   },
 
   adoptRatButton: {
     width: "initial"
+  },
+
+  title: {
+    color: "white",
+    textShadow: "2px 2px 0px black",
+    margin: "0px",
   }
 };
 

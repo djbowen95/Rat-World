@@ -39,7 +39,9 @@ const client = new ApolloClient({
 
 const styles = {
   backgroundImage: `url(${backgroundImage})`,
-  backgroundSize: "cover"
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
 }
 
 // NOTE BEFORE ROUTING: If you want your page to appear in the main container

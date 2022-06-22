@@ -8,7 +8,7 @@ module.exports = function validRegisterInput(data){
     data.name = !isEmpty(data.name) ? data.name: "";
     data.email = !isEmpty(data.email) ? data.email: "";
     data.password = !isEmpty(data.password) ? data.password: "";
-    data.conpass = !isEmpty(data.conpass) ? data.conpass: "";
+    data.compass = !isEmpty(data.compass) ? data.compass: "";
 
     if (Validator.isEmpty(data.name)){
         errors.name = "Name Required";
@@ -28,12 +28,12 @@ module.exports = function validRegisterInput(data){
         errors.password = "password Required";
     }
 
-    if (!Validator.equals(data.password, data.conpass)) {
-        errors.conpass = "Password does not match";
+    if (!Validator.equals(data.password, data.compass)) {
+        errors.compass = "Password does not match";
     }
 
-    if (Validator.isEmpty(data.conpass)){
-        errors.conpass = "confirm password Required";
+    if (Validator.isEmpty(data.compass)){
+        errors.compass = "confirm password Required";
     }
 
     return{

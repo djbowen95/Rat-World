@@ -22,6 +22,8 @@ function MyRats() {
       justifyContent: "space-around",
     },
     aside: {
+      position: "fixed",
+      left: "5px",
       width: "18%",
       padding: "10px",
       backgroundColor: "#e59274",
@@ -29,7 +31,8 @@ function MyRats() {
       boxShadow: "0px 0px 5px black inset",
     },
     mainArea: {
-      width: "75%",
+      marginLeft: "20%",
+      width: "80%",
       backgroundColor: "whitesmoke",
       borderRadius: "20px",
       border: "5px solid #e9b699",

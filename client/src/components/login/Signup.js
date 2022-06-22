@@ -19,7 +19,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    height: "100%"
+    height: "100%",
   },
   input: {
     backgroundColor: "#9effcf",
@@ -28,10 +28,15 @@ const styles = {
     borderRadius: "5px",
   },
   title: {
-    color: 'white',
-    textShadow: '2px 2px 0px black',
+    color: "white",
+    textShadow: "2px 2px 0px black",
     margin: "5px",
-    textDecoration: "underline"
+    textDecoration: "underline",
+  },
+  errorMessage: {
+    textAlign: "center",
+    fontStyle: "oblique",
+    fontWeight: "bold"
   }
 };
 
@@ -60,7 +65,7 @@ const Signup = () => {
         variables: { ...formState },
       });
       Auth.login(data.register.token);
-      window.location.replace("/myrats")
+      window.location.replace("/myrats");
     } catch (e) {
       console.error(e);
     }
@@ -98,10 +103,11 @@ const Signup = () => {
         <button type="submit" style={styles.button}>
           Sign up
         </button>
+        <br/>
+        <div style={styles.errorMessage}>
+          {error ? error.message : ""}
+        </div>
       </form>
-      {error && (
-        <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
-      )}
     </div>
   );
 };

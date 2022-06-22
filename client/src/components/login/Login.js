@@ -33,6 +33,11 @@ const styles = {
     textShadow: '2px 2px 0px black',
     margin: "5px",
     textDecoration: "underline"
+  },
+  errorMessage: {
+    textAlign: "center",
+    fontStyle: "oblique",
+    fontWeight: "bold"
   }
 };
 
@@ -95,10 +100,10 @@ const Login = (props) => {
           onChange={handleChange}
         />
         <button type="submit">Login</button>
+        <div style={styles.errorMessage}>
+          {error ? error.message : ""}
+        </div>
       </form>
-      {error && (
-        <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
-      )}
     </div>
   );
 };
