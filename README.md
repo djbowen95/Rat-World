@@ -9,6 +9,7 @@ Adopt and customise your very own pet rat. Keep your rats happy, fed and watered
 ## Table of Contents
 
 1. [Usage](#usage)
+2. [What it Looks Like](#what-it-looks-like)
 2. [Future Development](#future-development)
 3. [Technology Stack](#technology-stack)
 4. [Contributing](#contributing)
@@ -23,6 +24,12 @@ Once you have logged in you will be presented with the opportunity to adopt your
 After adopting your rat you will be taken back to the View My Rats page and your new rat will be visible with all of it's information. Each rat has it's own Rattributes and ChaRATeristics.
 
 Much of the app is still under construction or in need of some polishing, but you can buy items/food, feed your rat and find it a job. 
+
+## What it Looks Like
+
+![My Rats](screenshots/screencapture-localhost-3000-myrats-2022-06-22-22_16_56.png)
+![Shop](screenshots/screencapture-localhost-3000-myrats-2022-06-22-22_18_26.png)
+![Jobs](screenshots/screencapture-untitled-rat-project-herokuapp-myrats-2022-06-22-22_19_51.png)
 
 ## Future Development
 

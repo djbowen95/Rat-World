@@ -11,17 +11,21 @@ const styles = {
     fontFamily: "Arial, Helvetica, sans-serif",
     color: "#444",
     backgroundColor: "#e4d4f7",
-    borderRadius: "14px"
+    borderRadius: "14px",
+    boxShadow: "0px 0px 5px black inset",
   },
 
   card: {
-    backgroundColor: "#cec9cb",
+    backgroundColor: "rgb(234, 234, 234)",
     borderRadius: "0.5rem",
     boxShadow: "0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45)",
-    paddingBottom: "1rem",
+    padding: "1rem",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    border: "3px groove #e59274",
+    width: "49%",
+    margin: "5px 0px",
   },
 
   cardHeading: {
@@ -35,12 +39,10 @@ const styles = {
     listStyle: "none",
     padding: "0",
     margin: "0",
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(25ch, 1fr))",
-    gridGap: "1.5rem",
-    maxWidth: "100vw",
-    width: "80%",
-    marginTop: "60px",
+    display: "flex",
+    justifyContent: "space-between",
+    width: "96%",
+    flexWrap: "wrap",
   },
 
   // What is this?
@@ -59,6 +61,7 @@ const styles = {
   p: {
     fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
     textAlign: "center",
+    fontSize: "15px"
   },
 
   // Not sure what this is - need to ask Fatumo. Left in for now.
@@ -94,7 +97,24 @@ const styles = {
   },
 
   imgContainer: {
-    width: "80%"
+    width: "80%",
+    backgroundColor: "ivory",
+    borderRadius: "10px",
+    boxShadow: "0px 0px 5px black inset",
+    border: "3px groove #e59274",
+    padding: "0px 10px"
+  },
+
+  heading: {
+    textAlign: "center",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-around",
+    width: "60%",
+  },
+
+  adoptRatButton: {
+    width: "initial"
   }
 };
 
