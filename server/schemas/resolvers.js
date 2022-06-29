@@ -45,6 +45,9 @@ const resolvers = {
     //register a user
     register: async (parent, { name, email, password }) => {
       // First we create the user
+      if (!name) {throw new AuthenticationError("Username is required")}
+      if (!email) {throw new AuthenticationError("Email is required")}
+      if (!password) {throw new AuthenticationError("Password is required")}
       try {
         const user = await User.create({ name, email, password });
         // To reduce friction for the user, we immediately sign a JSON Web Token and log the user in after they are created
@@ -61,9 +64,14 @@ const resolvers = {
       // Look up the user by the provided email address. Since the `email` field is unique, we know that only one person will exist with that email
       const user = await User.findOne({ email });
       // If there is a user found, execute the `isCorrectPassword` instance method and check if the correct password was provided
+      if (!user) {
+        throw new AuthenticationError(
+          "No user found with this email address/password combination"
+        );
+      }
       const correctPw = await user.isCorrectPassword(password);
       // If there is no user with that email address, return an Authentication error stating so
-      if (!user || !correctPw) {
+      if (!correctPw) {
         throw new AuthenticationError(
           "No user found with this email address/password combination"
         );

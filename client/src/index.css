@@ -12,7 +12,6 @@ main {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background-image: url(https://res.cloudinary.com/dk-find-out/image/upload/q_80,w_1440,f_auto/50491001_kupidw.png);
   }
 
 section {
