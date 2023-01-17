@@ -1,21 +1,74 @@
-# Rat Hub
+<h1 align="center"> 🏃 README Style Guide 📝</h1>
+<h2 align="center"> Subheading Here. <i> Version 1.0.0 </i> </h2>
+<p><strong>Quick and READ ME!</strong> is an easy-to-use, command-line interface that helps a user to quickly create a professional README markdown file. Created in <em>Node.js</em> with the <em>Inquirer npm package</em>, it can be run on a local machine from the command line. It will invite a user to answer a series of question prompts about their current project, and generate a simple README file based on their input. The user is then free to copy across to their own project's repository. </p>
 
-## Description
+
 
 One stop shop for your virtual pet rat experience! 
 
 Adopt and customise your very own pet rat. Keep your rats happy, fed and watered. Help your rats find work, friends and lead a fulfilling life.
 
+
 ## Table of Contents
+    
+* [01. About](#about)
+* * [01A. Project History](#project-history)
+* * [01B. Demonstration Video](#demonstration-video)
+* * [01C. Live Deployment](#live-deployment)
+* [02. Key Features](#key-features)
+* * [02A-E Key Feature A - E](#key-feature-a)
+* [03. Installation](#installation)
+* * [03A. Prerequisites](#prerequisities)
+* * [03B. Cloning the Repository](#cloning-the-repository)
+* * [03C. Running the Project Locally](#running-the-project-locally)
+* [04. Usage](#usage)
+* * [04A-E. Key Usage Features](#key-usage-a)
+* [05. Testing](#testing)
+* [06. Version History](#version-history)
+* [07. License](#license)
+* [08. Contribution](#contribution)
+* * [08A. Contribution Guidelines](#contribution-guidelines)
+* * [08B. Future Development](#future-development)
+* [09. Questions](#questions)
 
-1. [Usage](#usage)
-2. [What it Looks Like](#what-it-looks-like)
-2. [Future Development](#future-development)
-3. [Technology Stack](#technology-stack)
-4. [Contributing](#contributing)
-5. [Questions](#questions)
+## About
+### Project History
+Group project - want to emphasise it was my idea
+Feedback - maybe a seperate section; employers calling it inventive. Explain the day event thing.
+### Demonstration Video
+Worthtrying to record this sooner rather than later
+### Live Deployment
+Was deployed on Heroku; hoping to deploy with an EC2 instance (watch that video tonight)
+## Key Features
+### Key Feature A
+### Technology Stack
 
+### Frontend
+----
+- ReactJS
+- Custom CSS
+- jQuery
+----
+### Backend
+----
+- NodeJS
+- Express
+- Apollo
+- GraphQL
+- bcrypt
+- JSON Web Token
+- Mongo DB
+- Mongoose
+## Installation
+For installing locally? Contribution guide below.
+### Prerequisities
+MongoDB Atlas/Compass; node/npm; anything else?
+### Cloning the Repository
+### Running the Project Locally
+npm run start / live editing - no build yet (might be worth briefly explaining that, and double checking)
 ## Usage
+### Key Usage A
+
 
 Upon visting the RatHub website you will be prensenting with a login/signup page. In order to proceed further into application you will need to create an account and log in. 
 
@@ -30,6 +83,31 @@ Much of the app is still under construction or in need of some polishing, but yo
 ![My Rats](screenshots/screencapture-localhost-3000-myrats-2022-06-22-22_16_56.png)
 ![Shop](screenshots/screencapture-localhost-3000-myrats-2022-06-22-22_18_26.png)
 ![Jobs](screenshots/screencapture-untitled-rat-project-herokuapp-myrats-2022-06-22-22_19_51.png)
+## Testing
+No tests - unit tests, React testing library ?
+## Version History
+### Version 1.0.0
+Bootcamp project.
+## License
+Are we in agreement over this? Did we give it a license.
+## Contribution
+### Meet the Contributors
+Links to everyone's GitHub.
+### Contribution Guidelines
+## Contributing
+
+Daniel Bowen
+
+Ben Growcott - [GitHub](https://github.com/BGrowcott)
+
+Ayaanle
+
+Fatumo
+
+Girish
+
+### Future Development
+Ben put lots in here.
 
 ## Future Development
 
@@ -65,44 +143,9 @@ Longer term:
   - More items and grater customisation of your rats
   - Features more complex in general
 
-## Technology Stack
-
-### Frontend
-----
-- ReactJS
-- Custom CSS
-- jQuery
-----
-### Backend
-----
-- NodeJS
-- Express
-- Apollo
-- GraphQL
-- bcrypt
-- JSON Web Token
-- Mongo DB
-- Mongoose
-----
-## Contributing
-
-Daniel Bowen
-
-Ben Growcott - [GitHub](https://github.com/BGrowcott)
-
-Ayaanle
-
-Fatumo
-
-Girish
-
 ## Questions
 
 If you have any questions or suggestions please contact me via my GitHub or Email:
 
-[GitHub](https://github.com/BGrowcott)
-
-[Email](mailto:bg.coding101@gmail.com)
-  
 
 
