@@ -1,6 +1,11 @@
 <h1 align="center"> 🌍🐀 Welcome to Rat World! 🐀🗑️ </h1>
 <h2 align="center"> A virtual pet experience. <i> Version 1.0.0. </i> </h2>
 
+<div id="badges" align="center">
+<img alt="GitHub" src="https://img.shields.io/github/license/djbowen95/Rat-World?style=flat-square">
+<img alt="GitHub issues" src="https://img.shields.io/github/issues/djbowen95/Rat-World?style=flat-square">
+</div>
+
 <strong>Rat World!</strong> is a virtual pet experience: the perfect place to go if you're looking for a brand new pet! Friendly! Clever! Kind of cute (if you can get over the tail): a <strong><em>rat makes the perfect pet</em></strong> - and now you can have all the fun of owning one of your own...<strong><em>without having to put up with that smell.</em></strong>
 
 <strong>Rat World!</strong> is a full-stack application built with the <strong>MERN</strong> stack:
