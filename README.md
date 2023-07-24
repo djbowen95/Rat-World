@@ -1,11 +1,18 @@
 <h1 align="center"> 🌍🐀 Welcome to Rat World! 🐀🗑️ </h1>
 <h2 align="center"> A virtual pet experience. <i> Version 1.0.0. </i> </h2>
 
-<p><strong>Rat World!</strong> is an virtual pet experience: the perfect place to go if you're looking for a brand new pet! At <strong>Rat World!</strong> you an adopt your own rat; design how it looks; even get them a job! Friendly, clever, kind of cute (ignoring the tail...), a rat makes the perfect pet. Now you can have all the fun of owning one of your own <em>without having to put up with the smell!</em> What more could you ask for?</p>
+<strong>Rat World!</strong> is a virtual pet experience: the perfect place to go if you're looking for a brand new pet! Friendly! Clever! Kind of cute (if you can get over the tail): a <strong><em>rat makes the perfect pet</em></strong> - and now you can have all the fun of owning one of your own...<strong><em>without having to put up with that smell.</em></strong>
 
-<p><strong>Rat World!</strong> is a <em>full-stack application</em> built in JavaScript and with a MERN stack. It's front-end is built in <strong><em>React</em></strong>; querying is done in <strong><em>GraphQL</em></strong>; and <strong><em>Express.js</em></strong> and <strong><em>Apollo Server</em></strong> are used to route to a <strong><em>MongoDB</em></strong> database. We built it together as our final project for the University of Birmingham and Trilogy Web Development Coding Bootcamp. We would love you to take a look at what we were able to create.
-    
-`NOTE: Currently rewriting this README on the main branch. Some of it is note form, but will be tidied soon. - Daniel, 17/01.`
+<strong>Rat World!</strong> is a full-stack application built with the <strong>MERN</strong> stack:
+ - <strong>React</strong> in the front end;
+ -  <strong>Node.js</strong> and <strong>Express</strong> back-end;
+ - <strong>MongoDB</strong> database with <strong>Mongoose</strong> ODM;
+ - Querying in <strong>GraphQL</strong>;
+ -  <strong>JSON Web Tokens</strong>, <strong>Session Cookies</strong> and <strong>bcrypt</strong> for authentication and encryption.
+
+We built this <strong>collaboratively</strong> (with <em>[Git for version control](https://github.com/BGrowcott/untitled-rat-project/pulls?q=is%3Apr+is%3Aclosed)</em>) as a team of five: <strong>[Daniel Bowen](https://github.com/djbowen95)</strong>, [Ben Growcott](https://github.com/BGrowcott), [Fatumo Abdullahi](https://github.com/Fatumoabdullahi), [Girish Madnani](https://github.com/gmadnani) and [Ayaanle Nur](https://github.com/anuur7). This was our final project for the <strong>[University of Birmingham and Trilogy Web Development Coding Bootcamp](https://bootcamp.birmingham.ac.uk/coding/landing/?s=Google-Brand&dki=Learn%20coding%20and%20more%20online&pkw=university%20of%20birmingham%20coding%20bootcamp&pcrid=454943464528&pmt=e&utm_source=google&utm_medium=cpc&utm_campaign=GGL%7CUNIVERSITY-OF-BIRMINGHAM%7CSEM%7CCODING%7C-%7COFL%7CTIER-1%7CALL%7CBRD%7CEXACT%7CCore%7CBootcamp&utm_term=university%20of%20birmingham%20coding%20bootcamp&s=google&k=university%20of%20birmingham%20coding%20bootcamp&utm_adgroupid=105037008614&utm_locationphysicalms=9045530&utm_matchtype=e&utm_network=g&utm_device=c&utm_content=454943464528&utm_placement=&gad=1&gclid=Cj0KCQjwwvilBhCFARIsADvYi7Iiaw7mX3Os-6hB3ilO7yuoW5PTNV_VtYzMSm8S68uEnJL-nTD5dvEaAkShEALw_wcB&gclsrc=aw.ds)</strong>. It was built, as <strong><em>an agile sprint</em></strong>, over the final two weeks of the course; designed to showcase everything we had learned. We're really proud of what we managed to built and we would love you to take a look!
+
+`NOTE: Currently working on redeploying the application - as it was deployed under the Heroku free membership tier at the time we built it. - Daniel`
 
 ## Table of Contents
     
